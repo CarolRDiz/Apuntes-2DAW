@@ -13,40 +13,40 @@ Las principales APIs que PHP ofrece para utilizar MySQL son:
 
 PDO proporciona una capa de abstracción de tal forma que los métodos utilizados para acceder a los datos son independientes del sistema gestor de bases de datos utilizado. En la práctica, permite cambiar de SGBD sin cambiar el código PHP.
 
-#### Código para conectarse a la BD con PDO
-`<?php
+#### Código para conectarse a la BD con PDO (ejemplo de clase)
+    `<?php
 
-$servidor="localhost";
+    $servidor="db"; // nombre del contenedor 
 
-$usuario="user";
+    $usuario="user";
 
-$clave= "pestillo";
+    $clave= "pestillo";
 
-$bd="concesionario";
+    $bd="protectora";
 
-try {
+    try {
 
-// mysql es el gestor de Base de datos
+      // mysql es el gestor de Base de datos
 
-$conn = new PDO("mysql:host=$servidor;dbname=$bd", $usuario, $clave);
+      $conn = new PDO("mysql:host=$servidor;dbname=$bd", $usuario, $clave);
 
-// Establece los atributos de los reportes de errores
+      // Establece los atributos de los reportes de errores
 
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-echo "Conexión satisfactoria";
+      echo "Conexión satisfactoria";
 
-}
+    }
 
-catch(PDOException $e)
+    catch(PDOException $e)
 
-{
+    {
 
-echo ( "Error de conexión: " . $e->getMessage());
+      echo ( "Error de conexión: " . $e->getMessage());
 
-}
+    }
 
-?>`
+    ?>`
 
 Este es un código para copiar y pegar. Reutilizable.
 En este código modificamos los valores de:
@@ -88,4 +88,103 @@ Una imagen es una representación estática de la aplicación o el servicio y de
 
 Las imágenes pueden crearse (Dockerfile) o descargarse (registro).
 
-. . .
+#### Crear una imagen. Dockerfile.
+
+Dockerfile es un archivo que contiene una serie de instrucciones que indican cómo crear una imagen.
+
+Ejemplo:
+
+    FROM ubuntu:18.04
+    COPY . /app
+    RUN make /app
+    CMD python /app/app.py
+    . . .
+    
+**Comando para crear la imagen a partir del Dockerfile:**
+
+    docker build
+    
+#### Descargar una imagen. Registro de imágenes
+
+Los desarrolladores deben almacenar las imágenes en un registro, que actúa como una biblioteca de imágenes. Docker mantiene un registro público a través de [Docker Hub](https://hub.docker.com/); otros proveedores ofrecen registros para distintas colecciones de imágenes, incluido Azure Container Registry. Como alternativa, las empresas pueden tener un registro privado local para sus propias imágenes de Docker.
+
+**Comando:**
+
+      docker pull <nombre_imagen>
+
+#### Iniciar un contenedor
+
+     docker run <nombre_imagen>
+
+## DOCKER COMPOSE
+Compose es una herramienta para definir y ejecutar aplicaciones Docker de varios contenedores. Con Compose, se utiliza un archivo YAML (.yml) para configurar los servicios de su aplicación. Luego, con un solo comando, crea e inicia todos los servicios desde su configuración (**compose up**).
+
+Ejemplo de un archivo docker-compose.yml:
+    
+    Version: "3.7"
+
+    services:
+
+        server:
+
+            image: fjortegan/nginx-fpm
+
+            ports:
+
+            - "80:80"
+
+            volumes:
+
+            - ./codigophp:/usr/share/nginx/html
+
+            links:
+
+            - fpm
+
+        fpm:
+
+            image: fjortegan/php-xdebug
+
+            volumes:
+
+            - ./codigophp:/var/www/html
+
+            \# Sólo en máquinas Linux, comentar estas dos líneas en otros sistemas de lusers
+
+            extra_hosts:
+
+            - "host.docker.internal:host-gateway"
+
+        db:
+
+          image: mariadb \#MariaDB es un sistema de gestión de bases de datos derivado de MySQL
+
+          volumes:
+
+          - ./db-data:/var/lib/mysql/
+
+          environment:
+
+          MYSQL_ROOT_PASSWORD: pestillo
+
+
+        phpmyadmin:
+
+          image: phpmyadmin
+
+          ports:
+
+          - "8080:80"
+
+          environment:
+
+          - PMA_ARBITRARY=1
+
+    
+Cada uno de los `servicices` es un contenedor:
+- `server`
+- `fpm`
+- `db`
+- `phpmyadmin`
+
+Y cada contenedor tiene un `image`, que es una **imagen de contenedor**.
