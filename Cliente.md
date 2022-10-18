@@ -12,24 +12,28 @@ Piensa en recursión como una carrera en un circuito. Es como correr la misma pi
 
 Lo mismo con la recursión: La función sigue llamándose a sí misma, cada vez con una entrada menor hasta que eventualmente se detiene.
 
-Pero, la función no decide por sí misma cuando parar. Nosotros le decimos cuando. Nosotros le damos a la función una condición conocida como **caso base**.
+Pero, la función no decide por sí misma cuando parar. Nosotros le decimos cuando. Nosotros le damos a la función una condición conocida como `caso base`.
 
 ### Ejemplos de recursión
 
     function factorial(n){
-      var res = 1;
+      var resultado = 1;
       for(var i=n; i>=1; i--){
-        res = res * i;
+        resultado = resultado * i;
       }
-      return res;
+      return resultado;
     }
 
 Esta función devuelve el factorial de n haciendo uso de un bucle for. Sin embargo hay otra forma de hacerlo sin necesidad de usar ninguna estructura de bucle que es mediante recursividad. Esta versión de la función hace exactamente lo mismo, pero es más corta, más simple y más elegante:
 
     function factorial(n) {
-        if (n<=1) return 1;
+        if (n<=1) return 1; // Esta condición es el caso base, cuando se cumpla se terminará la función.
         return n* factorial(n-1);
     }
+    
+Es decir, cuando llamamos a la primera función, ésta se llama a sí misma pero pasándole un número menos y así sucesivamente hasta llegar a la última (la que recibe un 1 y por lo tanto deja de hacer más llamadas). En el momento en el que alguna de ellas **empieza a devolver valores "hacia atrás"**, regresa la llamada a cada una de ellas, los valores devueltos se van multiplicando por el parámetro original en cada una de ellas, hasta llegar arriba del todo en el que la primera llamada devuelve el valor buscado.
+
+
 
 ## Expresiones Regulares    RegExp
 
