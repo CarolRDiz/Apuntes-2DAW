@@ -1,3 +1,36 @@
+# JAVASCRIPT
+
+`Math.floor(Math.random() * (max - min + 1)) + min`
+
+Devuelve un número entre max y min, incluyéndolos
+
+## Recursión
+
+Recursión es cuando una función sigue llamándose a sí misma, hasta que ya no tiene que hacerlo.
+
+Piensa en recursión como una carrera en un circuito. Es como correr la misma pista una y otra vez, pero las vueltas se hacen más pequeñas cada vez. Eventualmente, correrás la vuelta más pequeña y se terminará la carrera.
+
+Lo mismo con la recursión: La función sigue llamándose a sí misma, cada vez con una entrada menor hasta que eventualmente se detiene.
+
+Pero, la función no decide por sí misma cuando parar. Nosotros le decimos cuando. Nosotros le damos a la función una condición conocida como **caso base**.
+
+### Ejemplos de recursión
+
+    function factorial(n){
+      var res = 1;
+      for(var i=n; i>=1; i--){
+        res = res * i;
+      }
+      return res;
+    }
+
+Esta función devuelve el factorial de n haciendo uso de un bucle for. Sin embargo hay otra forma de hacerlo sin necesidad de usar ninguna estructura de bucle que es mediante recursividad. Esta versión de la función hace exactamente lo mismo, pero es más corta, más simple y más elegante:
+
+    function factorial(n) {
+        if (n<=1) return 1;
+        return n* factorial(n-1);
+    }
+
 ## Expresiones Regulares    RegExp
 
 ### Web
