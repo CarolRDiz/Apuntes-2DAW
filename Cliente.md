@@ -47,6 +47,8 @@ El método `console.assert()` escribe un mensaje de errorsi la  assertion es `fa
 
 `\s`    Espacio en blanco
 
+`.`     Cualquier caracter
+
 ### Cuantificadores
 
 `x{n}` Donde "n" es un número entero positivo, concuerda exactamente con "n" apariciones del elemento "x" anterior.
@@ -75,4 +77,16 @@ El método `console.assert()` escribe un mensaje de errorsi la  assertion es `fa
     
     [a-zA-Z]$   Termina con una letra minúscula o mayúscula
 
+const comprobarRegExp = () => {
 
+    /*
+
+    Comprobación de un email
+
+    */
+
+    \/\/1ºDeclaramos la expReg
+
+    const expReg = RegExp("")
+
+    
