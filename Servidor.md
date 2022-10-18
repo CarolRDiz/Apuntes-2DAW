@@ -76,7 +76,7 @@ Es un método de virtualización de nivel de sistema operativo para implementar 
 
 Los contenedores de aplicaciones contienen los componentes, como archivos, variables de entorno y bibliotecas, necesarios para ejecutar el software deseado.  Se pueden crear contenedores de aplicaciones que ponen menos presión a los recursos globales disponibles.
 
-![Esquema docker]()
+![Esquema docker](/imagenes/esquema_docker.png)
 
 ### Imagen de un contenedor
 **Docker inicia un contenedor a partir de una imagen.**
