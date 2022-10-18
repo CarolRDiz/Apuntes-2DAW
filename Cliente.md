@@ -32,13 +32,19 @@ El método `console.assert()` escribe un mensaje de errorsi la  assertion es `fa
 ### Aserciones
 
 `^` Coincide con el comienzo de la entrada.
+
 `$` Coincide con el final de la entrada.
 
 ### Clases de caracteres
 
-`\w  `
-`\W  `
-`\d`    Números,  [0-9]
+`\w  `  Equivale a [A-Za-z0-9_] Busca cualquier caracter alfanumérico del alfabeto latino básico,
+
+`\W  `  Equivale a [^A-Za-z0-9_]    Busca cualquier caracter que no sea un caracter de palabra del alfabeto latino básico. Coincide con %,&, $ ...
+
+`\d`    Equivale a [0-9] 
+
+`\d`    Equivale a [^0-9]   Busca cualquier caracter que no sea un dígito
+
 `\s`    Espacio en blanco
 
 ### Cuantificadores
