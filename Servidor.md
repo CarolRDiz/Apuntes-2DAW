@@ -2,6 +2,9 @@
 
 ## GET
 
+Enlaces:
+![DIferencia de GET y POST](https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/get-vs-post/)
+
 Ejemplos:
 
 1º Ejemplo.
