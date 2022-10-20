@@ -1,11 +1,35 @@
+JSON
+
+json_decode()
+
+# API
+Advanced Programming Interface, Interfaz de programación de aplicaciones.
+
+    Conjunto de definiciones y protocolos que se utiliza para desarrollar e integrar el software de las aplicaciones, 
+    permitiendo la comunicación entre dos aplicaciones de software a través de un conjunto de reglas.
+
+
+## Librería curl
+
+curl_init()
+curl_setopt()
+curl_exec()
+
 # PHP
+
+## DEBUG
+
 
 ## GET
 
-Enlaces:
-![DIferencia de GET y POST](https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/get-vs-post/)
+### Enlaces:
+![GET y la diferencia de GET y POST](https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/get-vs-post/)
 
-Ejemplos:
+### $_GET
+
+Un array asociativo de variables pasado al script actual vía parámetros URL (también conocida como cadena de consulta). 
+
+#### Ejemplos:
 
 1º Ejemplo.
 
@@ -22,6 +46,8 @@ Si accedemos a ese enlace, en la página modificarusuario.php, la variable $_GET
 Para acceder a esta id guardada, usamos:
 
     $_GET["id"];
+    
+    
     
 ## Acceso a base de datos
 
