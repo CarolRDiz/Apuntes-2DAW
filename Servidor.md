@@ -115,6 +115,23 @@ if(!$usuario) {
 
 El código html contiene el formulario.
 
+Algo importante a tener en cuenta sobre este formulario, es que este se mostrará solo si el usuario ha iniciado sesión. Eso se debe a este código php que aparece antes del formulario:
+
+```php
+if(!isset($_GET["id"])) {
+    print("Sin id no hay nada que hacer");
+    exit(0);
+}
+```
+    if(!isset($_GET["id"]))
+Significa que esta condición se cumple si la variable el valor de la clave `"id"` está vacío en el array asociativo de  `$_GET`. NO hay id.
+
+    exit(0)
+exit(0) finaliza el programa
+
+`Así que si no hay id el programa finaliza.`
+
+
 El método de petición HTTP utilizado es POST:
 
 \<form action="" `method="post"` enctype="multipart/form-data">
@@ -130,14 +147,140 @@ La dirección URL a la que se envían los datos es al propio https://modificarus
 3. Qué contendrá $_POST
 
 $_POST = [
-    "id" => <valor_obtenido_de_$_GET>,
-    "nombre" => <valor_introducido_por_el_usuario>,
-    "edad" => <valor_introducido_por_el_usuario>
+    "id" => <valor_introducido>,
+    "nombre" => <valor_introducido>,
+    "edad" => <valor_introducido>
 ];
 
 Las claves de este array asociativo (`"id"`, `"nombre"` y `"edad"`) corresponden al valor de cada `name` de los `input` del formulario:
 
-<input type="text" `name="id"` hidden value="<?php echo $_GET["id"]; ?>">
+<input type="text" `name="id"` ...>
+<input type="text" `name="nombre"` ...>
+<input type="text" `name="edad"`...>
+
+En el formulario, existe un valor predeterminado para cada input:
+
+<input type="text" name="id" `hidden value="<?php echo $_GET["id"]; ?>"`>
+<input type="text" name="nombre" id="nombre" `value="<?php echo $usuario["nombre"]; ?>"`>
+<input type="text" name="edad" id="edad" `value="<?php echo $usuario["edad"]; ?>"`>
+
+`<?php echo ___ ?>` Sirve para insertar lo que queremos en el código html desde php.
+
+**Input id**
+`hidden value` implica que el id no pueda ser cambiado, porque este campo no será visible para el usuario, de este modo no podrá cambiar su valor predeterminado.
+
+`$_GET["id"]` Este formulario solo se muestra si el usuario ha iniciado sesión, por lo tanto, al haber iniciado sesión,
+el array asociativo de $_GET contiene el valor de la ID. Teniendo en cuenta que el método GET envía los datos a través de la URL, la URL de esta página en la que se encuentra el usuario será `https://modificarusuario?id=<valor>`. El valor de la id está en la URL, y para obtenerlo usamos `$_GET["id"]`. La clave se pone entre corchetes `["id"]`, precedida del array asociativo en el que se encuentra, `$_GET`.
+
+**Input nombre (lo mismo para el input edad)**
+
+`$usuario["nombre"]` Ya tenemos guardado el nombre del usuario que queremos modificar en la variable `$usuario`. Esto se debe al código php anterior: 
+
+```php
+$sql = "SELECT * FROM usuario WHERE id=:id";
+$datos = array("id" => $_GET['id']);
+$stmt = $conn->prepare($sql);
+$stmt->execute($datos);
+$usuario = $stmt->fetch();
+if(!$usuario) {
+    print("Lo siento, pero no hay usuario con ese id");
+    exit(0);
+}
+?>
+```
+    
+    $sql = "SELECT * FROM usuario WHERE id=:id";
+Guarda en la variable $sql el string que será la consulta SQL que se realizará posteriormente.
+Esta consulta devolverá todos los datos (SELECT *) del usuario que tenga en la columna `id` el mismo valor que `:id`.
+
+    `:id`
+Aún no es ningún valor, es como un hueco que será rellenado posteriormente con un dato.
+
+    $datos = array("id" => $_GET['id']);
+    
+Creamos un array que guardará el valor de la id del usuario con la clave `"id"`(tanto esta clave como `:id` podrían tener cualquier otro nombre). 
+
+    $stmt = $conn->prepare($sql);
+    
+En `$stmt` (de "statement") preparamos la consulta con `prepare` para su ejecución. `$stmt` contiene ahora lo que se llama "un objeto sentencia". La consulta todavía no tiene el dato necesario.
+
+    $stmt->execute($datos);
+
+Finalmente, ejecutamos la consulta con el valor de id que nos da `$datos`.
+    
+`$stmt` ahora guarda los resultados de la consulta SQL realizada.
+
+    `$usuario = $stmt->fetch();`
+
+`fetch()`  Obtiene fila a fila los resultados de la consulta, por cada fila crea un array indexado tanto por nombre de columna, como numéricamente con índice de base 0 tal como fue obtenido en la consulta SQL anterior. 
+
+El array de una fila:
+    Array
+    (
+        [id] => 1,
+        [0] => 1,
+        [nombre] => María,
+        [1] => María,
+        [edad] => 0,
+        [2] => 0,
+        [foto] => '',
+        [3] => ''
+    )
+
+$usuario contiene cada los arrays de estas filas devueltas en la consulta. Como buscamos los datos de un usuario por su id, y como esta debería ser única, solo se devolverá la fila de un usuario. Solo habrá un array.
+
+    if(!$usuario) {
+        print("Lo siento, pero no hay usuario con ese id");
+        exit(0);
+    }
+
+Si `$usuario` está vacío (`!$usuario`), será porque la consulta no ha obtenido ninguna fila de la tabla de usuarios, por lo que el usuario no existe. Si no existe, la sesión debe cerrarse pues es la sesión de un usuario inexistente. `exit(0)` cerrará el programa.
+
+
+De este modo, estos dos campos poseen los valores actuales del usuario, si este solo modificase uno de ellos, el otro se mantendría igual gracias al valor predeterminado.
+
+4. Actualización de los datos del usuario.
+
+En cuanto el formulario es enviado, los datos se guardan en $_POST y se refresca la página.
+Al inicio del archivo, nos encontramos con el código que modifica los datos del usuario en la base de datos:
+
+```php
+if(isset($_POST['nombre'])) {
+    // recupera los datos del formulario
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $edad = $_POST["edad"];
+    $foto = $_FILES["foto"]["name"];
+
+    // asocia valores a esos nombres
+    $datos = array("id" => $id,
+                   "nombre" => $nombre,
+                   "edad" => $edad,
+                   "foto" => $foto
+                  );
+
+    // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
+    $sql = "UPDATE usuario set nombre=:nombre, edad=:edad WHERE id=:id";
+
+    // comprueba que la sentencia SQL preparada está bien 
+    $stmt = $conn->prepare($sql);
+    // ejecuta la sentencia usando los valores
+    if($stmt->execute($datos) != 1) {
+        print("No se pudo actualizar usuario");
+        exit(0);
+    }
+    
+    header("Location: index.php");
+    exit(0);
+}
+```
+Solo se ejecuta si `isset($_POST['nombre'])`, es decir, si la variable $_POST no está vacía, variable que solo contendrá algo si se envía el formulario para la modificación.
+
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $edad = $_POST["edad"];
+    
+Guardamos los datos del formulario en estas nuevas variables.
 
 
 ## DEBUG
