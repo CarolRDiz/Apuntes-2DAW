@@ -31,6 +31,8 @@ Esta función devuelve el factorial de n haciendo uso de un bucle for. Sin embar
         return n* factorial(n-1);
     }
     
+![recursion_factorial](imagenes/recursividad_fun_factorial.png)
+    
 Es decir, cuando llamamos a la primera función, ésta se llama a sí misma pero pasándole un número menos y así sucesivamente hasta llegar a la última (la que recibe un 1 y por lo tanto deja de hacer más llamadas). En el momento en el que alguna de ellas **empieza a devolver valores "hacia atrás"**, regresa la llamada a cada una de ellas, los valores devueltos se van multiplicando por el parámetro original en cada una de ellas, hasta llegar arriba del todo en el que la primera llamada devuelve el valor buscado.
 
 
