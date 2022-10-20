@@ -1,4 +1,25 @@
 # PHP
+
+## GET
+
+Ejemplos:
+
+1º Ejemplo.
+
+En index.php:
+
+    $user["id"] = 3;
+    <a href='modificausuario.php?id=".$user["id"]."'><i class='fa-solid fa-pen-to-square'></i></a>");
+
+Si accedemos a ese enlace, en la página modificarusuario.php, la variable $_GET contendrá:
+
+    $_GET = [
+        id => 3
+    ]
+Para acceder a esta id guardada, usamos:
+
+    $_GET["id"];
+    
 ## Acceso a base de datos
 
 Desde una página con código escrito en PHP nos podemos conectar a una base de datos y
