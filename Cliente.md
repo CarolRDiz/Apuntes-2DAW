@@ -16,34 +16,106 @@ Pero, la función no decide por sí misma cuando parar. Nosotros le decimos cuan
 
 ### Ejemplos de recursión
 
-    function factorial(n){
-      var resultado = 1;
-      for(var i=n; i>=1; i--){
-        resultado = resultado * i;
-      }
-      return resultado;
-    }
+1. Cuenta regresiva desde un número dado hasta el número más pequeño, restando 1 cada vez que pasa por el bucle.
 
-Esta función devuelve el factorial de n haciendo uso de un bucle for. Sin embargo hay otra forma de hacerlo sin necesidad de usar ninguna estructura de bucle que es mediante recursividad. Esta versión de la función hace exactamente lo mismo, pero es más corta, más simple y más elegante:
+Dado el número 5, la salida será:
+
+    // 5
+    // 4
+    // 3
+    // 2
+    // 1
+    
+Esta función con recursión será:
+
+    function cuentaAtras (numero) {
+        if (numero === 0) {
+            return; // si es 0 no devuelve ningún valor
+        }
+        console.log(numero);
+        return cuentaAtras(numero - 1);
+    };
+
+Esto es lo que sucede:
+
+    1// La entrada actual es 5
+    2// Es 5 igual a 0 ?
+    3// No, entonces imprime 5 en la consola.
+    4// Se llama asi misma de nuevo con el numero - 1 O 5 - 1;
+    5// La entrada principal es 4
+    6// Es 4 igual a 0 ?
+    7// No, entonces imprime 4 en la consola.
+    8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando lleg al caso base (numero === 0).
+
+2. Cuenta regresiva desde un número dado hasta el número más pequeño, restando 1 cada vez que pasa por el bucle, pero devolviendo un array.
+
+
+Dado el número 5, la salida será:
+
+    // [1, 2, 3, 4, 5]
+
+Esta función con recursión será:
+
+    function countup(n) {
+      if (n < 1) {
+        return [];
+      } else {
+        const countArray = countup(n - 1);
+        countArray.push(n);
+        return countArray;
+      }
+    }
+    console.log(countup(5));
+
+
+Esto es lo que sucede:
+
+    1// La entrada actual es 5
+    2// Es 5 menor que 1 ?
+    3// No, entonces: c
+        const countArray = countup(5-1)
+        count.Array.push(5)
+        
+    4// Se llama asi misma de nuevo con el numero - 1 O 5 - 1;
+    5// La entrada principal es 4
+    6// Es 4 igual a 0 ?
+    7// No, entonces imprime 4 en la consola.
+    8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando lleg al caso base (numero === 0).
+
+
+3. Función factorial.
+
+Dado el número 5, la salida será:
+    
+    // 120
+    
+Esta función con recursión será:
 
     function factorial(n) {
-        if (n<=1) return 1; // Esta condición es el caso base, cuando se cumpla se terminará la función.
+        if (n<=1) return 1; 
         return n* factorial(n-1);
     }
 
-Sigamos la ejecución de esta función:
 
-    return 5 * n-1
-    return 4 * n-1
-    return 3 * n-1
-    
+Esto es lo que sucede:
 
+    1// La entrada actual es 5
+    2// Es 5 menor o igual a 1 ?
+    3// No, Ok entonces devuelve 5 * factorial(5-1);
+    4// Se llama asi misma de nuevo con el numero - 1 ó 5 - 1;
+    5// La entrada principal es 4
+    6// Es 4 menor o igual a 1 ?
+    7// No, Ok entonces devuelve 4 * factorial(4-1);
+    8// Se llama asi misma de nuevo con el numero - 1 ó 4 - 1;
+    5// La entrada principal es 3
+    6// Es 3 menor o igual a 1 ?
+    7// No, Ok entonces devuelve 3 * factorial(3-1);
+    // Ya tenemos 5 * 4 * 3 * ..
+    8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando llega al caso base (numero === 0).
+    // Devuelve 5 * 4 * 3 * 2 * 1
 
 ![recursion_factorial](imagenes/recursividad_fun_factorial.png)
 
-
-    
-Es decir, cuando llamamos a la primera función, ésta se llama a sí misma pero pasándole un número menos y así sucesivamente hasta llegar a la última (la que recibe un 1 y por lo tanto deja de hacer más llamadas). En el momento en el que alguna de ellas **empieza a devolver valores "hacia atrás"**, regresa la llamada a cada una de ellas, los valores devueltos se van multiplicando por el parámetro original en cada una de ellas, hasta llegar arriba del todo en el que la primera llamada devuelve el valor buscado.
 
 
 
