@@ -141,7 +141,7 @@ Esto es lo que sucede:
     7// No, entonces imprime 4 en la consola.
     8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando lleg al caso base (numero === 0).
 
-
+```
 function countup(5) {
       if (5 < 1) {
         return [];
@@ -172,7 +172,7 @@ function countup(5) {
                                                                             const countArray = countup(1 - 1);
                                                                             function countup(0) {
                                                                                   if (0 < 1) {
-                                                                     #1                return [];
+                                                                            #1         return [];
                                                                                   } 
                                                                                   else {
                                                                                     const countArray = countup(0 - 1);
@@ -202,7 +202,7 @@ function countup(5) {
       }
 }
 
-
+```
 
 
 
