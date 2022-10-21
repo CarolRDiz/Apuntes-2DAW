@@ -155,18 +155,50 @@ function countup(5) {
                                     function countup(3) {
                                           if (3 < 1) {
                                             return [];
-                                          } else {
+                                          } 
+                                          else {
                                             const countArray = countup(3 - 1);
+                                                    function countup(2) {
+                                                          if (2 < 1) {
+                                                            return [];
+                                                          } 
+                                                          else {
+                                                            const countArray = countup(2 - 1);
+                                                                    function countup(1) {
+                                                                          if (1 < 1) {
+                                                                            return [];
+                                                                          } 
+                                                                          else {
+                                                                            const countArray = countup(1 - 1);
+                                                                            function countup(0) {
+                                                                                  if (0 < 1) {
+                                                                     #1                return [];
+                                                                                  } 
+                                                                                  else {
+                                                                                    const countArray = countup(0 - 1);
 
-                                    countArray.push(3);
-                                    return countArray;
+                                                                                    countArray.push(0);
+                                                                                    return countArray;
+                                                                                  }
+                                                                             }
+                                                                    #2      countArray.push(1);
+                                                                    #3      return countArray;
+                                                                          }
+                                                                     }
+                                                      4#     countArray.push(2);
+                                                      5#     return countArray;
+                                                          }
+                                                     }
+                                      5#    countArray.push(3);
+                                      6#    return countArray;
+                                          }
                                      }
-                            countArray.push(4);
-                            return countArray;
+                        7#   countArray.push(4);
+                        8#   return countArray;
                       }
                 }
-        countArray.push(5);
-        return countArray;
+   9#   countArray.push(5);
+   10#  return countArray;
       }
 }
 
