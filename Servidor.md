@@ -282,6 +282,91 @@ Solo se ejecuta si `isset($_POST['nombre'])`, es decir, si la variable $_POST no
     
 Guardamos los datos del formulario en estas nuevas variables.
 
+    // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
+    $sql = "UPDATE usuario set nombre=:nombre, edad=:edad WHERE id=:id";
+    // comprueba que la sentencia SQL preparada está bien 
+    $stmt = $conn->prepare($sql);
+    // ejecuta la sentencia usando los valores
+    
+Modifica en la tabla de datos los valores del usuario por los introducidos en el formulario.
+
+     if($stmt->execute($datos) != 1) {
+            print("No se pudo actualizar usuario");
+            exit(0);
+        }
+Finalmente, en el caso de que no haya podido ejecutarse el UPDATE (`$stmt->execute($datos) != 1`), se mostrará un mensaje para el usuario y se cerrará el programa (`exit(0)`).
+
+5. ¿Qué sucede con las fotos?
+
+En la explicación anterior no se ha tenido en cuenta las fotos en el formulario ni en la modificación.
+
+El input de foto en el formualrio es:
+
+    <input type="file" name="foto" id="foto">
+No es de `type="text"` como en los casos anteriores, sino de `type="file"`.
+
+    <img width="50" src="fotos/<?php echo $usuario["foto"];?>">
+    
+Muestra la foto actual del usuario, que ha sido guardada en la variable $usuario junto a los demás datos actuales del usuario con el siguiente código visto anteriormente:
+
+    // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
+    $sql = "SELECT * FROM usuario WHERE id=:id";
+    // asocia valores a esos nombres
+    $datos = array("id" => $_GET['id']);
+    // comprueba que la sentencia SQL preparada está bien 
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($datos);
+    $usuario = $stmt->fetch();
+
+ Cuando el usuario introduce una nueva foto, esta es procesada junto al resto de la información del formulario para modificar la base de datos:
+ 
+```php
+ if(isset($_POST['nombre'])) {
+    // recupera los datos del formulario
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $edad = $_POST["edad"];
+    $foto = $_FILES["foto"]["name"];
+
+// asocia valores a esos nombres
+$datos = array("id" => $id,
+               "nombre" => $nombre,
+               "edad" => $edad,
+               "foto" => $foto
+              );
+
+// Comprueba que se ha subido una foto
+if($foto != "") {
+    // copia el archivo temporal en fotos con su nombre original
+    file_put_contents("fotos/$foto", file_get_contents($_FILES["foto"]["tmp_name"]));
+
+    // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
+    $sql = "UPDATE usuario set nombre=:nombre, edad=:edad, foto=:foto WHERE id=:id";
+} else {
+    // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
+    $sql = "UPDATE usuario set nombre=:nombre, edad=:edad WHERE id=:id";
+    unset($datos["foto"]);
+}
+
+// comprueba que la sentencia SQL preparada está bien 
+$stmt = $conn->prepare($sql);
+// ejecuta la sentencia usando los valores
+if($stmt->execute($datos) != 1) {
+    print("No se pudo actualizar usuario");
+    exit(0);
+}
+```
+
+    $foto = $_FILES["foto"]["name"];
+La foto introducida por el usuario no se encuentra en la variable $_POST como el resto de la información, sino en $_FILES, debido al `type`.
+
+`$_FILES`, como `$_POST`, es un array asociativo de elementos subidos al script en curso a través del método POST. 
+
+    // Comprueba que se ha subido una foto
+    if($foto != "") {
+        // copia el archivo temporal en fotos con su nombre original
+        file_put_contents("fotos/$foto", file_get_contents($_FILES["foto"]["tmp_name"]));
+Se comprueba si se ha subido una foto, en el caso de que no,
 
 ## DEBUG
 
