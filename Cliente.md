@@ -1,5 +1,18 @@
 # JAVASCRIPT
 
+Instalar Node.js
+
+    Node.js es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor
+    
+    basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada 
+    
+    a eventos y basado en el motor V8 de Google.
+
+Extensión Live Server de Ritwick Dey para actualizar la página html automáticamente.
+    Una vez instalada, podemos pulsar el botón de abajo a la derecha que pone "Go live" para correr un Live server
+
+Extensión JavaScript (ES6) code snippets de charalampos karypidis
+
 `Math.floor(Math.random() * (max - min + 1)) + min`
 
 Devuelve un número entre max y min, incluyéndolos
@@ -81,6 +94,38 @@ Esto es lo que sucede:
     6// Es 4 igual a 0 ?
     7// No, entonces imprime 4 en la consola.
     8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando lleg al caso base (numero === 0).
+
+
+function countup(5) {
+      if (5 < 1) {
+        return [];
+      } else {
+        const countArray = countup(5 - 1);
+                function countup(4) {
+                      if (4 < 1) {
+                            return [];}
+                      else {
+                            const countArray = countup(4 - 1);
+                                    function countup(3) {
+                                          if (3 < 1) {
+                                            return [];
+                                          } else {
+                                            const countArray = countup(3 - 1);
+
+                                    countArray.push(3);
+                                    return countArray;
+                                     }
+                            countArray.push(4);
+                            return countArray;
+                      }
+                }
+        countArray.push(5);
+        return countArray;
+      }
+}
+
+
+
 
 
 3. Función factorial.
