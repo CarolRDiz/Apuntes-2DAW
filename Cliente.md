@@ -7,6 +7,52 @@ Instalar Node.js
     basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada 
     
     a eventos y basado en el motor V8 de Google.
+    
+NPM
+
+En la terminal de un proyecto:
+
+`npm init`
+
+`npm install eslint --save dev`
+    
+Configuración:
+
+No estamos usando framework
+TYpescript no
+YOur code run: browser
+Style for your proyect: guide
+style guide: 
+INstall now: yes
+...
+    
+Opción Standard:
+
+    npm install standard -D
+    
+    En package.json:
+    
+    "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+
+Personalizar reglas:
+
+    parserOptions: {
+        eslint: 'recommended',
+    }
+    rules:{
+        quotes: ['error', 'double'],
+    }
+    
+    package.json:
+        crear nuevo script
+        "scripts": {
+            "test": "echo \"Error: no test spectified\" && exit 1",
+            "link": "npx eslint . --ext .js"
+            "link-fix": "npx eslint . --ext .js --fix"
+
+Instalar Extensión Eslint
 
 Extensión Live Server de Ritwick Dey para actualizar la página html automáticamente.
     Una vez instalada, podemos pulsar el botón de abajo a la derecha que pone "Go live" para correr un Live server
