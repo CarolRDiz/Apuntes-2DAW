@@ -73,7 +73,7 @@ Facilita una representación estructurada del documento y define de qué manera 
 
 `Una página web es un documento`. Éste documento puede exhibirse en la ventana de un navegador o también como código fuente HTML. Pero, en los dos casos, es el `mismo documento`. El `modelo de objeto de documento (DOM)` proporciona otras `formas de presentar, guardar y manipular` este mismo documento. El DOM es una `representación completamente orientada al objeto de la página web` y puede ser `modificado con un lenguaje de script` como JavaScript.
 
-![Esquema_DOM](imagenes/esquema_DOM.png)
+![Esquema_DOM](imagenes/dom_esquema.png)
 
 
 ## Recursión
