@@ -8,7 +8,7 @@ Ejecutar el código dentro de la función window.load soluciona este problema:
 
 ### Métodos
 
-**Comillas invertidas**
+**Comillas invertidas ``**
 
       Ejemplo: const userInfo = `User info: ${name} ${surname} ${telephone}`;
 
