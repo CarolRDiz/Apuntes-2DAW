@@ -63,6 +63,12 @@ Extensión JavaScript (ES6) code snippets de charalampos karypidis
 
 Devuelve un número entre max y min, incluyéndolos
 
+## DOM
+
+Document object mode
+
+
+
 ## Recursión
 
 Recursión es cuando una función sigue llamándose a sí misma, hasta que ya no tiene que hacerlo.
@@ -268,10 +274,18 @@ El método `test()` ejecuta la búsqueda de una ocurrencia entre una expresión 
 Devuelve `true` o `false`.
 
     regexObj.test(cadena)
-    
+
+El método find
+
+    arr.find(elem => {return elem.length <= 3})
+
+El método filter
+
+    arr.filter (elem => elem.length <= 3)
+
 ### Mensaje de error
 
-El método `console.assert()` escribe un mensaje de errorsi la  assertion es `false`. Si la aserción es `true`, nada ocurre. 
+El método `console.assert()` escribe un mensaje de error si la  assertion es `false`. Si la aserción es `true`, nada ocurre. 
 
 ### Aserciones
 
@@ -291,6 +305,8 @@ El método `console.assert()` escribe un mensaje de errorsi la  assertion es `fa
 
 `\s`    Espacio en blanco
 
+`\n`    Salto de línea
+
 `.`     Cualquier caracter
 
 ### Cuantificadores
@@ -307,7 +323,7 @@ El método `console.assert()` escribe un mensaje de errorsi la  assertion es `fa
 
 ### Ejemplos
 
-`/^(\d{3}\s){2}\d{3}$`  Coincide con  123-456-789
+`^(\d{3}\s){2}\d{3}$`  Coincide con  123-456-789
 
 `^(\d{3}(\s|-|\/)){2}\d{3}$`  Coincide con  123-456-789 , 123/456/789 ó 123 456 789
 
