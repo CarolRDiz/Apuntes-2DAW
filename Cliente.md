@@ -8,7 +8,7 @@ Ejecutar el código dentro de la función window.load soluciona este problema:
 
 ### Métodos
 
-**Comillas invertidas ``**
+**Comillas invertidas \`\`**
 
       Ejemplo: const userInfo = `User info: ${name} ${surname} ${telephone}`;
 
@@ -130,6 +130,11 @@ Lo mismo con la recursión: La función sigue llamándose a sí misma, cada vez 
 
 Pero, la función no decide por sí misma cuando parar. Nosotros le decimos cuando. Nosotros le damos a la función una condición conocida como `caso base`.
 
+
+      Se llama recursividad a un proceso mediante el que una función se llama a sí misma de forma repetida, hasta que se
+      satisface alguna determinada condición. El proceso se utiliza para computaciones repetidas en las que cada acción 
+      se determina mediante un resultado anterior. Se pueden escribir de esta forma muchos problemas iterativos.
+      
 ### Ejemplos de recursión
 
 1. Cuenta regresiva desde un número dado hasta el número más pequeño, restando 1 cada vez que pasa por el bucle.
