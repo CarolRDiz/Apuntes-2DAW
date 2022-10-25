@@ -75,7 +75,29 @@ Facilita una representación estructurada del documento y define de qué manera 
 
 ![Esquema_DOM](imagenes/dom_esquema.png)
 
+Ejemplos:
 
+Por ejemplo, el DOM de W3C especifica que el método getElementsByTagName en el código de abajo debe devolver una lista de todos los elementos \<p> del documento:
+
+    paragraphs = document.getElementsByTagName ("p");
+    // paragraphs[0] es el primer elemento <p>
+    // paragraphs[1] es el segundo elemento <p>, etc.
+    alert (paragraphs [0].nodeName);
+
+## BOM
+        
+Browser Object Model
+        
+El `window` objeto es compatible con todos los navegadores. Representa la ventana del navegador.
+
+![bom_esquema](https://user-images.githubusercontent.com/91955244/197706485-f07591a1-c0eb-4e48-8dad-f25551731fa9.png)
+        
+`window.localStorage`
+        
+La propiedad de sólo lectura localStorage te permite acceder al objeto local Storage; los datos persisten almacenados entre de las diferentes sesiones de navegación.
+
+window.localStorage.getItem()
+        
 ## Recursión
 
 Recursión es cuando una función sigue llamándose a sí misma, hasta que ya no tiene que hacerlo.
