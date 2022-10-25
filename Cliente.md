@@ -1,5 +1,19 @@
 # JAVASCRIPT
 
+## Notas importantes
+
+### window.onload
+Como el código Javascript es ejecutado antes de que la etiqueta body HTML sea cargada, document.body es null.
+Ejecutar el código dentro de la función window.load soluciona este problema:
+
+Ejemplo:
+
+      window.onload = () => {
+        const p = document.createElement('p');
+        p.innerHTML = 'Lorem ipsum';
+        document.body.appendChild(p);
+      };
+
 Instalar Node.js
 
     Node.js es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor
