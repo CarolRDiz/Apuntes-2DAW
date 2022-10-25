@@ -6,6 +6,12 @@
 Como el código Javascript es ejecutado antes de que la etiqueta body HTML sea cargada, document.body es null.
 Ejecutar el código dentro de la función window.load soluciona este problema:
 
+### Métodos
+
+**Comillas invertidas**
+
+      Ejemplo: const userInfo = `User info: ${name} ${surname} ${telephone}`;
+
 Ejemplo:
 
       window.onload = () => {
@@ -97,6 +103,8 @@ Por ejemplo, el DOM de W3C especifica que el método getElementsByTagName en el 
     // paragraphs[0] es el primer elemento <p>
     // paragraphs[1] es el segundo elemento <p>, etc.
     alert (paragraphs [0].nodeName);
+
+
 
 ## BOM
         
