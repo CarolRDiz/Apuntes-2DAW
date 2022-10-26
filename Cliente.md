@@ -8,9 +8,15 @@ Ejecutar el código dentro de la función window.load soluciona este problema.
 
 ### addEventListener() y pasar parámetros
 
-[Mirar: Pasar parámetros](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+Soluciona el problema de que la función se ejecute sin llamarla.
 
       element.addEventListener("click", function(){ myFunction(p1, p2); });
+
+[Mirar: Pasar parámetros](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+[Ejemplo](https://es.stackoverflow.com/questions/345390/porque-sucede-esto-no-entiendo-addeventlistenerclick-se-ejecuta-auto)
+[Ejemplo2](https://es.stackoverflow.com/questions/301517/la-funcion-en-onclick-se-ejecuta-sin-hacer-click)
+
+      
 
 Ejemplo:
 
