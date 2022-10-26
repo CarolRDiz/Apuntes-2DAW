@@ -9,6 +9,8 @@
 
 Cuanto más elementos tenga el selector, más específico es, y mayor prioridad tiene, sin verse afectado por la lectura en cascada.
 
+![Especificidad](imagenes/especificidad.png)
+
 # Selectores
 
 `*` Selector universal
