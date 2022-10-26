@@ -1,7 +1,7 @@
 #Ancla en html
 ...
 
-#Clases
+# Clases
 
 `class="class1 class2"` Las clases se espacian para separarlas
 
@@ -17,15 +17,16 @@ Cuanto más elementos tenga el selector, más específico es, y mayor prioridad 
 
 e `,` e Selecciona ambos
 
-**Selector de clase**
+
+## Selector de clase
 
 `.classname`  el.classname
 
-**Selector de id**
+## Selector de id
 
 `#idname`
 
-**Selectores de atributo**
+## Selectores de atributo
 
 `[attr]`        Selecciona los elementos que tienen el atributo attr.
   
@@ -41,7 +42,12 @@ e `,` e Selecciona ambos
 
 `[attr*=value]`   Selecciona los elementos cuyo atributo attr tenga un valor que contenga value.
 
-**Combinadores**
+## Combinadores
+
+**Combinadores descendientes**
+
+`A B`     El combinador (espacio) selecciona los elementos que son descendientes del primer elemento.
+
 
 **Combinador de hermanos adyacentes**
 
