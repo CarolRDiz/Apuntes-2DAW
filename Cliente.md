@@ -147,7 +147,6 @@ Lo mismo con la recursión: La función sigue llamándose a sí misma, cada vez 
 
 Pero, la función no decide por sí misma cuando parar. Nosotros le decimos cuando. Nosotros le damos a la función una condición conocida como `caso base`.
 
-
       Se llama recursividad a un proceso mediante el que una función se llama a sí misma de forma repetida, hasta que se
       satisface alguna determinada condición. El proceso se utiliza para computaciones repetidas en las que cada acción 
       se determina mediante un resultado anterior. Se pueden escribir de esta forma muchos problemas iterativos.
@@ -184,6 +183,33 @@ Esto es lo que sucede:
     6// Es 4 igual a 0 ?
     7// No, entonces imprime 4 en la consola.
     8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando lleg al caso base (numero === 0).
+    
+    function cuentaAtras (3) {
+        if (numero === 0) {
+            return; 
+        }
+        console.log(3);
+        return cuentaAtras(3 - 1);
+                  cuentaAtras (2) {
+                    if (numero === 0) {
+                        return; 
+                    }
+                    console.log(2);
+                    return cuentaAtras(2 - 1);
+                              cuentaAtras (1) {
+                                if (numero === 0) {
+                                    return; 
+                                }
+                                console.log(1);
+                                return cuentaAtras(1 - 1);
+                                          cuentaAtras (0) {
+                                            if (numero === 0) {
+                                                return; 
+                                            }
+                         //no se ejecuta    console.log(1);
+                         //no se ejecuta    return cuentaAtras(1 - 1);
+    };
+    
 
 2. Cuenta regresiva desde un número dado hasta el número más pequeño, restando 1 cada vez que pasa por el bucle, pero devolviendo un array.
 
