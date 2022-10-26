@@ -8,7 +8,7 @@ Ejecutar el código dentro de la función window.load soluciona este problema.
 
 ### addEventListener() y pasar parámetros
 
-![Mirar: Pasar parámetros](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+[Mirar: Pasar parámetros](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
 
       element.addEventListener("click", function(){ myFunction(p1, p2); });
 
