@@ -4,7 +4,18 @@
 
 ### window.onload
 Como el código Javascript es ejecutado antes de que la etiqueta body HTML sea cargada, document.body es null.
-Ejecutar el código dentro de la función window.load soluciona este problema:
+Ejecutar el código dentro de la función window.load soluciona este problema.
+
+### addEventListener() y pasar parámetros
+
+![Mirar: Pasar parámetros](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+
+      element.addEventListener("click", function(){ myFunction(p1, p2); });
+
+Ejemplo:
+
+
+
 
 ### Métodos
 
