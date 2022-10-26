@@ -74,10 +74,12 @@ Palabra clave que se añade a los selectores y que especifica un estado especial
 
 ## Pseudoelementos
 
+![Pseudoelementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
+
 Permiten añadir estilos a una parte concreta del documento.
 
 `selector::pseudo-elemento { propiedad: valor; }`
 
-![Pseudoelementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
+
 
 
