@@ -13,6 +13,8 @@ Cuanto más elementos tenga el selector, más específico es, y mayor prioridad 
 
 # Selectores
 
+!(Selectores)[https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors]
+
 `*` Selector universal
 
 e `,` e Selecciona ambos
@@ -48,6 +50,9 @@ e `,` e Selecciona ambos
 
 `A B`     El combinador (espacio) selecciona los elementos que son descendientes del primer elemento.
 
+**Combinador de hijo**
+
+`A > B`   El combinador > selecciona los elementos que son hijos directos del primer elemento.
 
 **Combinador de hermanos adyacentes**
 
