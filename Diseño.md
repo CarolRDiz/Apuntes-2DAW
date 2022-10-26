@@ -62,6 +62,22 @@ e `,` e Selecciona ambos
 
 `A ~ B`   El combinador ~ selecciona hermanos. Esto quiere decir que el segundo elemento sigue al primero (no necesariamente de forma inmediata) y ambos comparten el mismo elemento padre.
 
+## Pseudoclases
 
+![Pseudoclases](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes)
+
+Palabra clave que se añade a los selectores y que especifica un estado especial del elemento seleccionado.
+
+`selector:pseudoclase { propiedad: valor; }`
+
+![nth-child()](https://developer.mozilla.org/es/docs/Web/CSS/:nth-child)
+
+## Pseudoelementos
+
+Permiten añadir estilos a una parte concreta del documento.
+
+`selector::pseudo-elemento { propiedad: valor; }`
+
+![Pseudoelementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
 
 
