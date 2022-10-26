@@ -80,6 +80,7 @@ Permiten añadir estilos a una parte concreta del documento.
 
 `selector::pseudo-elemento { propiedad: valor; }`
 
+## Diferencia entre > y :first-child
 
 
 
