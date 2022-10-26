@@ -13,7 +13,7 @@ Cuanto más elementos tenga el selector, más específico es, y mayor prioridad 
 
 # Selectores
 
-!(Selectores)[https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors]
+![Selectores](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
 
 `*` Selector universal
 
