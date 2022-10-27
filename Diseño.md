@@ -1,3 +1,20 @@
+#Flexbox
+[Maquetación con flexbox](https://www.adictosaltrabajo.com/2018/02/14/maquetacion-con-flexbox/)
+
+contenedor {
+  display: flex;
+  flex-direction: row | column; //Eje primario: eje_x(row) | eje_y(column)
+  //Alineación en el eje primario
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly; 
+  //Alineación en el eje secundario
+  align-items: flex-start | flex-end | center | baseline | stretch; 
+  
+  width: 100%;
+  height: 100vh;
+  padding: 0.5rem;
+  background-color: blanchedalmond;
+}
+
 #Ancla en html
 ...
 
