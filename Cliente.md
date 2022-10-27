@@ -6,6 +6,10 @@
 Como el código Javascript es ejecutado antes de que la etiqueta body HTML sea cargada, document.body es null.
 Ejecutar el código dentro de la función window.load soluciona este problema.
 
+	window.onload = function() {
+
+	};
+
 ### addEventListener() y pasar parámetros
 
 Soluciona el problema de que la función se ejecute sin llamarla.
