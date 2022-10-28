@@ -1,18 +1,6 @@
 #Flexbox
 [Maquetación con flexbox](https://www.adictosaltrabajo.com/2018/02/14/maquetacion-con-flexbox/)
 
-* {
-
-  `box-sizing: border-box;`
-  
-}
-
-Redefine de qué manera ha de calcular la altura y la anchura de los elementos de nuestra página. Es prácticamente
-
-obligatorio definir esta propiedad si queremos que nuestra maquetación sea predecible.
-
-`border-box` provoca que los paddings y bordes se apliquen en el interior de la caja.
-
 contenedor {
  ` display: flex;`
  
@@ -169,5 +157,14 @@ propiedad:
 ![Box_model](imagenes/boxmodel.png)
 
 
+* {
 
+  `box-sizing: border-box;`
+  
+}
 
+Redefine de qué manera ha de calcular la altura y la anchura de los elementos de nuestra página. Es prácticamente
+
+obligatorio definir esta propiedad si queremos que nuestra maquetación sea predecible.
+
+`border-box` provoca que los paddings y bordes se apliquen en el interior de la caja.
