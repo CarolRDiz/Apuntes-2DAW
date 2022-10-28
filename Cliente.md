@@ -13,8 +13,11 @@ Ejecutar el código dentro de la función window.load soluciona este problema.
 Ejemplo:
 
       window.onload = () => {
+      
         const p = document.createElement('p');
+	
         p.innerHTML = 'Lorem ipsum';
+	
         document.body.appendChild(p);
       };
 
@@ -59,13 +62,16 @@ array = [{(obj)}, {(obj)}]
 `objectName.methodname = functionName;`
 
 var myObj = {
+
   `myMethod: function(params) {
+  
     // ...hacer algo
   }
 `
   // O ESTO TAMBIÉN FUNCIONA
 
   `myOtherMethod(params) {
+  
     // ...hacer algo más
   }`
 };
@@ -73,40 +79,69 @@ var myObj = {
 `this`: En nuestra función nos referimos al Objeto con `this`.
 
 SUBPROPIEDADES
-		const myObject = {
-		  propiedad: {
-		    subpropiedad: valor
-		  },
-		  propiedad: {
-		    subpropiedad: { 
-		      subpropiedad: valor,
-		      subpropiedad: valor
-		    },
-		    subpropiedad: valor
-		  }
-		};
+
+	const myObject = {
+
+	  propiedad: {
+
+	    subpropiedad: valor
+
+	  },
+	  propiedad: {
+
+	    subpropiedad: { 
+
+	      subpropiedad: valor,
+
+	      subpropiedad: valor
+
+	    },
+
+	    subpropiedad: valor
+
+	  }
+
+	};
 		
 `obj.propiedad.subpropiedad`
 
 NESTED ARRAYS
+
 	const ourPets = [
+	
 	  {
+	  
 	    animalType: "cat",
+	    
 	    names: [
+	    
 	      "Meowzer",
+	      
 	      "Fluffy",
+	      
 	      "Kit-Cat"
+	      
 	    ]
+	    
 	  },
+	  
 	  {
 	    animalType: "dog",
+	    
 	    names: [
+	    
 	      "Spot",
+	      
 	      "Bowser",
+	      
 	      "Frankie"
+	      
 	    ]
+	    
 	  }
+	  
 	];
+	
 	ourPets[0].names[1]
 
 
@@ -131,17 +166,7 @@ En la terminal de un proyecto:
 `npm init`
 
 `npm install eslint --save dev`
-    
-Configuración:
 
-No estamos usando framework
-TYpescript no
-YOur code run: browser
-Style for your proyect: guide
-style guide: 
-INstall now: yes
-...
-    
 Opción Standard:
 
     npm install standard -D
@@ -168,14 +193,14 @@ Personalizar reglas:
             "link": "npx eslint . --ext .js"
             "link-fix": "npx eslint . --ext .js --fix"
 
-Instalar Extensión Eslint
+**Instalar Extensión Eslint**
 
 Extensión Live Server de Ritwick Dey para actualizar la página html automáticamente.
-    Una vez instalada, podemos pulsar el botón de abajo a la derecha que pone "Go live" para correr un Live server
 
-Extensión JavaScript (ES6) code snippets de charalampos karypidis
+Una vez instalada, podemos pulsar el botón de abajo a la derecha que pone "Go live" para correr un Live server
 
-`Math.floor(Math.random() * (max - min + 1)) + min`
+**Extensión JavaScript (ES6) code snippets de charalampos karypidis**
+
 
 Devuelve un número entre max y min, incluyéndolos
 
