@@ -9,6 +9,14 @@ Ejecutar el código dentro de la función window.load soluciona este problema.
 	window.onload = function() {
 
 	};
+	
+Ejemplo:
+
+      window.onload = () => {
+        const p = document.createElement('p');
+        p.innerHTML = 'Lorem ipsum';
+        document.body.appendChild(p);
+      };
 
 ### addEventListener() y pasar parámetros
 
@@ -26,20 +34,87 @@ Ejemplo:
 
 
 
+### Objetos
 
-### Métodos
+[Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects#herencia)
 
-**Comillas invertidas \`\`**
+`var myObject = new Object()`
+
+`myObject.property1 = value1`
+
+`myObject.property2 = value2`
+
+`myObject.property = value`  -> para modificar valores o añadir propiedades
+
+`myObject[property] = value` -> necesario para propiedades con espacios o propiedades contenidas en variables
+
+`delete object.property` -> borrar propiedad
+
+`obj.hasOwnProperty(propiedad)`  -> Determinar si un obj tiene cierta propiedad
+	
+array = [{(obj)}, {(obj)}]
+
+#### Métodos
+
+`objectName.methodname = functionName;`
+
+var myObj = {
+  `myMethod: function(params) {
+    // ...hacer algo
+  }
+`
+  // O ESTO TAMBIÉN FUNCIONA
+
+  `myOtherMethod(params) {
+    // ...hacer algo más
+  }`
+};
+
+`this`: En nuestra función nos referimos al Objeto con `this`.
+
+SUBPROPIEDADES
+		const myObject = {
+		  propiedad: {
+		    subpropiedad: valor
+		  },
+		  propiedad: {
+		    subpropiedad: { 
+		      subpropiedad: valor,
+		      subpropiedad: valor
+		    },
+		    subpropiedad: valor
+		  }
+		};
+		
+`obj.propiedad.subpropiedad`
+
+NESTED ARRAYS
+	const ourPets = [
+	  {
+	    animalType: "cat",
+	    names: [
+	      "Meowzer",
+	      "Fluffy",
+	      "Kit-Cat"
+	    ]
+	  },
+	  {
+	    animalType: "dog",
+	    names: [
+	      "Spot",
+	      "Bowser",
+	      "Frankie"
+	    ]
+	  }
+	];
+	ourPets[0].names[1]
+
+
+### Comillas invertidas \`\`**
 
       Ejemplo: const userInfo = `User info: ${name} ${surname} ${telephone}`;
 
-Ejemplo:
 
-      window.onload = () => {
-        const p = document.createElement('p');
-        p.innerHTML = 'Lorem ipsum';
-        document.body.appendChild(p);
-      };
 
 Instalar Node.js
 
