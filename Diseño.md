@@ -1,19 +1,44 @@
 #Flexbox
 [Maquetación con flexbox](https://www.adictosaltrabajo.com/2018/02/14/maquetacion-con-flexbox/)
 
+* {
+
+  `box-sizing: border-box;`
+  
+}
+
+Redefine de qué manera ha de calcular la altura y la anchura de los elementos de nuestra página. Es prácticamente
+
+obligatorio definir esta propiedad si queremos que nuestra maquetación sea predecible.
+
+`border-box` provoca que los paddings y bordes se apliquen en el interior de la caja.
+
 contenedor {
-  display: flex;
-  flex-direction: row | column; //Eje primario: eje_x(row) | eje_y(column)
+ ` display: flex;`
+ 
+  `flex-direction:` `row` | `column`; //Eje primario: eje_x(row) | eje_y(column)
+  
   //Alineación en el eje primario
-  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly; 
+  
+  `justify-content`: `flex-start` | `flex-end` | `center` | `space-between` | `space-around` | `space-evenly`; 
+  
   //Alineación en el eje secundario
-  align-items: flex-start | flex-end | center | baseline | stretch; 
+  
+  `align-items`: `flex-start` | `flex-end` | `center` | `baseline` | `stretch`; 
   
   width: 100%;
+  
   height: 100vh;
+  
   padding: 0.5rem;
+  
   background-color: blanchedalmond;
+  
 }
+
+`flex-direction`: estable el eje principal 
+
+`justify-content`: Los elementos hijos son alineados en el eje principal.
 
 #Ancla en html
 ...
@@ -101,13 +126,47 @@ Permiten añadir estilos a una parte concreta del documento.
 
 # Propiedades
 
+`display` : `block` | `inline`| `inline-block` | `flex` | `grid`
+
+
 ## Keywords
 
-propiedad : 
+propiedad: 
+
 -`none` -> borrar un propiedad
+
 -`inherit` -> valor de la propiedad heredada del elemento padre
+
 -`initial` -> restablece el valor
+
 -`unset` -> restablece el valor al valor heredado o a su valor inicial
+
+## Medidas
+
+### Absolutas:
+
+`px` No cambia sin importar el tamaño del proyecto.
+
+### Relativas
+
+`em` hace referencia al tamaño actual de la fuente que ha sido establecido en el navegador.
+
+`rem` representa el tamaño (font-size) del elemento raiz ...
+
+### Flexibles
+
+`vw`: se calcula con respecto al ancho del viewport.
+  100vw = 100% de la ventana
+
+`vh`: se calcula con respecto a la altura del viewport.
+
+`vmin/vmax`
+
+`%`: respecto al padre
+
+## Box model
+
+
 
 
 
