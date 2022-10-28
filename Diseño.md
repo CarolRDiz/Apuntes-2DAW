@@ -99,5 +99,16 @@ Permiten añadir estilos a una parte concreta del documento.
 
 ## Diferencia entre > y :first-child
 
+# Propiedades
+
+## Keywords
+
+propiedad : 
+-`none` -> borrar un propiedad
+-`inherit` -> valor de la propiedad heredada del elemento padre
+-`initial` -> restablece el valor
+-`unset` -> restablece el valor al valor heredado o a su valor inicial
+
+
 
 
