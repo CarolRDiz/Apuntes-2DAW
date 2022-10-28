@@ -157,7 +157,7 @@ propiedad:
 ![Box_model](imagenes/boxmodel.png)
 
 
-* {
+\* {
 
   `box-sizing: border-box;`
   
