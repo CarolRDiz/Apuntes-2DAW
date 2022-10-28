@@ -166,7 +166,7 @@ propiedad:
 
 ## Box model
 
-
+![Box_model](imagenes/boxmodel.png)
 
 
 
