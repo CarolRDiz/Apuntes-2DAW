@@ -2,6 +2,7 @@
 [Maquetación con flexbox](https://www.adictosaltrabajo.com/2018/02/14/maquetacion-con-flexbox/)
 
 contenedor {
+
  ` display: flex;`
  
   `flex-direction:` `row` | `column`; //Eje primario: eje_x(row) | eje_y(column)
@@ -13,6 +14,12 @@ contenedor {
   //Alineación en el eje secundario
   
   `align-items`: `flex-start` | `flex-end` | `center` | `baseline` | `stretch`; 
+  
+  //Responsividad avanzada
+  
+  `flex-wrap`: `wrap`;
+  
+ `flex-wrap` Permite disponer a los hijos en varias lineas si surgiese la casuística de que no consiguiesen caber en una única línea.
   
   width: 100%;
   
@@ -27,6 +34,24 @@ contenedor {
 `flex-direction`: estable el eje principal 
 
 `justify-content`: Los elementos hijos son alineados en el eje principal.
+
+hijos{
+
+ `flex` : `none` | [ <'`flex-grow`'> <'`flex-shrink`'>? || <'`flex-basis`'> ]
+
+}
+
+El valor de flex por defecto es 0 1 auto. Podemos alternar la propiedad flex de cada elemento para modificar su peso:
+
+    flex: 2;..
+
+`flex-grow`: Define la habilidad de un hijo de ocupar espacio sobrante. Recibe un entero. Por defecto es 0.
+
+`flex-shrink`: Define la habilidad de un hijo de encogerse. Recibe un entero. Por defecto es 0.
+
+`flex-basis`: Esta propiedad especifica el tamaño base que ocupa un elemento hasta que éste se puede encoger o ensanchar.
+
+Su valor puede ser una unidad o auto (cuyo valor es el por defecto).
 
 #Ancla en html
 ...
