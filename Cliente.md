@@ -442,25 +442,24 @@ Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la
 #### Heredando propiedades
 
 
-
 ### Métodos
 
 `objectName.methodname = functionName;`
 
-var myObj = {
+	var myObj = {
 
-  `myMethod: function(params) {
-  
-    // ...hacer algo
-  }
-`
-  // O ESTO TAMBIÉN FUNCIONA
+	  myMethod: function(params) {
 
-  `myOtherMethod(params) {
-  
-    // ...hacer algo más
-  }`
-};
+	    // ...hacer algo
+	  }
+
+	  // O ESTO TAMBIÉN FUNCIONA
+
+	  myOtherMethod(params) {
+
+	    // ...hacer algo más
+	  }
+	};
 
 `this`: En nuestra función nos referimos al Objeto con `this`.
 
