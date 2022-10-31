@@ -206,6 +206,7 @@ Soluciona el problema de que la función se ejecute sin llamarla.
 
 ## Clases
 
+
 [Clases](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
 
 Las clases de javascript son una mejora sintáctica sobre la herencia basada en prototipos de JavaScript. La sintaxis de
@@ -355,6 +356,43 @@ Fijarse que las clases no pueden extender objectos regulares (literales). Si se 
 	var d = new Perro('Mitzie');
 	d.hablar(); // Mitzie ladra.
 	d.comer(); // Mitzie se alimenta.
+
+### Llamadas a súperclases con super
+
+La palabra clave super es usada para llamar funciones del objeto padre.
+
+	class Gato {
+	  constructor(nombre) {
+	    this.nombre = nombre;
+	  }
+
+	  hablar() {
+	    console.log(this.nombre + ' hace ruido.');
+	  }
+	}
+
+	class Leon extends Gato {
+	  hablar() {
+	    super.hablar();
+	    console.log(this.nombre + ' maulla.');
+	  }
+	}
+
+
+### Propiedades privadas
+	class ClassWithPrivateField {
+	  #privateField
+	}
+
+	class ClassWithPrivateMethod {
+	  #privateMethod() {
+	    return 'hello world'
+	  }
+	}
+
+	class ClassWithPrivateStaticField {
+	  static #PRIVATE_STATIC_FIELD
+	}
 
 
 ## Objetos
