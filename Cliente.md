@@ -5,6 +5,8 @@ Con el modo estricto, no puede, por ejemplo, usar variables no declaradas.
 
 ## Desestructuración
 
+[Desestructuración](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
 La sintaxis de desestructuración es una expresión de JavaScript que permite desempacar valores de arreglos o propiedades 
 de objetos en distintas variables.
 
@@ -94,6 +96,15 @@ objeto literal sin una declaración.
 {a, b} = {a: 1, b: 2} no es una sintaxis independiente válida, debido a que {a, b} en el lado izquierdo se considera un
 bloque y no un objeto literal.
 
+#### Asignación sin declaración
+
+A una variable se le puede asignar su valor con desestructuración separada de su declaración.
+
+	let a, b;
+
+	({a, b} = {a: 1, b: 2});
+
+
 #### Asignar a nuevos nombres de variable
 
 Una propiedad se puede desempacar de un objeto y asignar a una variable con un nombre diferente al de la propiedad del objeto.
@@ -112,6 +123,54 @@ A una variable se le puede asignar un valor predeterminado, en el caso de que el
 
 	console.log(a); // 3
 	console.log(b); // 5
+
+#### Asignar nombres a nuevas variables y proporcionar valores predeterminados
+
+Una propiedad puede ser ambas
+
+    Desempacada de un objeto y asignada a una variable con un nombre diferente.
+    Se le asigna un valor predeterminado en caso de que el valor desempacado sea undefined.
+
+	const {a: aa = 10, b: bb = 5} = {a: 3};
+
+	console.log(aa); // 3
+	console.log(bb); // 5
+
+#### Desempacar campos de objetos pasados como parámetro de función
+
+	const user = {
+	  id: 42,
+	  displayName: 'jdoe',
+	  fullName: {
+	    firstName: 'John',
+	    lastName: 'Doe'
+	  }
+	};
+
+	function userId({id}) {
+	  return id;
+	}
+
+	function whois({displayName, fullName: {firstName: name}}) {
+	  return `${displayName} es ${name}`;
+	}
+
+	console.log(userId(user)); // 42
+	console.log(whois(user));  // "jdoe es John"
+
+Esto desempaca el id, displayName y firstName del objeto user y los imprime.
+
+#### Establecer el valor predeterminado de un parámetro de función
+
+	function drawChart({size = 'big', coords = {x: 0, y: 0}, radius = 25} = {}) {
+	  console.log(size, coords, radius);
+	  // haz un dibujo de gráfico
+	}
+
+	drawChart({
+	  coords: {x: 18, y: 30},
+	  radius: 30
+	});
 
 
 ## Notas importantes
@@ -147,6 +206,29 @@ Soluciona el problema de que la función se ejecute sin llamarla.
 
 ## Objetos
 
+### Object.method
+
+#### Object.isFrozen()
+
+El método `Object.isFrozen(obj)` determina si un objeto está congelado.
+
+Un objeto está congelado si y solo si no es extendible, todas sus propiedades son no-configurables, y todos los datos de sus propiedades no tienen capacidad de escritura.
+
+#### Object.seal()
+
+El método `Object.seal(obj)` sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas
+las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en
+tanto en cuanto dichas propiedades sean de escritura.
+
+`Object.isSealed(obj)`
+
+#### Object.keys
+
+#### Object.values
+
+#### Object.entries
+
+### Constructor
 
 ### Unir objetos 
 
@@ -185,20 +267,6 @@ Soluciona el problema de que la función se ejecute sin llamarla.
 `obj.hasOwnProperty(propiedad)`  -> Determinar si un obj tiene cierta propiedad
 	
 array = [{(obj)}, {(obj)}]
-
-### Object.isFrozen()
-
-El método `Object.isFrozen(obj)` determina si un objeto está congelado.
-
-Un objeto está congelado si y solo si no es extendible, todas sus propiedades son no-configurables, y todos los datos de sus propiedades no tienen capacidad de escritura.
-
-### Object.seal()
-
-El método `Object.seal(obj)` sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas
-las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en
-tanto en cuanto dichas propiedades sean de escritura.
-
-`Object.isSealed(obj)`
 
 ### Definición de las propiedades de un tipo de objeto
 
