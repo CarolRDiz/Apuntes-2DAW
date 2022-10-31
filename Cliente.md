@@ -204,6 +204,57 @@ Soluciona el problema de que la función se ejecute sin llamarla.
 [Ejemplo](https://es.stackoverflow.com/questions/345390/porque-sucede-esto-no-entiendo-addeventlistenerclick-se-ejecuta-auto)
 [Ejemplo2](https://es.stackoverflow.com/questions/301517/la-funcion-en-onclick-se-ejecuta-sin-hacer-click)
 
+## Clases
+
+[Clases](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
+
+Las clases de javascript son una mejora sintáctica sobre la herencia basada en prototipos de JavaScript. La sintaxis de
+las clases no introduce un nuevo modelo de herencia orientada a objetos en JavaScript. Las clases de JavaScript proveen 
+una sintaxis mucho más clara y simple para crear objetos y lidiar con la herencia.
+
+### Declaración de clases
+
+	class Rectangulo {
+	  constructor(alto, ancho) {
+	    this.alto = alto;
+	    this.ancho = ancho;
+	  }
+	}
+
+### Alojamiento
+
+Una importante diferencia entre las declaraciones de funciones y las declaraciones de clases es que las declaraciones de funciones son alojadas y las declaraciones de clases no lo son. En primer lugar necesitas declarar tu clase y luego acceder a ella, de otro modo el ejemplo de código siguiente arrojará un ReferenceError:
+
+	const p = new Rectangle(); // ReferenceError
+
+	class Rectangle {}
+### Expresiones de clases
+
+Una expresión de clase es otra manera de definir una clase. Las expresiones de clase pueden ser nombradas o anónimas. El nombre dado a la expresión de clase nombrada es local dentro del cuerpo de la misma.
+
+	// Anonima
+	let Rectangulo = class {
+	  constructor(alto, ancho) {
+	    this.alto = alto;
+	    this.ancho = ancho;
+	  }
+	};
+
+	console.log(Rectangulo.name);
+	// output: "Rectangulo"
+
+	// Nombrada
+	let Rectangulo = class Rectangulo2 {
+	  constructor(alto, ancho) {
+	    this.alto = alto;
+	    this.ancho = ancho;
+	  }
+	};
+	console.log(Rectangulo.name);
+	// output: "Rectangulo2"
+
+
+
 ## Objetos
 
 ### Object.method
