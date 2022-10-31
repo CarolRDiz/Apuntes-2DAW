@@ -1,4 +1,47 @@
+# Position
+
+## Relative
+
+Elementos posicionados relativamente son desplazados una cantidad dada de su posición normal en el documento, pero sin que su desplazamiento afecte a otros elementos.
+
+hijo{
+
+ position: relative;
+ top: 20px;
+ botton:
+ left:
+ right:
+ 
+ ## Absolute
+ 
+Un elemento posicionado absolutamente es removido del flujo de esta manera, los demás elementos se posicionan como si el mismo no existiera. El elemento posicionado absolutamente se posiciona relativamente a su ancestro posicionado más cercano (es decir, el ancestro más cercano que no es static). Si no hay ningún ancestro posicionado se ubica relativo al bloque contenedor inicial. 
+ 
+hijo{
+
+ position: absolute;
+ top: 20px;
+ botton:
+ left:
+ right:
+ 
+## Fixed
+
+El posicionamiento fijo es similar al posicionamiento absoluto, con la excepción de que el bloque contenedor del elemento es el viewport. Esto puede usarse para crear un elemento flotante que se mantiene en la misma posición independientemente del desplazamiento.
+
+## Sticky
+
+El posicionamiento sticky puede considerarse un híbrido de los posicionamientos relativo y fijo. Un elemento con 
+
+posicionamiento sticky es tratado como un elemento posicionado relativamente hasta que cruza un umbral especificado, en
+
+cuyo punto se trata como fijo hasta que alcanza el límite de su padre. Por ejemplo...
+
+#one { position: sticky; top: 10px; }
+
+
 # Flexbox
+
+Maquetación en un plano
 
 [Maquetación con flexbox](https://www.adictosaltrabajo.com/2018/02/14/maquetacion-con-flexbox/)
 
@@ -39,6 +82,8 @@ contenedor {
 hijos{
 
  `flex` : `none` | [ <'`flex-grow`'> <'`flex-shrink`'>? || <'`flex-basis`'> ]
+ `order`:3;
+` align-self`: `flex-start` | `flex-end` | `center` | `baseline` | `stretch`; 
 
 }
 
@@ -54,7 +99,13 @@ El valor de flex por defecto es 0 1 auto. Podemos alternar la propiedad flex de 
 
 Su valor puede ser una unidad o auto (cuyo valor es el por defecto).
 
-#Ancla en html
+`order` Con order podemos ordenar los elementos.
+
+# GRID
+
+Maquetación en dos planos
+
+# Ancla en html
 ...
 
 # Clases
@@ -141,6 +192,7 @@ Permiten añadir estilos a una parte concreta del documento.
 # Propiedades
 
 `display` : `block` | `inline`| `inline-block` | `flex` | `grid`
+
 
 
 ## Keywords
