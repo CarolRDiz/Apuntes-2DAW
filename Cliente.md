@@ -1,4 +1,118 @@
-# JAVASCRIPT
+## Use strict
+
+`"use strict"`; Define que el código JavaScript debe ejecutarse en "modo estricto".
+Con el modo estricto, no puede, por ejemplo, usar variables no declaradas.
+
+## Desestructuración
+
+La sintaxis de desestructuración es una expresión de JavaScript que permite desempacar valores de arreglos o propiedades 
+de objetos en distintas variables.
+
+	const x = [1, 2, 3, 4, 5];
+	const [y, z] = x;
+	console.log(y); // 1
+	console.log(z); // 2
+
+### Asignación separada de la declaración
+
+	let a, b;
+	[a, b] = [1, 2];
+	console.log(a); // 1
+	console.log(b); // 2
+	
+### Valores predeterminados
+
+	let a, b;
+	[a=5, b=7] = [1];
+	console.log(a); // 1
+	console.log(b); // 7
+
+### Intercambio de variables
+
+	let a = 1;
+	let b = 3;
+
+	[a, b] = [b, a];
+	console.log(a); // 3
+	console.log(b); // 1
+
+	const arr = [1,2,3];
+	[arr[2], arr[1]] = [arr[1], arr[2]];
+	console.log(arr); // [1,3,2]
+
+### Analizar un arreglo devuelto por una función
+
+	function f() {
+	  return [1, 2];
+	}
+
+	let a, b;
+	[a, b] = f();
+	console.log(a); // 1
+	console.log(b); // 2
+
+### Ignorar algunos valores devueltos
+
+	function f() {
+	  return [1, 2, 3];
+	}
+
+	const [a, , b] = f();
+	console.log(a); // 1
+	console.log(b); // 3
+
+	const [c] = f();
+	console.log(c); // 1
+
+También puedes ignorar todos los valores devueltos:
+
+	[,,] = f();
+
+### Asignar el resto de un arreglo a una variable
+
+	const [a, ...b] = [1, 2, 3];
+	console.log(a); // 1
+	console.log(b); // [2, 3]
+
+### Desestructuración de objetos
+
+#### Asignación básica
+
+	const user = {
+	    id: 42,
+	    is_verified: true
+	};
+
+	const {id, is_verified} = user;
+
+	console.log(id); // 42
+	console.log(is_verified); // true
+
+Los paréntesis (...) alrededor de la declaración de asignación son obligatorios cuando se usa la desestructuración de un
+objeto literal sin una declaración.
+
+{a, b} = {a: 1, b: 2} no es una sintaxis independiente válida, debido a que {a, b} en el lado izquierdo se considera un
+bloque y no un objeto literal.
+
+#### Asignar a nuevos nombres de variable
+
+Una propiedad se puede desempacar de un objeto y asignar a una variable con un nombre diferente al de la propiedad del objeto.
+
+	const o = {p: 42, q: true};
+	const {p: foo, q: bar} = o;
+
+	console.log(foo); // 42
+	console.log(bar); // true
+	
+#### Valores predeterminados
+
+A una variable se le puede asignar un valor predeterminado, en el caso de que el valor desempacado del objeto sea undefined.
+
+	const {a = 10, b = 5} = {a: 3};
+
+	console.log(a); // 3
+	console.log(b); // 5
+
 
 ## Notas importantes
 
@@ -31,13 +145,28 @@ Soluciona el problema de que la función se ejecute sin llamarla.
 [Ejemplo](https://es.stackoverflow.com/questions/345390/porque-sucede-esto-no-entiendo-addeventlistenerclick-se-ejecuta-auto)
 [Ejemplo2](https://es.stackoverflow.com/questions/301517/la-funcion-en-onclick-se-ejecuta-sin-hacer-click)
 
-      
-
-Ejemplo:
+## Objetos
 
 
+### Unir objetos 
 
-### Objetos
+#### Con spread operator
+
+	const marcas1 = {'a': 'Fiat', 'b': 'Seat'};
+	const marcas2 = {'c': 'Renault'};
+	const marcas3 = {'d': 'Ford'};
+	const marcasFinal = {...marcas1, ...marcas1, ...marcas1};
+
+#### Con assign
+
+	var o1 = { a: 1 };
+	var o2 = { b: 2 };
+	var o3 = { c: 3 };
+
+	var obj = Object.assign(o1, o2, o3);
+	console.log(obj); // { a: 1, b: 2, c: 3 }
+	console.log(o1);  // { a: 1, b: 2, c: 3 }, target object itself is changed.
+
 
 [Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects#herencia)
 
@@ -57,7 +186,43 @@ Ejemplo:
 	
 array = [{(obj)}, {(obj)}]
 
-#### Métodos
+### Object.isFrozen()
+
+El método `Object.isFrozen(obj)` determina si un objeto está congelado.
+
+Un objeto está congelado si y solo si no es extendible, todas sus propiedades son no-configurables, y todos los datos de sus propiedades no tienen capacidad de escritura.
+
+### Object.seal()
+
+El método `Object.seal(obj)` sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas
+las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en
+tanto en cuanto dichas propiedades sean de escritura.
+
+`Object.isSealed(obj)`
+
+### Definición de las propiedades de un tipo de objeto
+
+Puedes agregar una propiedad a un tipo de objeto definido previamente mediante el uso de la propiedad prototype. 
+Esto define una propiedad que es compartida por todos los objetos del tipo especificado, en lugar de por una sola instancia
+del objeto. El siguiente código agrega una propiedad color a todos los objetos del tipo Car, y luego asigna un valor a la
+propiedad color del objeto car1.
+
+	Car.prototype.color = null;
+	car1.color = 'black';
+
+
+### Herencia
+
+En lo que a herencia se refiere, JavaScript sólo tiene una estructura: objetos. 
+Cada objeto tiene una propiedad privada (referida como su [[Prototype]]) que mantiene un enlace a otro objeto llamado su prototipo. Ese objeto prototipo tiene su propio prototipo, y así sucesivamente hasta que se alcanza un objeto cuyo prototipo es null.
+Por definición, null no tiene prototipo, y actúa como el enlace final de esta cadena de prototipos.
+Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la cabeza de la cadena de prototipos.
+
+#### Heredando propiedades
+
+
+
+### Métodos
 
 `objectName.methodname = functionName;`
 
