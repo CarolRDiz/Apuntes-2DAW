@@ -1,4 +1,23 @@
 # DOCKER
+
+docker run -dit -p 8080:8080 --name misitio bitnami/apache
+docker exec -it -u root misitio /bin/bash
+docker cp ./misitio rutadehtdocs
+
+Crear una imagen a partir de un contenedor:
+
+    docker commit misitio nombrenuevoimagen
+
+Guardar la imagen en el disco duro:
+
+    docker image save nombreimagen > nombreimagen.tar
+    
+docker image tag nombreimagen:latest repositorio/nombreimagen:latest
+
+docker push repositiorio/nombreimagen:latest
+
+
+
 La finalidad de Docker es la contenerización de aplicaciones. Desplegar aplicaciones autocontenidas.
 
 **Programa autocontenido**
