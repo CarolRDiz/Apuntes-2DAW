@@ -1,3 +1,20 @@
+# Metodologías
+
+[Metodologías](https://www.espai.es/blog/2016/07/metodologias-css-oocss-bem-smacss/)
+
+# Breakpoints
+
+[Breakpoints](https://www.alsernet.es/blog/breakpoints-diseno-responsive)
+
+Son las medidas de anchura en donde se realizan saltos para el diseño responsive y se aplican los estilos CSS concretos para unas determinadas media queries. Es decir, los breakpoints son los saltos en los que la pantalla cambia de layout.
+
+# CSS media queries
+
+[CSS media queries](https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+    @media (min-width: 700px) { ... }
+    @media (min-width: 700px) and (max-width: 1000px) { ... }
+
 # Position
 
 ## Relative
