@@ -523,9 +523,6 @@ Entonces puedes llamar al método en el contexto del objeto de la siguiente mane
 	}
 
 
-
-## Constructor
-
 ## Unir objetos 
 
 ### Con spread operator
@@ -561,9 +558,6 @@ Entonces puedes llamar al método en el contexto del objeto de la siguiente mane
 `obj.hasOwnProperty(propiedad)`  -> Determinar si un obj tiene cierta propiedad
 	
 array = [{(obj)}, {(obj)}]
-
-
-
 
 ## Herencia
 
