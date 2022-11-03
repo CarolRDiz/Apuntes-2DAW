@@ -507,6 +507,22 @@ Entonces puedes llamar al método en el contexto del objeto de la siguiente mane
 
 	object.methodname(params);
 
+### Definir métodos dentro de la función constructora
+
+	function displayCar() {
+	  var result = `Un hermoso ${this.year} ${this.make} ${this.model}`;
+	  pretty_print(result);
+	}
+	
+	function Car(make, model, year, owner) {
+	  this.make = make;
+	  this.model = model;
+	  this.year = year;
+	  this.owner = owner;
+	  this.displayCar = displayCar;
+	}
+
+
 
 ## Constructor
 
