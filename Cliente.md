@@ -213,6 +213,24 @@ Las clases de javascript son una mejora sintáctica sobre la herencia basada en 
 las clases no introduce un nuevo modelo de herencia orientada a objetos en JavaScript. Las clases de JavaScript proveen 
 una sintaxis mucho más clara y simple para crear objetos y lidiar con la herencia.
 
+9.2 Clases vs. Prototipos
+
+Los lenguajes orientados a objetos basados en clases como Java o C++, se basan en el concepto de dos entidades distintas: la clase y las instancias. Un lenguaje basado en prototipos, como JavaScript, no hace esta distinción: simplemente maneja
+objetos. Este tipo de lenguajes tiene la noción de objetos prototipo, objetos usados como platilla para obtener las 
+propiedades iniciales de un objeto. Cualquier objeto puede especificar su propias propieades, tanto en el momento que los
+creamos como en tiempo de ejecución. Además, cualquier objeto puede asociarse como prototipo a otro objeto, permitiendo 
+compartir todas sus propiedades.
+
+En Javascript:
+
+- Todos los objetos son instancias
+- Las clases se definen y crean con las funciones constructoras.
+- Un objeto se instancia con el operador new.
+- La estructura de clases se crea asignando un objeto como prototipo.
+- La herencia de propiedades se realiza a través de la cadena de prototipos.
+- La función constructora o el prototipo especifican unas propiedades iniciales. Se pueden añadir o eliminar estas
+propiedades en tiempo de ejecución, en un objeto concreto o a un conjunto de objetos.
+
 ### Declaración de clases
 
 	class Rectangulo {
@@ -397,27 +415,65 @@ La palabra clave super es usada para llamar funciones del objeto padre.
 
 ## Objetos
 
-### Object.method
 
-#### Object.isFrozen()
+[Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects#herencia)
 
-El método `Object.isFrozen(obj)` determina si un objeto está congelado.
+### Creación de nuevos objetos
 
-Un objeto está congelado si y solo si no es extendible, todas sus propiedades son no-configurables, y todos los datos de sus propiedades no tienen capacidad de escritura.
+Opciones: iniciadores de objeto,función constructora y Object.create
 
-#### Object.seal()
+#### Uso de iniciadores de objeto
 
-El método `Object.seal(obj)` sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas
-las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en
-tanto en cuanto dichas propiedades sean de escritura.
+El uso de iniciadores de objetos a veces se denomina crear objetos con notación literal.
 
-`Object.isSealed(obj)`
+	var obj = { property_1:   value_1,   // property_# puede ser un identificador...
+		    2:            value_2,   // o un número...
+		    // ...,
+		    'property n': value_n }; // o una cadena
 
-#### Object.keys
+Los objetos se crean como si se hiciera una llamada a new Object(); es decir, los objetos hechos a partir de expresiones
+literales de objeto son instancias de Object.
 
-#### Object.values
+También puedes utilizar iniciadores de objetos para crear arreglos. Consulta arreglos literales.
 
-#### Object.entries
+#### Usar una función constructora
+
+Pasos:
+
+1. Definir el tipo de objeto escribiendo una función constructora. Existe una fuerte convención, con buena razón, para utilizar en mayúscula la letra inicial.
+
+		function Car(make, model, year) {
+		  this.make = make;
+		  this.model = model;
+		  this.year = year;
+		}
+
+2. Crear una instancia del objeto con el operador new.
+
+		var mycar = new Car('Eagle', 'Talon TSi', 1993);
+
+Puedes crear cualquier número de objetos Car con las llamadas a new. Por ejemplo,
+
+	var kenscar = new Car('Nissan', '300ZX', 1992);
+	var vpgscar = new Car('Mazda', 'Miata', 1990);
+
+#### Usar el método Object.create
+
+Te permite elegir el prototipo del objeto que deseas crear, sin tener que definir una función constructora.
+
+	var Animal = {
+	  type: 'Invertebrates', // Valor predeterminado de las propiedades
+	  displayType: function() {  // Método que mostrará el tipo de Animal
+	    console.log(this.type);
+	  }
+	};
+
+	// Crea un nuevo tipo de animal llamado animal1
+	var animal1 = Object.create(Animal);
+	
+	var fish = Object.create(Animal);
+	fish.type = 'Fishes';
+
 
 ### Constructor
 
@@ -440,8 +496,6 @@ tanto en cuanto dichas propiedades sean de escritura.
 	console.log(obj); // { a: 1, b: 2, c: 3 }
 	console.log(o1);  // { a: 1, b: 2, c: 3 }, target object itself is changed.
 
-
-[Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects#herencia)
 
 `var myObject = new Object()`
 
@@ -472,10 +526,14 @@ propiedad color del objeto car1.
 
 ### Herencia
 
+[Herencia](https://developer.mozilla.org/es/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+
 En lo que a herencia se refiere, JavaScript sólo tiene una estructura: objetos. 
 Cada objeto tiene una propiedad privada (referida como su [[Prototype]]) que mantiene un enlace a otro objeto llamado su prototipo. Ese objeto prototipo tiene su propio prototipo, y así sucesivamente hasta que se alcanza un objeto cuyo prototipo es null.
 Por definición, null no tiene prototipo, y actúa como el enlace final de esta cadena de prototipos.
 Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la cabeza de la cadena de prototipos.
+
+
 
 #### Heredando propiedades
 
@@ -501,7 +559,7 @@ Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la
 
 `this`: En nuestra función nos referimos al Objeto con `this`.
 
-SUBPROPIEDADES
+### SUBPROPIEDADES
 
 	const myObject = {
 
@@ -528,7 +586,7 @@ SUBPROPIEDADES
 		
 `obj.propiedad.subpropiedad`
 
-NESTED ARRAYS
+### NESTED ARRAYS
 
 	const ourPets = [
 	
@@ -567,14 +625,35 @@ NESTED ARRAYS
 	
 	ourPets[0].names[1]
 
+### Object.method
 
-### Comillas invertidas \`\`**
+#### Object.isFrozen()
+
+El método `Object.isFrozen(obj)` determina si un objeto está congelado.
+
+Un objeto está congelado si y solo si no es extendible, todas sus propiedades son no-configurables, y todos los datos de sus propiedades no tienen capacidad de escritura.
+
+#### Object.seal()
+
+El método `Object.seal(obj)` sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas
+las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en
+tanto en cuanto dichas propiedades sean de escritura.
+
+`Object.isSealed(obj)`
+
+#### Object.keys
+
+#### Object.values
+
+#### Object.entries
+
+## Comillas invertidas \`\`**
 
       Ejemplo: const userInfo = `User info: ${name} ${surname} ${telephone}`;
 
 
 
-Instalar Node.js
+## Instalar Node.js
 
     Node.js es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor
     
@@ -582,7 +661,7 @@ Instalar Node.js
     
     a eventos y basado en el motor V8 de Google.
     
-NPM
+## NPM
 
 En la terminal de un proyecto:
 
@@ -616,7 +695,7 @@ Personalizar reglas:
             "link": "npx eslint . --ext .js"
             "link-fix": "npx eslint . --ext .js --fix"
 
-**Instalar Extensión Eslint**
+## Instalar Extensión Eslint
 
 Extensión Live Server de Ritwick Dey para actualizar la página html automáticamente.
 
