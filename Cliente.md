@@ -3,7 +3,7 @@
 `"use strict"`; Define que el código JavaScript debe ejecutarse en "modo estricto".
 Con el modo estricto, no puede, por ejemplo, usar variables no declaradas.
 
-## Desestructuración
+# Desestructuración
 
 [Desestructuración](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
@@ -173,7 +173,7 @@ Esto desempaca el id, displayName y firstName del objeto user y los imprime.
 	});
 
 
-## Notas importantes
+# Notas importantes
 
 ### window.onload
 Como el código Javascript es ejecutado antes de que la etiqueta body HTML sea cargada, document.body es null.
@@ -204,7 +204,7 @@ Soluciona el problema de que la función se ejecute sin llamarla.
 [Ejemplo](https://es.stackoverflow.com/questions/345390/porque-sucede-esto-no-entiendo-addeventlistenerclick-se-ejecuta-auto)
 [Ejemplo2](https://es.stackoverflow.com/questions/301517/la-funcion-en-onclick-se-ejecuta-sin-hacer-click)
 
-## Clases
+# Clases
 
 
 [Clases](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
@@ -413,16 +413,15 @@ La palabra clave super es usada para llamar funciones del objeto padre.
 	}
 
 
-## Objetos
-
+# Objetos
 
 [Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects#herencia)
 
-### Creación de nuevos objetos
+## Creación de nuevos objetos
 
-Opciones: iniciadores de objeto,función constructora y Object.create
+Opciones: iniciadores de objeto, función constructora y Object.create
 
-#### Uso de iniciadores de objeto
+### Uso de iniciadores de objeto
 
 El uso de iniciadores de objetos a veces se denomina crear objetos con notación literal.
 
@@ -436,7 +435,7 @@ literales de objeto son instancias de Object.
 
 También puedes utilizar iniciadores de objetos para crear arreglos. Consulta arreglos literales.
 
-#### Usar una función constructora
+### Usar una función constructora
 
 Pasos:
 
@@ -457,7 +456,7 @@ Puedes crear cualquier número de objetos Car con las llamadas a new. Por ejempl
 	var kenscar = new Car('Nissan', '300ZX', 1992);
 	var vpgscar = new Car('Mazda', 'Miata', 1990);
 
-#### Usar el método Object.create
+### Usar el método Object.create
 
 Te permite elegir el prototipo del objeto que deseas crear, sin tener que definir una función constructora.
 
@@ -475,18 +474,18 @@ Te permite elegir el prototipo del objeto que deseas crear, sin tener que defini
 	fish.type = 'Fishes';
 
 
-### Constructor
+## Constructor
 
-### Unir objetos 
+## Unir objetos 
 
-#### Con spread operator
+### Con spread operator
 
 	const marcas1 = {'a': 'Fiat', 'b': 'Seat'};
 	const marcas2 = {'c': 'Renault'};
 	const marcas3 = {'d': 'Ford'};
 	const marcasFinal = {...marcas1, ...marcas1, ...marcas1};
 
-#### Con assign
+### Con assign
 
 	var o1 = { a: 1 };
 	var o2 = { b: 2 };
@@ -513,7 +512,7 @@ Te permite elegir el prototipo del objeto que deseas crear, sin tener que defini
 	
 array = [{(obj)}, {(obj)}]
 
-### Definición de las propiedades de un tipo de objeto
+## Definición de las propiedades de un tipo de objeto
 
 Puedes agregar una propiedad a un tipo de objeto definido previamente mediante el uso de la propiedad prototype. 
 Esto define una propiedad que es compartida por todos los objetos del tipo especificado, en lugar de por una sola instancia
@@ -524,7 +523,7 @@ propiedad color del objeto car1.
 	car1.color = 'black';
 
 
-### Herencia
+## Herencia
 
 [Herencia](https://developer.mozilla.org/es/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
@@ -538,7 +537,7 @@ Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la
 #### Heredando propiedades
 
 
-### Métodos
+## Métodos
 
 `objectName.methodname = functionName;`
 
@@ -586,7 +585,7 @@ Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la
 		
 `obj.propiedad.subpropiedad`
 
-### NESTED ARRAYS
+## NESTED ARRAYS
 
 	const ourPets = [
 	
@@ -625,15 +624,15 @@ Casi todos los objetos en JavaScript son instancias de Object que se sitúa a la
 	
 	ourPets[0].names[1]
 
-### Object.method
+## Object.method
 
-#### Object.isFrozen()
+### Object.isFrozen()
 
 El método `Object.isFrozen(obj)` determina si un objeto está congelado.
 
 Un objeto está congelado si y solo si no es extendible, todas sus propiedades son no-configurables, y todos los datos de sus propiedades no tienen capacidad de escritura.
 
-#### Object.seal()
+### Object.seal()
 
 El método `Object.seal(obj)` sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas
 las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en
@@ -641,19 +640,19 @@ tanto en cuanto dichas propiedades sean de escritura.
 
 `Object.isSealed(obj)`
 
-#### Object.keys
+### Object.keys
 
-#### Object.values
+### Object.values
 
-#### Object.entries
+### Object.entries
 
-## Comillas invertidas \`\`**
+# Comillas invertidas \`\`**
 
       Ejemplo: const userInfo = `User info: ${name} ${surname} ${telephone}`;
 
 
 
-## Instalar Node.js
+# Instalar Node.js
 
     Node.js es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor
     
@@ -661,7 +660,7 @@ tanto en cuanto dichas propiedades sean de escritura.
     
     a eventos y basado en el motor V8 de Google.
     
-## NPM
+# NPM
 
 En la terminal de un proyecto:
 
@@ -695,7 +694,7 @@ Personalizar reglas:
             "link": "npx eslint . --ext .js"
             "link-fix": "npx eslint . --ext .js --fix"
 
-## Instalar Extensión Eslint
+# Instalar Extensión Eslint
 
 Extensión Live Server de Ritwick Dey para actualizar la página html automáticamente.
 
@@ -706,7 +705,7 @@ Una vez instalada, podemos pulsar el botón de abajo a la derecha que pone "Go l
 
 Devuelve un número entre max y min, incluyéndolos
 
-## DOM
+# DOM
 
 Document object mode
 
@@ -729,7 +728,7 @@ Por ejemplo, el DOM de W3C especifica que el método getElementsByTagName en el 
 
 
 
-## BOM
+# BOM
         
 Browser Object Model
         
@@ -743,7 +742,7 @@ La propiedad de sólo lectura localStorage te permite acceder al objeto local St
 
 window.localStorage.getItem()
         
-## Recursión
+# Recursión
 
 Recursión es cuando una función sigue llamándose a sí misma, hasta que ya no tiene que hacerlo.
 
@@ -953,9 +952,9 @@ Esto es lo que sucede:
 
 
 
-## Expresiones Regulares    RegExp
+# Expresiones Regulares    RegExp
 
-### Web
+## Web
 
 [regex101.com](https://regex101.com/)
 
@@ -966,7 +965,7 @@ Normalmente  son una constante:
     const expReg = / ___ /
     const expReg = RegExp (" ___ ")
     
-### Búsqueda de coincidencias
+## Búsqueda de coincidencias
 
 El método `exec()` ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. 
 
@@ -988,17 +987,17 @@ El método filter
 
     arr.filter (elem => elem.length <= 3)
 
-### Mensaje de error
+## Mensaje de error
 
 El método `console.assert()` escribe un mensaje de error si la  assertion es `false`. Si la aserción es `true`, nada ocurre. 
 
-### Aserciones
+## Aserciones
 
 `^` Coincide con el comienzo de la entrada.
 
 `$` Coincide con el final de la entrada.
 
-### Clases de caracteres
+## Clases de caracteres
 
 `\w  `  Equivale a [A-Za-z0-9_] Busca cualquier caracter alfanumérico del alfabeto latino básico,
 
@@ -1014,7 +1013,7 @@ El método `console.assert()` escribe un mensaje de error si la  assertion es `f
 
 `.`     Cualquier caracter
 
-### Cuantificadores
+## Cuantificadores
 
 `x{n}` Donde "n" es un número entero positivo, concuerda exactamente con "n" apariciones del elemento "x" anterior.
 
@@ -1026,7 +1025,7 @@ El método `console.assert()` escribe un mensaje de error si la  assertion es `f
 
 `+` Uno o más
 
-### Ejemplos
+## Ejemplos
 
 `^(\d{3}\s){2}\d{3}$`  Coincide con  123-456-789
 
@@ -1055,7 +1054,7 @@ const comprobarRegExp = () => {
     const expReg = RegExp("")
 
 
-## Porquería de freecodecamp
+# Porquería de freecodecamp
 
 Javascript
 Enlazar a html	<script src="./script.js"></script>
