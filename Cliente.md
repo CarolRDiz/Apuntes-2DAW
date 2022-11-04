@@ -239,15 +239,8 @@ propiedades en tiempo de ejecución, en un objeto concreto o a un conjunto de ob
 	    this.ancho = ancho;
 	  }
 	}
-
-### Alojamiento
-
-Una importante diferencia entre las declaraciones de funciones y las declaraciones de clases es que las declaraciones de funciones son alojadas y las declaraciones de clases no lo son. En primer lugar necesitas declarar tu clase y luego acceder a ella, de otro modo el ejemplo de código siguiente arrojará un ReferenceError:
-
-	const p = new Rectangle(); // ReferenceError
-
-	class Rectangle {}
-### Expresiones de clases
+	
+#### Expresiones de clases
 
 Una expresión de clase es otra manera de definir una clase. Las expresiones de clase pueden ser nombradas o anónimas. El nombre dado a la expresión de clase nombrada es local dentro del cuerpo de la misma.
 
@@ -271,6 +264,15 @@ Una expresión de clase es otra manera de definir una clase. Las expresiones de 
 	};
 	console.log(Rectangulo.name);
 	// output: "Rectangulo2"
+
+### Alojamiento
+
+Una importante diferencia entre las declaraciones de funciones y las declaraciones de clases es que las declaraciones de funciones son alojadas y las declaraciones de clases no lo son. En primer lugar necesitas declarar tu clase y luego acceder a ella, de otro modo el ejemplo de código siguiente arrojará un ReferenceError:
+
+	const p = new Rectangle(); // ReferenceError
+
+	class Rectangle {}
+
 
 ### Constructor
 
