@@ -522,6 +522,41 @@ Entonces puedes llamar al método en el contexto del objeto de la siguiente mane
 	  this.displayCar = displayCar;
 	}
 
+## Definición de captadores (getters) y establecedores (setters)
+
+1. Usando iniciadores de objeto:
+
+		var objeto = {
+		  a: 7,
+		  get getB() {
+		    return this.a + 1;
+		  },
+		  set setA(x) {
+		    this.a = x / 2;
+		  }
+		};
+
+		console.log (objeto.a); // 7
+		console.log (objeto.getB); // 8 <-- En este punto se inicia el método get b().
+		objeto.setA = 50;         // <-- En este punto se inicia el método set c(x)
+		console.log(objeto.a); // 25
+
+2. Usando el método Object.defineProperties:
+
+Si más tarde necesitas agregar captadores y establecedores — porque no lo escribiste en el objeto prototipo o particular — entonces la segunda forma es la única forma posible.
+
+El primer parámetro de este método es el objeto sobre el que se quiere definir el captador o establecedor.
+
+	var o = { a: 0 };
+
+	Object.defineProperties(o, {
+	    'b': { get: function() { return this.a + 1; } },
+	    'c': { set: function(x) { this.a = x / 2; } }
+	});
+
+	o.c = 10; // Ejecuta el establecedor, que asigna 10/2 (5) a la propiedad 'a'
+	console.log(o.b); // Ejecuta el captador, que produce un + 1 o 6
+
 
 ## Unir objetos 
 
