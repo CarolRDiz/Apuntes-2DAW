@@ -7,15 +7,67 @@ Propiedades para el padre (Grid Container):
 display : grid | inline-grid
 grid-template-columns: <track-size> <line-name>
 grid-template-rows: <track-size> <line-name>
-    
-    <track-size> – can be a length, a percentage, or a fraction of the free space in the grid using the `fr` unit.
-    <line-name> – an arbitrary name of your choosing
-        
-    Ejemplos:
-        
-        grid-template-columns: 
-        
+grid-template-areas: "<grid-area-name> | . | none | ..."
+                    "<grid-area-name> | . | none | ..."
+ 
+## grid-template-columns / grid-template-rows
+- <track-size> – puede ser una longitud, un porcentaje,o una fracción de espacio vacío en el grid usando la unidad `fr` .
+- <line-name> – el nombre que quieras para la fila o columna
 
+``` css
+grid-template-columns: 100px 1fr; // Una columna de 100px y otra que ocupa lo que queda de grid.
+    
+grid-template-columns:[nombrecolumna1] 100px [nombrecolumna2] 50px; // Una columa de 100px que se 
+//llama nombrecolumna1 y otra de 50px llamada nombrecoluma2.
+
+//varios nombres
+grid-template-columns:[primernombre segundonombre] 100px [nombrecolumna2] 50px; // Una columa de 100px que
+//tiene dos nombres y otra de 50px llamada nombrecoluma2.
+    
+//repeat
+grid-template-columns: repeat(3, 200px); //repeat repite columnas, en este caso son 3 columnas de 200px
+
+//fr fracciones
+grid-template-columns: 1fr 1fr 1fr; // el grid se divide en tres columnas del mismo tamaño, ocupando todo el grid
+```
+## grid-template-areas
+grid-template-areas: "<grid-area-name> | . | none | ..."
+                    "<grid-area-name> | . | none | ..."
+                    "..."
+    <grid-area-name> – nombre del grid area establecido con grid-area
+    . – una celda del grid vacía
+    none – ninguna grid area especificada
+            
+Ejemplo:
+    
+``` css
+.item-a {
+  grid-area: header;
+}
+.item-b {
+  grid-area: main;
+}
+.item-c {
+  grid-area: sidebar;
+}
+.item-d {
+  grid-area: footer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}
+```
+![Resultado del grid-template-areas](https://css-tricks.com/wp-content/uploads/2018/11/dddgrid-template-areas.svg)
+
+## grid-template
+        
 Ejemplo:
 
     <div class="contenedor">
