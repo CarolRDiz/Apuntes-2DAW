@@ -534,7 +534,7 @@ Entonces puedes llamar al método en el contexto del objeto de la siguiente mane
 		  set setA(x) {
 		    this.a = x / 2;
 		  }
-		};
+		}; 
 
 		console.log (objeto.a); // 7
 		console.log (objeto.getB); // 8 <-- En este punto se inicia el método get b().
