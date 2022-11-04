@@ -1,6 +1,7 @@
 # GRID
 
 [GRID](https://css-tricks.com/snippets/css/complete-guide-grid/)
+[GRID_esp](https://lenguajecss.com/css/maquetacion-y-colocacion/grid-css/)
 
 Propiedades para el padre (Grid Container):
 
@@ -9,7 +10,8 @@ grid-template-columns: <track-size> <line-name>
 grid-template-rows: <track-size> <line-name>
 grid-template-areas: "<grid-area-name> | . | none | ..."
                     "<grid-area-name> | . | none | ..."
- 
+grid-template: none | <grid-template-rows> / <grid-template-columns>;
+  
 ## grid-template-columns / grid-template-rows
 - <track-size> – puede ser una longitud, un porcentaje,o una fracción de espacio vacío en el grid usando la unidad `fr` .
 - <line-name> – el nombre que quieras para la fila o columna
@@ -18,16 +20,16 @@ grid-template-areas: "<grid-area-name> | . | none | ..."
 grid-template-columns: 100px 1fr; // Una columna de 100px y otra que ocupa lo que queda de grid.
     
 grid-template-columns:[nombrecolumna1] 100px [nombrecolumna2] 50px; // Una columa de 100px que se 
-//llama nombrecolumna1 y otra de 50px llamada nombrecoluma2.
+// llama nombrecolumna1 y otra de 50px llamada nombrecoluma2.
 
-//varios nombres
+// varios nombres
 grid-template-columns:[primernombre segundonombre] 100px [nombrecolumna2] 50px; // Una columa de 100px que
-//tiene dos nombres y otra de 50px llamada nombrecoluma2.
+// tiene dos nombres y otra de 50px llamada nombrecoluma2.
     
-//repeat
+// repeat
 grid-template-columns: repeat(3, 200px); //repeat repite columnas, en este caso son 3 columnas de 200px
 
-//fr fracciones
+// fr fracciones
 grid-template-columns: 1fr 1fr 1fr; // el grid se divide en tres columnas del mismo tamaño, ocupando todo el grid
 ```
 ## grid-template-areas
@@ -67,7 +69,33 @@ Ejemplo:
 ![Resultado del grid-template-areas](https://css-tricks.com/wp-content/uploads/2018/11/dddgrid-template-areas.svg)
 
 ## grid-template
-        
+Atajo para establecer grid-template-rows, grid-template-columns, y grid-template-areas en una sola declaración.
+      
+grid-template: none | <grid-template-rows> / <grid-template-columns>;
+      
+      none – establece las tres propiedades a sus valores iniciales.
+      
+Ejemplos:
+
+      ```css
+      .container {
+        grid-template:
+          [row1-start] "header header header" 25px [row1-end]
+          [row2-start] "footer footer footer" 25px [row2-end]
+          / auto 50px auto;
+      }
+      
+      // equivalente a:
+      
+      .container {
+        grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
+        grid-template-columns: auto 50px auto;
+        grid-template-areas: 
+          "header header header" 
+          "footer footer footer";
+      }
+      ```
+      
 Ejemplo:
 
     <div class="contenedor">
