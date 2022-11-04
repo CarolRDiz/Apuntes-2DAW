@@ -349,6 +349,8 @@ La palabra clave extends es usada en declaraciones de clase o expresiones de cla
 	    console.log(this.nombre + ' ladra.');
 	  }
 	}
+	
+
 
 Fijarse que las clases no pueden extender objectos regulares (literales). Si se quiere heredar de un objecto regular, se debe user Object.setPrototypeOf()::
 
