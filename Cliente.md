@@ -1001,7 +1001,48 @@ Esto es lo que sucede:
 ![recursion_factorial](imagenes/recursividad_fun_factorial.png)
 
 
+4. bauuuba
 
+```javascript
+
+function bauuuba(n) {
+if (n < 1) {
+    return '';
+} else {
+    var str = bauuuba(n - 1);
+    str = str +'bauuuba ';
+    return str;
+}
+}
+
+function bauuuba(2) {
+  if (2 < 1) {
+      return '';
+  } else {
+      var str = bauuuba(2 - 1);
+		    function bauuuba(1) {
+		      if (1 < 1) {
+			  return '';
+		      } else {
+			  var str = bauuuba(1 - 1);
+					function bauuuba(0) {
+					  if (0 < 1) {
+					      return '';
+					  } else {
+					      var str = bauuuba(0 - 1);
+					      str = str +'bauuuba ';
+					      return str;
+					  }
+					  }
+			  str = str +'bauuuba ';
+			  return str;
+		      }
+		      }
+      str = str +'bauuuba ';
+      return str;
+  }
+  }
+```
 
 # Expresiones Regulares    RegExp
 
