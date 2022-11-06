@@ -821,13 +821,15 @@ Dado el número 5, la salida será:
     
 Esta función con recursión será:
 
-    function cuentaAtras (numero) {
-        if (numero === 0) {
-            return; // si es 0 no devuelve ningún valor
-        }
-        console.log(numero);
-        return cuentaAtras(numero - 1);
-    };
+```javascript
+function cuentaAtras (numero) {
+if (numero === 0) {
+    return; // si es 0 no devuelve ningún valor
+}
+console.log(numero);
+return cuentaAtras(numero - 1);
+};
+```
 
 Esto es lo que sucede:
 
@@ -840,32 +842,33 @@ Esto es lo que sucede:
     7// No, entonces imprime 4 en la consola.
     8// Repite hasta que la entrada sea 0, y asi la función deja de llamarse a si misma cuando lleg al caso base (numero === 0).
     
-    function cuentaAtras (3) {
-        if (numero === 0) {
-            return; 
-        }
-        console.log(3);
-        return cuentaAtras(3 - 1);
-                  cuentaAtras (2) {
-                    if (numero === 0) {
-                        return; 
-                    }
-                    console.log(2);
-                    return cuentaAtras(2 - 1);
-                              cuentaAtras (1) {
-                                if (numero === 0) {
-                                    return; 
-                                }
-                                console.log(1);
-                                return cuentaAtras(1 - 1);
-                                          cuentaAtras (0) {
-                                            if (numero === 0) {
-                                                return; 
-                                            }
-                         //no se ejecuta    console.log(1);
-                         //no se ejecuta    return cuentaAtras(1 - 1);
-    };
-    
+```javascript
+function cuentaAtras (3) {
+if (numero === 0) {
+    return; 
+}
+console.log(3);
+return cuentaAtras(3 - 1);
+	  cuentaAtras (2) {
+	    if (numero === 0) {
+		return; 
+	    }
+	    console.log(2);
+	    return cuentaAtras(2 - 1);
+		      cuentaAtras (1) {
+			if (numero === 0) {
+			    return; 
+			}
+			console.log(1);
+			return cuentaAtras(1 - 1);
+				  cuentaAtras (0) {
+				    if (numero === 0) {
+					return; 
+				    }
+		 //no se ejecuta    console.log(1);
+		 //no se ejecuta    return cuentaAtras(1 - 1);
+};
+```
 
 2. Cuenta regresiva desde un número dado hasta el número más pequeño, restando 1 cada vez que pasa por el bucle, pero devolviendo un array.
 
