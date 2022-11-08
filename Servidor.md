@@ -1,3 +1,22 @@
+# Laravel
+
+[Crear proyecto](https://www.youtube.com/watch?v=8vODYn4xFOw)
+
+Para abrir el servidor desde el navegador con localhost:
+    
+    php artisan serve
+    
+Al abrir el servidor podemos ir al archivo que queramos:
+
+    http://localhost:8000/login
+    
+
+
+
+cd example-app
+ 
+php artisan serve
+
 # JSON
 
 json_decode()
