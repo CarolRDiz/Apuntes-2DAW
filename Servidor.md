@@ -1,3 +1,9 @@
+# linux: Matar proceso en un puerto específico
+
+sudo netstat -tupln
+
+sudo kill -15 PID
+
 # Laravel
 
 [Crear proyecto](https://www.youtube.com/watch?v=8vODYn4xFOw)
@@ -9,13 +15,42 @@ Para abrir el servidor desde el navegador con localhost:
 Al abrir el servidor podemos ir al archivo que queramos:
 
     http://localhost:8000/login
+
+Comando necesario para los demás:
+
+    ./vendor/bin/sail up
     
+./vendor/bin/sail artisan migrate
 
+## Rutas
 
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-cd example-app
- 
-php artisan serve
+`'/'` -> el archivo indicado en la URL. Ejemplos: '/inicio' , '/listado'
+`view('welcome')` -> view muestra el archivo 'welcome', cuya ruta es resources/views/welcome.blade.php
+`.blade.php` -> tipo de archivo
+
+### use
+
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+            ->name('login');
+Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+            ->name('password.confirm');
+
+### Middleware
+
+Mecanismo para inspeccionar y filtrar peticiones HTTP
+Por ejemplo, puede verificar que el usuario esté autentificado. Si no lo está, middleware lo redirijirá a la página de login.
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 # JSON
 
