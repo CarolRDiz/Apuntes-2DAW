@@ -1,3 +1,9 @@
+# INDICE
+
+- [Laravel](#laravel)
+- [PHP](#php)
+
+
 # linux: Matar proceso en un puerto específico
 
 sudo netstat -tupln
@@ -23,6 +29,8 @@ Comando necesario para los demás:
 ./vendor/bin/sail artisan migrate
 
 ## Rutas
+
+    use Illuminate\Support\Facades\Route;
 
     Route::get('/', function () {
         return view('welcome');
