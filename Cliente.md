@@ -180,7 +180,7 @@ Como el código Javascript es ejecutado antes de que la etiqueta body HTML sea c
 Ejecutar el código dentro de la función window.load soluciona este problema.
 
 	window.onload = function() {
-
+		
 	};
 	
 Ejemplo:
