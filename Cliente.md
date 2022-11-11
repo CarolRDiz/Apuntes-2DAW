@@ -1,4 +1,10 @@
-## Use strict
+# Contenidos
+
+- [Clases](#clases)
+- [Desestructuración](#desestructuración)
+- [DOM](#dom)
+
+# Use strict
 
 `"use strict"`; Define que el código JavaScript debe ejecutarse en "modo estricto".
 Con el modo estricto, no puede, por ejemplo, usar variables no declaradas.
@@ -776,8 +782,49 @@ Por ejemplo, el DOM de W3C especifica que el método getElementsByTagName en el 
     // paragraphs[0] es el primer elemento <p>
     // paragraphs[1] es el segundo elemento <p>, etc.
     alert (paragraphs [0].nodeName);
+    
+## Transversing de DOM
+
+### Listar los nodos hijos
+
+`.childNodes` // Considera los saltos de línea como nodos. Sucio.
+`.children` // devuelve un array
 
 
+## Modificar css
+
+Propiedad CSS : backgroud-color -> Javascript: backgroundColor
+
+element.style.propiedad = "gfdgsd" //No es una buena práctica.
+
+Lo ideal es cambiar las clases.
+
+### Añadir y modificar clases
+
+.classList.add("nombre_clase","...")
+
+## Modificar contenidos
+
+### Métodos de Document
+
+### Métodos de Node
+
+`textContent`
+
+```javascript
+<div id="divA">This is <span>some</span> text!</div>
+
+let text = document.getElementById('divA').textContent;
+// The text variable is now: 'This is some text!'
+document.getElementById('divA').textContent = 'This text is different!';
+// The HTML for divA is now:
+// <div id="divA">This text is different!</div>
+```
+
+### Métodos de Element
+
+`innerHTML`
+`innerText`
 
 # BOM
         
