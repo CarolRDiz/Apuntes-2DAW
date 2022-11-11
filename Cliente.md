@@ -3,6 +3,10 @@
 - [Clases](#clases)
 - [Desestructuración](#desestructuración)
 - [DOM](#dom)
+	- [Transversing de DOM](#transversing-de-dom)
+	- [Modificar CSS](#modificar-css)
+
+---
 
 # Use strict
 
@@ -16,24 +20,30 @@ Con el modo estricto, no puede, por ejemplo, usar variables no declaradas.
 La sintaxis de desestructuración es una expresión de JavaScript que permite desempacar valores de arreglos o propiedades 
 de objetos en distintas variables.
 
-	const x = [1, 2, 3, 4, 5];
-	const [y, z] = x;
-	console.log(y); // 1
-	console.log(z); // 2
+```javascript
+const x = [1, 2, 3, 4, 5];
+const [y, z] = x;
+console.log(y); // 1
+console.log(z); // 2
+```
 
 ### Asignación separada de la declaración
 
-	let a, b;
-	[a, b] = [1, 2];
-	console.log(a); // 1
-	console.log(b); // 2
+```javascript
+let a, b;
+[a, b] = [1, 2];
+console.log(a); // 1
+console.log(b); // 2
+```
 	
 ### Valores predeterminados
 
-	let a, b;
-	[a=5, b=7] = [1];
-	console.log(a); // 1
-	console.log(b); // 7
+```javascript
+let a, b;
+[a=5, b=7] = [1];
+console.log(a); // 1
+console.log(b); // 7
+```
 
 ### Intercambio de variables
 
@@ -50,51 +60,61 @@ de objetos en distintas variables.
 
 ### Analizar un arreglo devuelto por una función
 
-	function f() {
-	  return [1, 2];
-	}
+```javascript
+function f() {
+  return [1, 2];
+}
 
-	let a, b;
-	[a, b] = f();
-	console.log(a); // 1
-	console.log(b); // 2
+let a, b;
+[a, b] = f();
+console.log(a); // 1
+console.log(b); // 2
+```
 
 ### Ignorar algunos valores devueltos
 
-	function f() {
-	  return [1, 2, 3];
-	}
+```javascript
+function f() {
+  return [1, 2, 3];
+}
 
-	const [a, , b] = f();
-	console.log(a); // 1
-	console.log(b); // 3
+const [a, , b] = f();
+console.log(a); // 1
+console.log(b); // 3
 
-	const [c] = f();
-	console.log(c); // 1
+const [c] = f();
+console.log(c); // 1
+```
 
 También puedes ignorar todos los valores devueltos:
 
+```javascript
 	[,,] = f();
+```
 
 ### Asignar el resto de un arreglo a una variable
 
-	const [a, ...b] = [1, 2, 3];
-	console.log(a); // 1
-	console.log(b); // [2, 3]
+```javascript
+const [a, ...b] = [1, 2, 3];
+console.log(a); // 1
+console.log(b); // [2, 3]
+```
 
 ### Desestructuración de objetos
 
 #### Asignación básica
 
-	const user = {
-	    id: 42,
-	    is_verified: true
-	};
+```javascript
+const user = {
+    id: 42,
+    is_verified: true
+};
 
-	const {id, is_verified} = user;
+const {id, is_verified} = user;
 
-	console.log(id); // 42
-	console.log(is_verified); // true
+console.log(id); // 42
+console.log(is_verified); // true
+```
 
 Los paréntesis (...) alrededor de la declaración de asignación son obligatorios cuando se usa la desestructuración de un
 objeto literal sin una declaración.
@@ -106,9 +126,11 @@ bloque y no un objeto literal.
 
 A una variable se le puede asignar su valor con desestructuración separada de su declaración.
 
-	let a, b;
+```javascript
+let a, b;
 
-	({a, b} = {a: 1, b: 2});
+({a, b} = {a: 1, b: 2});
+```
 
 
 #### Asignar a nuevos nombres de variable
@@ -782,13 +804,42 @@ Por ejemplo, el DOM de W3C especifica que el método getElementsByTagName en el 
     // paragraphs[0] es el primer elemento <p>
     // paragraphs[1] es el segundo elemento <p>, etc.
     alert (paragraphs [0].nodeName);
-    
+
+## Insertar elementos
+
+`Document.createElement("elemento")`
+
+`.appendChild()`
+
+`insertBefore(element_que_se_inserta, elemento_de referencia)`
+
+## Eliminar elementos
+
+Dos formas:
+
+1. Desde sí mismo:
+
+`.remove()`
+
+2. Desde su elemento padre:
+
+`.removeChild(...)`
+
 ## Transversing de DOM
 
 ### Listar los nodos hijos
 
 `.childNodes` // Considera los saltos de línea como nodos. Sucio.
 `.children` // devuelve un array
+
+### Transversing de hijo a padre
+
+`.parentElement`
+
+### Transversing de hermanos
+`
+.nextElementSibling`
+`.previousElementSibling`
 
 
 ## Modificar css
@@ -812,7 +863,7 @@ Lo ideal es cambiar las clases.
 `textContent`
 
 ```javascript
-<div id="divA">This is <span>some</span> text!</div>
+<div id="divA">This is some text!</div>
 
 let text = document.getElementById('divA').textContent;
 // The text variable is now: 'This is some text!'
