@@ -1,5 +1,5 @@
 # Contenidos
-
+- [Eventos](#eventos)
 - [Clases](#clases)
 - [Desestructuración](#desestructuración)
 - [DOM](#dom)
@@ -7,6 +7,34 @@
 	- [Modificar CSS](#modificar-css)
 
 ---
+
+# Eventos
+
+`document.addEventListener(evento, funcion)`
+
+Eventos:
+
+`DOMContentLoaded` // Para cuando el documento esté listo.
+
+## Eventos de ratón
+
+- `click`
+- `mouseenter`
+- `mouseout`
+- `mousedown` // Cuando lo presionas
+- `mouseup` // Cuando lo sueltas
+- `dbclick`
+
+## Eventos de teclado
+
+- `keydown`
+- `keyup`
+- `blur` // Al salir del elemento seleccionado, haciendo click fuera o seleccionando otro con el tabulador
+- `copy`
+- `paste`
+- `cut`
+- `input` // Para keydown, keyup, copy, paste, cut
+- 
 
 # Use strict
 
