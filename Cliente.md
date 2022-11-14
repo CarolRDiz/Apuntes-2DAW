@@ -848,13 +848,13 @@ Dos formas:
 
 Propiedad CSS : backgroud-color -> Javascript: backgroundColor
 
-element.style.propiedad = "gfdgsd" //No es una buena práctica.
+`element.style.propiedad` = "gfdgsd" //No es una buena práctica.
 
 Lo ideal es cambiar las clases.
 
 ### Añadir y modificar clases
 
-.classList.add("nombre_clase","...")
+`.classList.add("nombre_clase","...")`
 
 ## Modificar contenidos
 
