@@ -1,5 +1,9 @@
 object-fit
 
+#SCSS
+
+[Organizar los archivos](https://latteandcode.medium.com/c%C3%B3mo-organizar-los-archivos-sass-de-tu-proyecto-c8b02242d95)
+
 # Parcel
 
 [Documentación de Parcel](https://parceljs.org/getting-started/webapp/)
