@@ -34,7 +34,25 @@ Eventos:
 - `paste`
 - `cut`
 - `input` // Para keydown, keyup, copy, paste, cut
+- `submit`
+
+## Eventos de scrolling
+
+`window.addEventListener()`
+
+- `scroll`
 - 
+
+
+## preventDefault
+
+La función recibe como parámetro el evento:
+(e)
+{
+`e.preventDefault()`
+
+`e.stopPropagation()` // Prevenir el bubbling
+}
 
 # Use strict
 
