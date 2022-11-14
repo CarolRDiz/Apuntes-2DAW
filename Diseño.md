@@ -1,3 +1,9 @@
+object-fit
+
+# Parcel
+
+[Documentación de Parcel](https://parceljs.org/getting-started/webapp/)
+
 # GRID
 
 [GRID](https://css-tricks.com/snippets/css/complete-guide-grid/)
@@ -260,10 +266,6 @@ Su valor puede ser una unidad o auto (cuyo valor es el por defecto).
 
 `order` Con order podemos ordenar los elementos.
 
-# GRID
-
-Maquetación en dos planos
-
 # Ancla en html
 ...
 
@@ -351,8 +353,6 @@ Permiten añadir estilos a una parte concreta del documento.
 # Propiedades
 
 `display` : `block` | `inline`| `inline-block` | `flex` | `grid`
-
-
 
 ## Keywords
 
