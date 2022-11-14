@@ -830,6 +830,7 @@ Dos formas:
 ### Listar los nodos hijos
 
 `.childNodes` // Considera los saltos de línea como nodos. Sucio.
+
 `.children` // devuelve un array
 
 ### Transversing de hijo a padre
@@ -837,8 +838,9 @@ Dos formas:
 `.parentElement`
 
 ### Transversing de hermanos
-`
-.nextElementSibling`
+
+`.nextElementSibling`
+
 `.previousElementSibling`
 
 
