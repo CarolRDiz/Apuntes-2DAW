@@ -8,6 +8,10 @@
 
 ---
 
+# MVC
+
+
+
 # Eventos
 
 `document.addEventListener(evento, funcion)`
@@ -15,6 +19,13 @@
 Eventos:
 
 `DOMContentLoaded` // Para cuando el documento esté listo.
+
+## target
+
+`e.target.classList`
+
+La propiedad target de la interfaz del event.currentTarget es una referencia al objeto en el cual se lanzo el evento. Es diferente de
+event.currentTarget donde el controlador de eventos (event handler) es llamado durante la fase de bubbling or capturing del evento.
 
 ## Eventos de ratón
 
