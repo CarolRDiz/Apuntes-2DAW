@@ -1,8 +1,87 @@
+# CONTENIDOS
+
+- [SASS y SCSS](#sass_scss)
+- [Parcel](#parcel)
+- [Grid](#grid)
+- [Metodologías](#metodologias)
+
+---
+
 object-fit
 
-#SCSS
+# SASS SCSS
+
+## Organización
 
 [Organizar los archivos](https://latteandcode.medium.com/c%C3%B3mo-organizar-los-archivos-sass-de-tu-proyecto-c8b02242d95)
+
+    sass/
+    |
+    |– utilities/
+    |   |– _variables.sass    // Variables
+    |   |– _functions.sass    // Funciones
+    |   |– _mixins.sass       // Mixins
+    |
+    |– base/
+    |   |– _reset.sass        // Reset/normalize
+    |   |– _typo.sass   // Tipografías
+    |
+    |– components
+    |   |– _buttons.acss      // Bot
+    |   |– _jumbo.sass     // Jumbo
+    |
+    |– layout/
+    |   |– _navigation.sass   // Navegación
+    |   |– _grid.sass         // Grid
+    |   |– _header.sass       // Header
+    |   |– _footer.sass       // Footer
+    |   |– _forms.sass        // Formularios
+    |
+    |– views/
+    |   |– _home.sass         // Estilos de la página de inicio
+    |   |– _contact.sass      // Estilos de la página de contacto
+    |
+    |– themes/
+    |   |– _theme.sass        // Default theme
+    |   |– _admin.sass        // Admin theme
+    |
+    |– vendors/
+    |   |– _bootstrap.sass    // Bootstrap
+    |   |– _jquery-ui.sass    // jQuery UI
+    |
+    |– main.sass              // Archivo principal
+
+## Variables
+
+    $font-stack: Helvetica, sans-serif;
+    $primary-color: #333;
+
+    body {
+      font: 100% $font-stack;
+      color: $primary-color;
+    }
+
+## Nesting
+
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li { display: inline-block; }
+
+      a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+      }
+    }
+
+## Parciales (Partials)
+
+Los archivos de sass parciales contienen pequeños códigos de CSS que pueden incluirse en otros archivos de Sass. Se nombran empezando por "_" (_partial.scss).
 
 # Parcel
 
