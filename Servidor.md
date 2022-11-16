@@ -6,9 +6,8 @@
 
 # linux: Matar proceso en un puerto específico
 
-sudo netstat -tupln
-
-sudo kill -15 PID
+    sudo netstat -tupln
+    sudo kill -15 PID
 
 # Laravel
 
@@ -30,6 +29,82 @@ Comando necesario para los demás:
     
     ./vendor/bin/sail ...
 
+## Factorias
+
+    use App\Models\User;
+
+    $user = User::factory()->make();
+
+    factory()->make();
+    factory()->create();
+    factory()->count();
+    factory()->suspended();
+    factory()->state();
+    factory()->for()->create();
+    AlgunModelo::factory()->has(OtroModelo::factory()->count(3),'nombre_relacion')->create();
+
+### Fake
+
+Las factorías tienen acceso a la librería PHP Faker, que permite generar varios tipos de datos aleatorios para testear y generar semillas.
+
+### Relaciones de hasMany
+
+Primero, supongamos que nuestra aplicación tiene un modelo App\Models\User y un modelo App\Models\Post. Además, supongamos que el modelo User define 
+una relación hasMany con Post. Podemos crear un usuario que tenga tres instancias utilizando el método `has` proporcionado por las factorias de Laravel. 
+El método `has` acepta una instancia de fábrica:
+
+    use App\Models\Post;
+    use App\Models\User;
+
+    $user = User::$user = User::factory()
+            ->has(Post::factory()->count(3))
+            ->create();
+
+Al pasar un modelo Post al método has, Laravel asumirá que el modelo User debe tener un método posts que defina la relación. Si es necesario, puede especificar explícitamente el nombre de la relación que le gustaría manipular:
+
+    $user = User::factory()
+                ->has(Post::factory()->count(3), 'posts')
+                ->create();
+
+### Relaciones de pertenencia
+
+    factory()->for()->create();
+    
+El método for se puede utilizar para definir el modelo principal al que pertenecen los modelos creados con factory.
+
+Por ejemplo, podemos crear tres instancias del modelo App\Models\Post que pertenezcan a un solo usuario:
+
+    use App\Models\Post;
+    use App\Models\User;
+
+    $posts = Post::factory()
+                ->count(3)
+                ->for(User::factory()->state([
+                    'name' => 'Jessica Archer',
+                ]))
+                ->create();
+                
+Si ya tiene una instancia de modelo principal que debe asociarse con los modelos que está creando, puede pasar la instancia de modelo al método for:
+
+    $user = User::factory()->create();
+
+    $posts = Post::factory()
+                ->count(3)
+                ->for($user)
+                ->create();
+
+### Create
+
+El método de creación crea instancias de modelos y las persiste en la base de datos utilizando el método de guardado de Eloquent:
+
+    use App\Models\User;
+
+    // Create a single App\Models\User instance...
+    $user = User::factory()->create();
+
+    // Create three App\Models\User instances...
+    $users = User::factory()->count(3)->create();
+    
 ## Rutas
 
     use Illuminate\Support\Facades\Route;
