@@ -4,12 +4,20 @@
 - [Parcel](#parcel)
 - [Grid](#grid)
 - [Metodologías](#metodologias)
+- [Responsive](#
 
 ---
+
+# Responsive
+
+[Media Queries](https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries)
+
 
 object-fit
 
 # SASS SCSS
+
+[Documentación](https://sass-lang.com/guide)
 
 ## Organización
 
@@ -82,6 +90,99 @@ object-fit
 ## Parciales (Partials)
 
 Los archivos de sass parciales contienen pequeños códigos de CSS que pueden incluirse en otros archivos de Sass. Se nombran empezando por "_" (_partial.scss).
+
+## Modulos
+
+Los parciales se usan de este modo:
+
+    @use '_parcial.scss';
+
+    .inverse {
+      background-color: parcial.$primary-color;
+      color: white;
+    }
+1. Se importan con use.
+2. Se refieren a sus elementos con el alias del nombre del archivo.
+
+## Mixins
+
+Grupos de declaraciones css reutilizables.
+
+    @mixin theme($theme: DarkGray) {
+      background: $theme;
+      box-shadow: 0 0 1px rgba($theme, .25);
+      color: #fff;
+    }
+
+    .info {
+      @include theme;
+    }
+    .alert {
+      @include theme($theme: DarkRed);
+    }
+    .success {
+      @include theme($theme: DarkGreen);
+    }
+
+`@mixin <nombre_del_mixin>(los parametros que queramos)`
+
+`@include mixin`
+
+## Extends/Inheritance
+
+Nos permite crear un fragmento de estilos que luego podamos reutilizar fácilmente en cualquier componente.
+Para estilos comunes dentro de un componente específico y no para estilos simples.
+
+    %message-shared {
+      border: 1px solid #ccc;
+      padding: 10px;
+      color: #333;
+    }
+
+    // This CSS won't print because %equal-heights is never extended.
+    %equal-heights {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .message {
+      @extend %message-shared;
+    }
+
+    .success {
+      @extend %message-shared;
+      border-color: green;
+    }
+
+    .error {
+      @extend %message-shared;
+      border-color: red;
+    }
+
+    .warning {
+      @extend %message-shared;
+      border-color: yellow;
+    }
+    
+    //En %equal-heights el css nunca es generado porque no es extendido.
+
+Diferencias entre MIXIN y EXTENDS:
+
+- Una de las mayores diferencias con los Extends, es que los Mixins pueden recibir argumentos, los cuales te permitirán producir una
+ gran variedad de estilos con unas simples líneas.
+- La impresión en CSS de los Mixins, no es la misma que tienen los Extends. Estos se imprimen separados en cada uno de los lugares 
+donde fueron declarados.
+
+## Operadores
+
+Operadores: +, -, *, math.div() y %
+
+    @use "sass:math";
+
+    article[role="main"] {
+      width: math.div(600px, 960px) * 100%;
+    }
+
 
 # Parcel
 
