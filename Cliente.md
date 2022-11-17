@@ -13,35 +13,6 @@
 
 # Resumen
 
-//Objetos
-```javascript
-var obj = { property_1:   value_1,   // property_# puede ser un identificador...
-		    2:            value_2,   // o un número...
-		    // ...,
-		    'property n': value_n }; // o una cadena
-
-function Car(make, model, year) {
-		  this.make = make;
-		  this.model = model;
-		  this.year = year;
-		}
-
-var mycar = new Car('Eagle', 'Talon TSi', 1993);
-
-var Animal = {
-	  type: 'Invertebrates', // Valor predeterminado de las propiedades
-	  displayType: function() {  // Método que mostrará el tipo de Animal
-	    console.log(this.type);
-	  }
-	};
-
-// Crea un nuevo tipo de animal llamado animal1
-var animal1 = Object.create(Animal);
-
-var fish = Object.create(Animal);
-fish.type = 'Fishes';
-
-```
 Array.some()
 
 # MVC
