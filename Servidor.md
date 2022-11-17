@@ -28,6 +28,51 @@ Comando necesario para los demás:
     ./vendor/bin/sail artisan migrate
     
     ./vendor/bin/sail ...
+    
+## File Storage
+
+[Documentación](https://laravel.com/docs/9.x/filesystem#main-content)
+
+### El disco público
+
+Para archivos de accesibilidad pública.
+
+    Storage::disk('public')->put(...);
+    
+## Cliente HTTP
+
+### Hacer peticiones
+
+    head, get, post, put, patch, and delete
+    
+#### get
+
+Se realiza una petición get a una URL:
+
+    use Illuminate\Support\Facades\Http;
+
+    $response = Http::get('http://example.com');
+   
+El método get devuelve una instancia de Illuminate\Http\Client\Response, que provee una variedad de métodos para inspeccionar la rspuesta:
+
+    $response->body() : string;
+    $response->json($key = null) : array|mixed;
+    $response->object() : object;
+    $response->collect($key = null) : Illuminate\Support\Collection;
+    $response->status() : int;
+    $response->ok() : bool;
+    $response->successful() : bool;
+    $response->redirect(): bool;
+    $response->failed() : bool;
+    $response->serverError() : bool;
+    $response->clientError() : bool;
+    $response->header($header) : string;
+    $response->headers() : array;
+
+Se puede acceder directamente a los datos de la respuesta JSON de este modo:
+
+    return Http::get('http://example.com/users/1')['name'];
+    
 
 ## Factorias
 
@@ -46,6 +91,8 @@ Comando necesario para los demás:
 ### Fake
 
 Las factorías tienen acceso a la librería PHP Faker, que permite generar varios tipos de datos aleatorios para testear y generar semillas.
+
+[Documentación Faker](https://fakerphp.github.io/)
 
 ### Relaciones de hasMany
 
