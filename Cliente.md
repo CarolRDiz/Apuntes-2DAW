@@ -8,9 +8,9 @@
 
 ---
 
+Array.some()
+
 # MVC
-
-
 
 # Eventos
 
