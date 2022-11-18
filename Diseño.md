@@ -4,9 +4,16 @@
 - [Parcel](#parcel)
 - [Grid](#grid)
 - [Metodologías](#metodologias)
-- [Responsive](#
+- [Responsive](#responsive)
 
 ---
+
+# Propiedades de transición
+
+[Documentacion](https://lenguajecss.com/css/animaciones/transiciones/)
+
+Propiedades de transformación
+Propiedades de rotación
 
 # Responsive
 
