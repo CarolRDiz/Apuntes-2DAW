@@ -56,6 +56,12 @@ La vista puede devolverse así en una ruta. También pueden devolverse en contro
     return view('greeting', ['name' => 'James']);
     });
     
+O así:
+
+    use Illuminate\Support\Facades\View;
+
+    return View::make('greeting', ['name' => 'James']);
+    
 Primer argumento de view(): `nombre del archivo`
 
 Segundo argumento de view(): array válido para la vista, contiene las variables y valores asignados.
@@ -64,50 +70,36 @@ Si el archivo está en una carpeta dentro de views:
 
 return view('nombreCarpeta.archivo', ... );
 
-## File Storage
+## Rutas
 
-[Documentación](https://laravel.com/docs/9.x/filesystem#main-content)
+    use Illuminate\Support\Facades\Route;
 
-### El disco público
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-Para archivos de accesibilidad pública.
+`'/'` -> el archivo indicado en la URL. Ejemplos: '/inicio' , '/listado'
 
-    Storage::disk('public')->put(...);
-    
-## Cliente HTTP
+`view('welcome')` -> view muestra el archivo 'welcome', cuya ruta es resources/views/welcome.blade.php
 
-### Hacer peticiones
+### use
 
-    head, get, post, put, patch, and delete
-    
-#### get
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
 
-Se realiza una petición get a una URL:
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+            ->name('login');
+Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+            ->name('password.confirm');
 
-    use Illuminate\Support\Facades\Http;
+### Middleware
 
-    $response = Http::get('http://example.com');
-   
-El método get devuelve una instancia de Illuminate\Http\Client\Response, que provee una variedad de métodos para inspeccionar la rspuesta:
+Mecanismo para inspeccionar y filtrar peticiones HTTP
+Por ejemplo, puede verificar que el usuario esté autentificado. Si no lo está, middleware lo redirijirá a la página de login.
 
-    $response->body() : string;
-    $response->json($key = null) : array|mixed;
-    $response->object() : object;
-    $response->collect($key = null) : Illuminate\Support\Collection;
-    $response->status() : int;
-    $response->ok() : bool;
-    $response->successful() : bool;
-    $response->redirect(): bool;
-    $response->failed() : bool;
-    $response->serverError() : bool;
-    $response->clientError() : bool;
-    $response->header($header) : string;
-    $response->headers() : array;
-
-Se puede acceder directamente a los datos de la respuesta JSON de este modo:
-
-    return Http::get('http://example.com/users/1')['name'];
-    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
 
 ## Factorias
 
@@ -186,37 +178,50 @@ El método de creación crea instancias de modelos y las persiste en la base de 
 
     // Create three App\Models\User instances...
     $users = User::factory()->count(3)->create();
+
+## File Storage
+
+[Documentación](https://laravel.com/docs/9.x/filesystem#main-content)
+
+### El disco público
+
+Para archivos de accesibilidad pública.
+
+    Storage::disk('public')->put(...);
     
-## Rutas
+## Cliente HTTP
 
-    use Illuminate\Support\Facades\Route;
+### Hacer peticiones
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    head, get, post, put, patch, and delete
+    
+#### get
 
-`'/'` -> el archivo indicado en la URL. Ejemplos: '/inicio' , '/listado'
-`view('welcome')` -> view muestra el archivo 'welcome', cuya ruta es resources/views/welcome.blade.php
-`.blade.php` -> tipo de archivo
+Se realiza una petición get a una URL:
 
-### use
+    use Illuminate\Support\Facades\Http;
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
+    $response = Http::get('http://example.com');
+   
+El método get devuelve una instancia de Illuminate\Http\Client\Response, que provee una variedad de métodos para inspeccionar la rspuesta:
 
-Route::get('login', [AuthenticatedSessionController::class, 'create'])
-            ->name('login');
-Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-            ->name('password.confirm');
+    $response->body() : string;
+    $response->json($key = null) : array|mixed;
+    $response->object() : object;
+    $response->collect($key = null) : Illuminate\Support\Collection;
+    $response->status() : int;
+    $response->ok() : bool;
+    $response->successful() : bool;
+    $response->redirect(): bool;
+    $response->failed() : bool;
+    $response->serverError() : bool;
+    $response->clientError() : bool;
+    $response->header($header) : string;
+    $response->headers() : array;
 
-### Middleware
+Se puede acceder directamente a los datos de la respuesta JSON de este modo:
 
-Mecanismo para inspeccionar y filtrar peticiones HTTP
-Por ejemplo, puede verificar que el usuario esté autentificado. Si no lo está, middleware lo redirijirá a la página de login.
-
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    return Http::get('http://example.com/users/1')['name'];
 
 
 # JSON
