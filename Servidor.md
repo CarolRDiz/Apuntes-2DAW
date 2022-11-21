@@ -28,7 +28,42 @@ Comando necesario para los demás:
     ./vendor/bin/sail artisan migrate
     
     ./vendor/bin/sail ...
+
+## Vistas
+
+El nombre del archivo termina en `.blade.php`. Las vistas son archivos Blade template, que contienen tanto html como Blade directives.
+
+
+Variables php:
+
+`{{$variable}}`
+
+`resources/views`
+
+<!-- View stored in resources/views/greeting.blade.php -->
+ 
+    //perfil.blade.php
     
+    <html>
+        <body>
+            <h1>Hello, {{ $name }}</h1>
+        </body>
+    </html>
+
+La vista puede devolverse así en una ruta. También pueden devolverse en controladores.
+
+    Route::get('/', function () {
+    return view('greeting', ['name' => 'James']);
+    });
+    
+Primer argumento de view(): `nombre del archivo`
+
+Segundo argumento de view(): array válido para la vista, contiene las variables y valores asignados.
+
+Si el archivo está en una carpeta dentro de views:
+
+return view('nombreCarpeta.archivo', ... );
+
 ## File Storage
 
 [Documentación](https://laravel.com/docs/9.x/filesystem#main-content)
