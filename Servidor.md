@@ -29,6 +29,38 @@ Comando necesario para los demás:
     
     ./vendor/bin/sail ...
 
+## Rutas
+
+    use Illuminate\Support\Facades\Route;
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+`'/'` -> el archivo indicado en la URL. Ejemplos: '/inicio' , '/listado'
+`view('welcome')` -> view muestra el archivo 'welcome', cuya ruta es resources/views/welcome.blade.php
+`.blade.php` -> tipo de archivo
+
+### use
+
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+            ->name('login');
+Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+            ->name('password.confirm');
+
+### Middleware
+
+Mecanismo para inspeccionar y filtrar peticiones HTTP
+Por ejemplo, puede verificar que el usuario esté autentificado. Si no lo está, middleware lo redirijirá a la página de login.
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 ## Vistas
 
 El nombre del archivo termina en `.blade.php`. Las vistas son archivos Blade template, que contienen tanto html como Blade directives.
@@ -56,12 +88,6 @@ La vista puede devolverse así en una ruta. También pueden devolverse en contro
     return view('greeting', ['name' => 'James']);
     });
     
-O así:
-
-    use Illuminate\Support\Facades\View;
-
-    return View::make('greeting', ['name' => 'James']);
-    
 Primer argumento de view(): `nombre del archivo`
 
 Segundo argumento de view(): array válido para la vista, contiene las variables y valores asignados.
@@ -70,36 +96,87 @@ Si el archivo está en una carpeta dentro de views:
 
 return view('nombreCarpeta.archivo', ... );
 
-## Rutas
+## Controladores
 
-    use Illuminate\Support\Facades\Route;
+Controlador básico:
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    <?php
 
-`'/'` -> el archivo indicado en la URL. Ejemplos: '/inicio' , '/listado'
+    namespace App\Http\Controllers;
 
-`view('welcome')` -> view muestra el archivo 'welcome', cuya ruta es resources/views/welcome.blade.php
+    use App\Models\User;
 
-### use
+    class UserController extends Controller
+    {
+        /**
+         * Show the profile for a given user.
+         *
+         * @param  int  $id
+         * @return \Illuminate\View\View
+         */
+        public function show($id)
+        {
+            return view('user.profile', [
+                'user' => User::findOrFail($id)
+            ]);
+        }
+    }
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
+`show($id)` es un método `userController`
 
-Route::get('login', [AuthenticatedSessionController::class, 'create'])
-            ->name('login');
-Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-            ->name('password.confirm');
+Se puede definir la siguiente **ruta** al método del controlador:
 
-### Middleware
+    use App\Http\Controllers\UserController;
 
-Mecanismo para inspeccionar y filtrar peticiones HTTP
-Por ejemplo, puede verificar que el usuario esté autentificado. Si no lo está, middleware lo redirijirá a la página de login.
+    Route::get('/user/{id}', [UserController::class, 'show']);
+    
+    
+    
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+## File Storage
+
+[Documentación](https://laravel.com/docs/9.x/filesystem#main-content)
+
+### El disco público
+
+Para archivos de accesibilidad pública.
+
+    Storage::disk('public')->put(...);
+    
+## Cliente HTTP
+
+### Hacer peticiones
+
+    head, get, post, put, patch, and delete
+    
+#### get
+
+Se realiza una petición get a una URL:
+
+    use Illuminate\Support\Facades\Http;
+
+    $response = Http::get('http://example.com');
+   
+El método get devuelve una instancia de Illuminate\Http\Client\Response, que provee una variedad de métodos para inspeccionar la rspuesta:
+
+    $response->body() : string;
+    $response->json($key = null) : array|mixed;
+    $response->object() : object;
+    $response->collect($key = null) : Illuminate\Support\Collection;
+    $response->status() : int;
+    $response->ok() : bool;
+    $response->successful() : bool;
+    $response->redirect(): bool;
+    $response->failed() : bool;
+    $response->serverError() : bool;
+    $response->clientError() : bool;
+    $response->header($header) : string;
+    $response->headers() : array;
+
+Se puede acceder directamente a los datos de la respuesta JSON de este modo:
+
+    return Http::get('http://example.com/users/1')['name'];
+    
 
 ## Factorias
 
@@ -178,51 +255,6 @@ El método de creación crea instancias de modelos y las persiste en la base de 
 
     // Create three App\Models\User instances...
     $users = User::factory()->count(3)->create();
-
-## File Storage
-
-[Documentación](https://laravel.com/docs/9.x/filesystem#main-content)
-
-### El disco público
-
-Para archivos de accesibilidad pública.
-
-    Storage::disk('public')->put(...);
-    
-## Cliente HTTP
-
-### Hacer peticiones
-
-    head, get, post, put, patch, and delete
-    
-#### get
-
-Se realiza una petición get a una URL:
-
-    use Illuminate\Support\Facades\Http;
-
-    $response = Http::get('http://example.com');
-   
-El método get devuelve una instancia de Illuminate\Http\Client\Response, que provee una variedad de métodos para inspeccionar la rspuesta:
-
-    $response->body() : string;
-    $response->json($key = null) : array|mixed;
-    $response->object() : object;
-    $response->collect($key = null) : Illuminate\Support\Collection;
-    $response->status() : int;
-    $response->ok() : bool;
-    $response->successful() : bool;
-    $response->redirect(): bool;
-    $response->failed() : bool;
-    $response->serverError() : bool;
-    $response->clientError() : bool;
-    $response->header($header) : string;
-    $response->headers() : array;
-
-Se puede acceder directamente a los datos de la respuesta JSON de este modo:
-
-    return Http::get('http://example.com/users/1')['name'];
-
 
 # JSON
 
