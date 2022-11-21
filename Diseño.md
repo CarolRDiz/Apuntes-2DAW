@@ -8,6 +8,10 @@
 
 ---
 
+# Cosas útiles
+
+[Ícono dentro de un input](https://roelmagdaleno.com/snippets/icono-dentro-de-un-input-usando-html-y-css/)
+
 # Propiedades de transición
 
 [Documentacion](https://lenguajecss.com/css/animaciones/transiciones/)
@@ -334,8 +338,6 @@ Ejemplo:
       grid-column: 3;
       grid-row: 4;
     }
-
-
 
 # Metodologías
 
