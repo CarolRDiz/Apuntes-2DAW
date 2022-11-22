@@ -9,6 +9,10 @@
     sudo netstat -tupln
     sudo kill -15 PID
 
+# Parar todos los contenedores
+
+    docker stop $(docker ps -a -q)
+
 # Laravel
 
 [Crear proyecto](https://www.youtube.com/watch?v=8vODYn4xFOw)
@@ -43,13 +47,13 @@ Comando necesario para los demás:
 
 ### use
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
+    use App\Http\Controllers\Auth\AuthenticatedSessionController;
+    use App\Http\Controllers\Auth\ConfirmablePasswordController;
 
-Route::get('login', [AuthenticatedSessionController::class, 'create'])
-            ->name('login');
-Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-            ->name('password.confirm');
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+                ->name('login');
+    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+                ->name('password.confirm');
 
 ### Middleware
 
@@ -64,7 +68,6 @@ Por ejemplo, puede verificar que el usuario esté autentificado. Si no lo está,
 ## Vistas
 
 El nombre del archivo termina en `.blade.php`. Las vistas son archivos Blade template, que contienen tanto html como Blade directives.
-
 
 Variables php:
 
@@ -129,9 +132,6 @@ Se puede definir la siguiente **ruta** al método del controlador:
     use App\Http\Controllers\UserController;
 
     Route::get('/user/{id}', [UserController::class, 'show']);
-    
-    
-    
 
 ## File Storage
 
