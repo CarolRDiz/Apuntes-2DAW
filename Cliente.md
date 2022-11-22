@@ -28,8 +28,6 @@ Escribir código Javascript:
 
 	{ 'this is treated as JavaScript code' }
 
-ReactDOM.render(JSX, document.getElementById('root'))
-
 Elemento JSX complejo:
 
 	Valid JSX:
@@ -52,6 +50,13 @@ Escribir comentarios:
 
 	{/* Esto es un comentario */}
 
+Renderizar elementos html al DOM:
+
+	ReactDOM.render(componentToRender, targetNode)
+	
+`componentToRender` -> const JSX = <h1>Hello JSX!</h1>;
+
+`targetNode` -> 
 
 # Eventos
 
