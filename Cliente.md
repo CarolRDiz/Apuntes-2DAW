@@ -10,10 +10,14 @@
 	- [Modificar CSS](#modificar-css)
 
 ---
+# Comandos 
 
-# Resumen
+`code .` -> para abrir visual estudio en la carpeta
 
-Array.some()
+# Node
+
+
+
 
 # MVC
 
