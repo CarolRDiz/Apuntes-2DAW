@@ -16,10 +16,42 @@
 
 # Node
 
-
-
-
 # MVC
+
+# React
+
+Crear un elemento JSX simple:
+
+	const JSX = <h1>Hello JSX!</h1>;
+	
+Escribir código Javascript:
+
+	{ 'this is treated as JavaScript code' }
+
+ReactDOM.render(JSX, document.getElementById('root'))
+
+Elemento JSX complejo:
+
+	Valid JSX:
+
+	<div>
+	  <p>Paragraph One</p>
+	  <p>Paragraph Two</p>
+	  <p>Paragraph Three</p>
+	</div>
+
+	Invalid JSX:
+
+	<p>Paragraph One</p>
+	<p>Paragraph Two</p>
+	<p>Paragraph Three</p>
+
+No es posible escribir elementos hermanos sin un padre contenedor.
+
+Escribir comentarios:
+
+	{/* Esto es un comentario */}
+
 
 # Eventos
 
