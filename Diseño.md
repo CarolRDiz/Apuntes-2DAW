@@ -22,7 +22,33 @@ Propiedades de rotación
 # Responsive
 
 [Media Queries](https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries)
+[Media Queries español](https://lenguajecss.com/css/responsive-web-design/media-queries/)
 
+## Media Queries
+
+    @media screen and (max-width: 640px) {
+      .menu {
+        background: blue;
+      }
+    }
+
+    @media screen and (min-width: 640px) and (max-width: 1280px) {
+      .menu {
+        background: red;
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      .menu {
+        background: green;
+      }
+    }
+
+## Breakpoints
+
+[Breakpoints](https://www.alsernet.es/blog/breakpoints-diseno-responsive)
+
+Son las medidas de anchura en donde se realizan saltos para el diseño responsive y se aplican los estilos CSS concretos para unas determinadas media queries. Es decir, los breakpoints son los saltos en los que la pantalla cambia de layout.
 
 object-fit
 
@@ -343,12 +369,6 @@ Ejemplo:
 
 [Metodologías](https://www.espai.es/blog/2016/07/metodologias-css-oocss-bem-smacss/)
 
-# Breakpoints
-
-[Breakpoints](https://www.alsernet.es/blog/breakpoints-diseno-responsive)
-
-Son las medidas de anchura en donde se realizan saltos para el diseño responsive y se aplican los estilos CSS concretos para unas determinadas media queries. Es decir, los breakpoints son los saltos en los que la pantalla cambia de layout.
-
 # CSS media queries
 
 [CSS media queries](https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries)
@@ -433,14 +453,12 @@ contenedor {
   
 }
 
-`flex-direction`: estable el eje principal 
-
-`justify-content`: Los elementos hijos son alineados en el eje principal.
-
 hijos{
 
  `flex` : `none` | [ <'`flex-grow`'> <'`flex-shrink`'>? || <'`flex-basis`'> ]
+        
  `order`:3;
+        
 ` align-self`: `flex-start` | `flex-end` | `center` | `baseline` | `stretch`; 
 
 }
