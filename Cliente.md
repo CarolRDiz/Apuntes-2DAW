@@ -56,7 +56,17 @@ Renderizar elementos html al DOM:
 	
 `componentToRender` -> const JSX = <h1>Hello JSX!</h1>;
 
-`targetNode` -> 
+`targetNode` -> DOM node al que se renderiza el componente (document.getElementById()...)
+
+Definir una clase html:
+
+	<div className="...">
+	
+Las etiquetas pueden escibirse:
+
+`<div/>` o `<div></div>`
+
+
 
 # Eventos
 
@@ -994,8 +1004,36 @@ El `window` objeto es compatible con todos los navegadores. Representa la ventan
         
 La propiedad de sólo lectura localStorage te permite acceder al objeto local Storage; los datos persisten almacenados entre de las diferentes sesiones de navegación.
 
-window.localStorage.getItem()
-        
+## localStorage
+
+	window.localStorage.getItem(clave)
+	
+	window.localStorage.setItem(clave, valor)
+	
+	window.localStorage.removeItem(clave)
+
+Convertir un objeto a JSON para poder almacenarlo:
+
+	JSON.stringify(objeto)
+
+También arrays:
+
+        JSON.stringify(array)
+	
+Para convertir un JSON en el valor o objeto que describe: 
+
+	JSON.parse(json)
+
+Crear un componente con función Javascript:
+
+	const DemoComponent = function() {
+	  return (
+	    <div className='customClass' />
+	  );
+	};
+
+	La constante debe comenzar en mayúsculas
+
 # Recursión
 
 Recursión es cuando una función sigue llamándose a sí misma, hasta que ya no tiene que hacerlo.
