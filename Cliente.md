@@ -250,12 +250,34 @@ React ofrece una buena solución para el manejo de estado de aplicaciones web mo
 
 Crear estado en componente React:
 
-Se crea una propiedad `state` en el constructor de la clase del componente.
-Se le asigna a esta propiedad `state` un objeto Javascript.
+	//Se crea una propiedad `state` en el constructor de la clase del componente.
+	//Se le asigna a esta propiedad `state` un objeto Javascript.
 
 	this.state = {
 		propiedad:valor,..
 	}
+
+Renderizar estado in la Interfaz de Usuario:
+
+Se puede acceder a los datos del estado en el método render() con:
+
+	const propiedad = this.state.nombrePropiedad
+
+Y luego en el return:
+
+	{propiedad}
+	
+Si se quiere acceder a ellos en el return () se debe de cerrar entre llaves: 
+
+	{this.state.nombrePropiedad}
+
+Establecer estado con this.setState:
+
+	//Dentro de la clase
+
+	this.setState({
+	  propiedad: valor
+	});
 
 # Eventos
 
