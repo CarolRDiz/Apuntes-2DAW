@@ -66,6 +66,32 @@ Las etiquetas pueden escibirse:
 
 `<div/>` o `<div></div>`
 
+Crear componente con funciòn Javascript:
+
+	const DemoComponent = function() {
+	  return (
+	    <div className='customClass' />
+	  );
+	};
+	
+	//El componente empieza en mayúsculas
+	//Recibe datos y los renderiza, pero no los modifica.
+
+Crear un componente React con sintáxis de clase:
+
+	class MyComponent extends React.Component {
+	  constructor(props) {
+	    super(props);
+	  }
+
+	  render() {
+	    return (
+	      <h1>Hi</h1>
+	    );
+	  }
+	}
+
+Crear un componente con Composition:
 
 
 # Eventos
