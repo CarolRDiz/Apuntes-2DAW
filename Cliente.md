@@ -54,7 +54,7 @@ Renderizar elementos html al DOM:
 
 	ReactDOM.render(componentToRender, targetNode)
 	
-`componentToRender` -> const JSX = <h1>Hello JSX!</h1>;
+`componentToRender` -> const JSX = \<h1>Hello JSX!\</h1>;
 
 `targetNode` -> DOM node al que se renderiza el componente (document.getElementById()...)
 
@@ -64,9 +64,11 @@ Definir una clase html:
 	
 Las etiquetas pueden escibirse:
 
-`<div/>` o `<div></div>`
+	<div/> o <div></div>
 
-Crear componente con funciòn Javascript:
+## Componente funcional sin estado
+
+Crear componente con funciòn Javascript (Componente funcional sin estado):
 
 	const DemoComponent = function() {
 	  return (
@@ -74,8 +76,30 @@ Crear componente con funciòn Javascript:
 	  );
 	};
 	
-	//El componente empieza en mayúsculas
-	//Recibe datos y los renderiza, pero no los modifica.
+- El componente empieza en mayúsculas
+- Recibe datos y los renderiza, pero no los modifica.
+
+Pasarle propiedades al componente funcional sin estado:
+
+	const DemoComponent = (props) => <h1>Hello, {props.user}!</h1>
+	
+	<DemoComponent user='Mark' />
+
+Pasar array como propiedad:
+
+	<ParentComponent>
+	  <ChildComponent colors={["green", "blue", "red"]} />
+	</ParentComponent>
+	
+Pueden usarse métodos de array al acceder a él:
+
+	const ChildComponent = (props) => <p>{props.colors.join(', ')}</p>
+	
+Propiedades por defecto:
+
+	MyComponent.defaultProps = { location: 'San Francisco' }
+
+## Componente React con sintáxis de clase
 
 Crear un componente React con sintáxis de clase:
 
