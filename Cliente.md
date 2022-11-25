@@ -68,6 +68,8 @@ Las etiquetas pueden escibirse:
 
 ## Componente funcional sin estado
 
+`Un componente funcional sin estado es cualquier función que acepta propiedades y devuelve JSX.`
+
 Crear componente con funciòn Javascript (Componente funcional sin estado):
 
 	const DemoComponent = function() {
@@ -111,6 +113,8 @@ Añadiendo `isRequired` se establece que `handleClick`es una propiedad requerida
 [Validadores de PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
 
 ## Componente React con sintáxis de clase
+
+Se trata de componentes sin estado.
 
 Crear un componente React con sintáxis de clase:
 
@@ -232,6 +236,26 @@ Renderizar nested components:
 Renderizar componentes al DOM:
 
 	ReactDOM.render(<ComponentToRender />, targetNode)
+	
+### Propiedades
+
+Acceder a propiedades usando `this.props`:
+
+	{this.props.nombrePropiedad}
+
+## Componente con estado
+
+El `estado` consiste en cualquier dato sobre la que tu aplicación necesita saber, que puede cambiar a lo largo del tiempo. Se quiere que las aplicaciones respondan a los cambios de estado y presenten una UI actualizada cuando sea necesario.
+React ofrece una buena solución para el manejo de estado de aplicaciones web modernas.
+
+Crear estado en componente React:
+
+Se crea una propiedad `state` en el constructor de la clase del componente.
+Se le asigna a esta propiedad `state` un objeto Javascript.
+
+	this.state = {
+		propiedad:valor,..
+	}
 
 # Eventos
 
