@@ -8,7 +8,7 @@
 - [DOM](#dom)
 	- [Transversing de DOM](#transversing-de-dom)
 	- [Modificar CSS](#modificar-css)
-
+- [React](#react)
 ---
 # Comandos 
 
@@ -79,6 +79,8 @@ Crear componente con funciòn Javascript (Componente funcional sin estado):
 - El componente empieza en mayúsculas
 - Recibe datos y los renderiza, pero no los modifica.
 
+### Propiedades
+
 Pasarle propiedades al componente funcional sin estado:
 
 	const DemoComponent = (props) => <h1>Hello, {props.user}!</h1>
@@ -98,6 +100,15 @@ Pueden usarse métodos de array al acceder a él:
 Propiedades por defecto:
 
 	MyComponent.defaultProps = { location: 'San Francisco' }
+	
+PropTypes para definir las propiedades esperadas:
+
+	MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+	
+`PropTypes.func` comprueba que `handleClick` es una función. 
+Añadiendo `isRequired` se establece que `handleClick`es una propiedad requerida para el componente. 
+
+[Validadores de PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
 
 ## Componente React con sintáxis de clase
 
