@@ -279,6 +279,42 @@ Establecer estado con this.setState:
 	  propiedad: valor
 	});
 
+Unir `this` a un método de clase:
+
+	class MyClass {
+	  constructor() {
+	    this.myMethod = this.myMethod.bind(this);
+	  }
+
+	  myMethod() {
+	    // whatever myMethod does
+	  }
+	}
+
+Llamar al método:
+
+	this.myMethod
+	
+	//Ejemplo
+	<button onClick = {this.handleClick}>Click Me</button>
+
+Usar estado para alternar un elemento:
+
+	this.setState((state, props) => ({
+	  counter: state.counter + props.increment
+	}));
+
+	// ó..
+	
+	this.setState(state => ({
+	  counter: state.counter + 1
+	}));
+
+	//PERO NO!!!!:
+	//this.setState({
+	//  counter: this.state.counter + this.props.increment
+	//});
+	
 # Eventos
 
 `document.addEventListener(evento, funcion)`
