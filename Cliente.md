@@ -43,6 +43,10 @@ a => a + 100;
 
 # React
 
+Extensión ES7+ React/Redux/React-Native snippets:
+
+	Atajo rafce
+
 Crear un elemento JSX simple:
 
 	const JSX = <h1>Hello JSX!</h1>;
@@ -88,6 +92,20 @@ Definir una clase html:
 Las etiquetas pueden escibirse:
 
 	<div/> o <div></div>
+
+## Hooks
+
+[Hooks](https://reactjs.org/docs/hooks-state.html)
+
+`useState`: añade un estado al componente de función
+
+	const [variable, funcionSet] = useState(valor)
+	
+	// useState devuelve el valor introducido y una función para actualizarlo.
+	// el valor se guarda en variable y la funcion en funcionSet
+	
+	const [count, setCount] = useState(0);
+
 
 ## Componente funcional sin estado
 
