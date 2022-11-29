@@ -39,9 +39,20 @@ a => a + 100;
 
 # Node
 
+OS, FS, Path
+
+```javascript
+//importar
+require()
+```
+
 # MVC
 
 # React
+
+Ejecutar en localhost:
+
+	npm run dev
 
 Extensión ES7+ React/Redux/React-Native snippets:
 
@@ -92,6 +103,55 @@ Definir una clase html:
 Las etiquetas pueden escibirse:
 
 	<div/> o <div></div>
+
+## Exportar componentes
+
+### named
+
+Exportaciones `named` pueden utilizar para exportar tantos enlaces como desee, o ninguno en absoluto.
+
+```javascript
+export {Greet as Greeting} function Greet() {
+  return (
+    <div className="App">
+      <h1>Hello</h1>
+    </div>
+  );
+}
+export function Talk() {
+  return (
+    <div className="App">
+      <h1>How are you?</h1>
+    </div>
+  );
+}
+```
+
+Para importarlo:
+
+	import {Talk, Greet} from "./components/source.jsx"
+
+
+### default
+
+Solo puede haber un tipo de exportación por archivo. Un componente por archivo.
+
+```javascript
+export default function App() {
+  return (
+    <div className="App">
+      <h2>Hello world!</h2>
+    </div>
+  );
+}
+
+//tambien puede exportarse por separado.
+export default App
+```
+
+Para importarlo:
+
+	import Application from "./components/App.jsx"
 
 ## Hooks
 
