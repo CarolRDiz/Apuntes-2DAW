@@ -60,49 +60,63 @@ Extensión ES7+ React/Redux/React-Native snippets:
 
 Crear un elemento JSX simple:
 
+```javascript
 	const JSX = <h1>Hello JSX!</h1>;
+```
 	
 Escribir código Javascript:
 
-	{ 'this is treated as JavaScript code' }
+```javascript
+{ 'this is treated as JavaScript code' }
+```
 
 Elemento JSX complejo:
 
-	Valid JSX:
+```javascript
+//Valid JSX:
 
-	<div>
-	  <p>Paragraph One</p>
-	  <p>Paragraph Two</p>
-	  <p>Paragraph Three</p>
-	</div>
+<div>
+  <p>Paragraph One</p>
+  <p>Paragraph Two</p>
+  <p>Paragraph Three</p>
+</div>
 
-	Invalid JSX:
+//Invalid JSX:
 
-	<p>Paragraph One</p>
-	<p>Paragraph Two</p>
-	<p>Paragraph Three</p>
+<p>Paragraph One</p>
+<p>Paragraph Two</p>
+<p>Paragraph Three</p>
+```
 
 No es posible escribir elementos hermanos sin un padre contenedor.
 
 Escribir comentarios:
 
-	{/* Esto es un comentario */}
+```javascript
+{/* Esto es un comentario */}
+```
 
 Renderizar elementos html al DOM:
 
-	ReactDOM.render(componentToRender, targetNode)
-	
-`componentToRender` -> const JSX = \<h1>Hello JSX!\</h1>;
+```javascript
+ReactDOM.render(componentToRender, targetNode)
 
-`targetNode` -> DOM node al que se renderiza el componente (document.getElementById()...)
+//componentToRender -> const JSX = \<h1>Hello JSX!\</h1>;
+
+//targetNode -> DOM node al que se renderiza el componente (document.getElementById()...)
+```
 
 Definir una clase html:
 
+```javascript
 	<div className="...">
+```
 	
 Las etiquetas pueden escibirse:
 
+```javascript
 	<div/> o <div></div>
+```
 
 ## Exportar componentes
 
@@ -129,8 +143,9 @@ export function Talk() {
 
 Para importarlo:
 
-	import {Talk, Greet} from "./components/source.jsx"
-
+```javascript
+import {Talk, Greet} from "./components/source.jsx"
+```
 
 ### default
 
@@ -151,20 +166,23 @@ export default App
 
 Para importarlo:
 
-	import Application from "./components/App.jsx"
-
+```javascript
+import Application from "./components/App.jsx"
+```
 ## Hooks
 
 [Hooks](https://reactjs.org/docs/hooks-state.html)
 
 `useState`: añade un estado al componente de función
 
-	const [variable, funcionSet] = useState(valor)
-	
-	// useState devuelve el valor introducido y una función para actualizarlo.
-	// el valor se guarda en variable y la funcion en funcionSet
-	
-	const [count, setCount] = useState(0);
+```javascript
+const [variable, funcionSet] = useState(valor)
+
+// useState devuelve el valor introducido y una función para actualizarlo.
+// el valor se guarda en variable y la funcion en funcionSet
+
+const [count, setCount] = useState(0);
+```
 
 
 ## Componente funcional sin estado
@@ -173,12 +191,13 @@ Para importarlo:
 
 Crear componente con funciòn Javascript (Componente funcional sin estado):
 
-	const DemoComponent = function() {
-	  return (
-	    <div className='customClass' />
-	  );
-	};
-	
+```javascript
+const DemoComponent = function() {
+  return (
+    <div className='customClass' />
+  );
+};
+```
 - El componente empieza en mayúsculas
 - Recibe datos y los renderiza, pero no los modifica.
 
@@ -186,9 +205,11 @@ Crear componente con funciòn Javascript (Componente funcional sin estado):
 
 Pasarle propiedades al componente funcional sin estado:
 
-	const DemoComponent = (props) => <h1>Hello, {props.user}!</h1>
-	
-	<DemoComponent user='Mark' />
+```javascript
+const DemoComponent = (props) => <h1>Hello, {props.user}!</h1>
+
+<DemoComponent user='Mark' />
+```
 
 Pasar array como propiedad:
 
