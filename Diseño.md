@@ -1,6 +1,6 @@
 # CONTENIDOS
 
-- [SASS y SCSS](#sass_scss)
+- [SCSS](#scss)
 - [Parcel](#parcel)
 - [Grid](#grid)
 - [Metodologías](#metodologias)
@@ -43,6 +43,44 @@ Propiedades de rotación
         background: green;
       }
     }
+ 
+Con mixins:
+
+[Media Queries con Mixins](https://www.kodetop.com/web-responsive-utilizando-mixins-en-sass/)
+
+```scss
+// Breakpoints
+$breakpoint-mobile: 640px;
+$breakpoint-tablet: 1280px;
+
+@mixin mobile {
+    @media only screen and (max-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+  
+@mixin tablet {
+    @media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+h1 {
+  font-size: 24px;
+  @include tablet {
+    font-size: 36px;
+  }
+  @include desktop {
+    font-size: 42px;
+  }
+}
+```
 
 ## Breakpoints
 
@@ -52,7 +90,7 @@ Son las medidas de anchura en donde se realizan saltos para el diseño responsiv
 
 object-fit
 
-# SASS SCSS
+# SCSS
 
 [Documentación](https://sass-lang.com/guide)
 
@@ -229,6 +267,8 @@ Operadores: +, -, *, math.div() y %
 # Parcel
 
 [Documentación de Parcel](https://parceljs.org/getting-started/webapp/)
+
+    npx parcel src/index.html
 
 # GRID
 
