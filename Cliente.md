@@ -50,6 +50,12 @@ require()
 
 # React
 
+Crear proyecto:
+
+	npm create vite@latest
+	
+	npm install
+
 Ejecutar en localhost:
 
 	npm run dev
@@ -169,21 +175,6 @@ Para importarlo:
 ```javascript
 import Application from "./components/App.jsx"
 ```
-## Hooks
-
-[Hooks](https://reactjs.org/docs/hooks-state.html)
-
-`useState`: añade un estado al componente de función
-
-```javascript
-const [variable, funcionSet] = useState(valor)
-
-// useState devuelve el valor introducido y una función para actualizarlo.
-// el valor se guarda en variable y la funcion en funcionSet
-
-const [count, setCount] = useState(0);
-```
-
 
 ## Componente funcional sin estado
 
@@ -233,6 +224,38 @@ PropTypes para definir las propiedades esperadas:
 Añadiendo `isRequired` se establece que `handleClick`es una propiedad requerida para el componente. 
 
 [Validadores de PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
+
+### Hooks
+
+[Hooks](https://reactjs.org/docs/hooks-state.html)
+
+`useState`: añade un estado al componente de función
+
+```javascript
+const [variable, funcionSet] = useState(valor)
+
+// useState devuelve el valor introducido y una función para actualizarlo.
+// el valor se guarda en variable y la funcion en funcionSet
+
+const [count, setCount] = useState(0);
+```
+Ejemplo con contador:
+
+```javascript
+import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
 
 ## Componente React con sintáxis de clase
 
@@ -436,9 +459,107 @@ Usar estado para alternar un elemento:
 	//this.setState({
 	//  counter: this.state.counter + this.props.increment
 	//});
-	
 
-	
+Ejemplo con métodos y setState:
+
+```javascript
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    }
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+    // Change code below this line
+    increment(){
+      this.setState(state => ({
+        count: state.count+1
+      }))
+    }
+    // Change code above this line
+    decrement(){
+      this.setState(state => ({
+        count: state.count-1
+      }))
+    }
+  // Change code below this line
+  reset(){
+    this.setState({
+      count:0
+    })
+  }
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        <button className='inc' onClick={this.increment}>Increment!</button>
+        <button className='dec' onClick={this.decrement}>Decrement!</button>
+        <button className='reset' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+    );
+  }
+};
+```
+
+## Crear un input controlado
+
+```javascript
+class ControlledInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    // Change code below this line
+    this.handleChange = this.handleChange.bind(this)
+    // Change code above this line
+  }
+  // Change code below this line
+  handleChange(event){
+      this.setState({
+        input : event.target.value
+      })
+    }
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */}
+        <input 
+        value = {this.state.input}
+        onChange = {this.handleChange}
+        />
+        { /* Change code above this line */}
+        <h4>Controlled Input:</h4>
+        <p>{this.state.input}</p>
+      </div>
+    );
+  }
+};
+```
+
+El input:
+
+```javascript
+<input 
+value = {this.state.input}
+onChange = {this.handleChange}
+/>
+```
+El handleChange:
+
+```javascript
+handleChange(event){
+	this.setState({
+	input : event.target.value
+	})
+}
+```
+
 # Eventos
 
 `document.addEventListener(evento, funcion)`
