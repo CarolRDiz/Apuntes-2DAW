@@ -731,6 +731,8 @@ class Reservation extends React.Component {
 
 ### Componentes no controlados
 
+[Documentacion](https://reactjs.org/docs/uncontrolled-components.html)
+
 Estos componentes no tienen un controlador de evento por cada cambio de estado, sino que usa un `ref` para
 tomar los valores del formulario desde el DOM.
 
