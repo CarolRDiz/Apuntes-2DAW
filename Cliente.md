@@ -563,7 +563,9 @@ partialState[name] = value;this.setState(partialState);
 ## Formularios
 
 [Documentacion Formularios](https://reactjs.org/docs/forms.html#controlled-components)
+[Formik](https://formik.org/)
 
+### Componentes controlados
 
 ```javascript
 class NameForm extends React.Component {
@@ -681,10 +683,6 @@ El atributo value puede aceptar un array:
 <select multiple={true} value={['B', 'C']}>
 ```
 
-La etiqueta `file input`:
-
-Es un componente no controlado. Su `value` es solo de lectura.
-
 Múltiples inputs:
 
 ```javascript
@@ -730,6 +728,37 @@ class Reservation extends React.Component {
   }
 }
 ```
+
+### Componentes no controlados
+
+Estos componentes no tienen un controlador de evento por cada cambio de estado, sino que usa un `ref` para
+tomar los valores del formulario desde el DOM.
+
+```javascript
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.input = React.createRef();  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.input.current.value);    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" ref={this.input} />
+	</label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
 
 # Eventos
 
