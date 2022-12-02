@@ -410,22 +410,29 @@ Se puede acceder a los datos del estado en el método render() con:
 
 Y luego en el return:
 
-	{propiedad}
-	
+```javascript
+{propiedad}
+```
+
 Si se quiere acceder a ellos en el return () se debe de cerrar entre llaves: 
 
-	{this.state.nombrePropiedad}
+```javascript
+{this.state.nombrePropiedad}
+```
 
 Establecer estado con this.setState:
 
-	//Dentro de la clase
+```javascript
+//Dentro de la clase
 
-	this.setState({
-	  propiedad: valor
-	});
+this.setState({
+  propiedad: valor
+});
+```
 
 Unir `this` a un método de clase:
 
+```javascript
 	class MyClass {
 	  constructor() {
 	    this.myMethod = this.myMethod.bind(this);
@@ -435,30 +442,35 @@ Unir `this` a un método de clase:
 	    // whatever myMethod does
 	  }
 	}
+```
 
 Llamar al método:
 
-	this.myMethod
-	
-	//Ejemplo
-	<button onClick = {this.handleClick}>Click Me</button>
+```javascript
+this.myMethod
+
+//Ejemplo
+<button onClick = {this.handleClick}>Click Me</button>
+```
 
 Usar estado para alternar un elemento:
 
-	this.setState((state, props) => ({
-	  counter: state.counter + props.increment
-	}));
+```javascript
+this.setState((state, props) => ({
+  counter: state.counter + props.increment
+}));
 
-	// ó..
-	
-	this.setState(state => ({
-	  counter: state.counter + 1
-	}));
+// ó..
 
-	//PERO NO!!!!:
-	//this.setState({
-	//  counter: this.state.counter + this.props.increment
-	//});
+this.setState(state => ({
+  counter: state.counter + 1
+}));
+
+//PERO NO!!!!:
+//this.setState({
+//  counter: this.state.counter + this.props.increment
+//});
+```
 
 Ejemplo con métodos y setState:
 
@@ -504,60 +516,126 @@ class Counter extends React.Component {
   }
 };
 ```
+## Formularios
 
-## Crear un input controlado
+[Documentacion Formularios](https://reactjs.org/docs/forms.html#controlled-components)
+
+### Componentes controlados
 
 ```javascript
-class ControlledInput extends React.Component {
+class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: ''
-    };
-    // Change code below this line
-    this.handleChange = this.handleChange.bind(this)
-    // Change code above this line
+    this.state = {value: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  // Change code below this line
-  handleChange(event){
-      this.setState({
-        input : event.target.value
-      })
-    }
-  // Change code above this line
+
+  handleChange(event) {    this.setState({value: event.target.value});  }
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <div>
-        { /* Change code below this line */}
-        <input 
-        value = {this.state.input}
-        onChange = {this.handleChange}
-        />
-        { /* Change code above this line */}
-        <h4>Controlled Input:</h4>
-        <p>{this.state.input}</p>
-      </div>
+      <form onSubmit={this.handleSubmit}>        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
+        <input type="submit" value="Submit" />
+      </form>
     );
   }
-};
-```
-
-El input:
-
-```javascript
-<input 
-value = {this.state.input}
-onChange = {this.handleChange}
-/>
-```
-El handleChange:
-
-```javascript
-handleChange(event){
-	this.setState({
-	input : event.target.value
-	})
 }
+```
+La etiqueta `textarea`:
+
+En html el texto de textarea es definido por sus hijos:
+
+```javascript
+<textarea>
+  Hello there, this is some text in a text area
+</textarea>
+```
+En react se definide por el atributo `value`:
+
+```javascript
+class EssayForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {      value: 'Please write an essay about your favorite DOM element.'    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {    this.setState({value: event.target.value});  }
+  handleSubmit(event) {
+    alert('An essay was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Essay:
+          <textarea value={this.state.value} onChange={this.handleChange} />        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+La etiqueta `select`:
+
+En html: 
+
+```javascript
+<select>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+</select>
+```
+En React el atributo `selected` se convierte en el atributo `value` en la etiqueta `select`:
+
+```javascript
+class FlavorForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 'coconut'};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {    this.setState({value: event.target.value});  }
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your favorite flavor:
+          <select value={this.state.value} onChange={this.handleChange}>            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+El atributo value puede aceptar un array:
+
+```javascript
+<select multiple={true} value={['B', 'C']}>
 ```
 
 # Eventos
