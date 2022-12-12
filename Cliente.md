@@ -760,7 +760,9 @@ class NameForm extends React.Component {
   }
 }
 ```
+## Drag&Drop
 
+https://github.com/hello-pangea/dnd/blob/main/docs/about/installation.md
 
 # Eventos
 
