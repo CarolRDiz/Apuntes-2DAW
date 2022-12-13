@@ -31,7 +31,9 @@ Comando necesario para los demás:
     
     ./vendor/bin/sail artisan migrate
     
-    ./vendor/bin/sail ...
+    ./vendor/bin/sail 
+    
+    ./vendor/bin/sail artisan migrate --seed
 
 ## Rutas
 
