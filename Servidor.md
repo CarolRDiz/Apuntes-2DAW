@@ -33,7 +33,7 @@ Comando necesario para los demás:
     
     ./vendor/bin/sail 
     
-    ./vendor/bin/sail artisan migrate --seed
+    ./vendor/bin/sail artisan migrate:fresh --seed
 
 ## Rutas
 
