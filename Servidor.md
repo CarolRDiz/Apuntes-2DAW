@@ -34,6 +34,8 @@ Comando necesario para los demás:
     ./vendor/bin/sail 
     
     ./vendor/bin/sail artisan migrate:fresh --seed
+    
+    artisan route:list
 
 ## Rutas
 
