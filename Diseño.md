@@ -14,7 +14,7 @@
 
 ```css
 flex:none;
-//Para los textos
+/*Para los textos*/
 ```
 
 # Propiedades de transición
