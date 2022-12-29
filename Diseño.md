@@ -12,6 +12,11 @@
 
 [Ícono dentro de un input](https://roelmagdaleno.com/snippets/icono-dentro-de-un-input-usando-html-y-css/)
 
+```css
+flex:none;
+//Para los textos
+```
+
 # Propiedades de transición
 
 [Documentacion](https://lenguajecss.com/css/animaciones/transiciones/)
