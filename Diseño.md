@@ -17,6 +17,10 @@ flex:none;
 /*Para los textos*/
 ```
 
+# Accesibilidad
+
+
+
 # Propiedades de transición
 
 [Documentacion](https://lenguajecss.com/css/animaciones/transiciones/)
