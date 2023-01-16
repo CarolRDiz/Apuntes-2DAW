@@ -12,6 +12,10 @@
 # Parar todos los contenedores
 
     docker stop $(docker ps -a -q)
+    
+Database Testing
+sqlite
+Available Assertions: assertDatabaseCount..
 
 # Laravel
 
