@@ -2081,6 +2081,6 @@ const comprobarRegExp = () => {
 
     */
 
-    \/\/1ºDeclaramos la expReg
+    \\\1ºDeclaramos la expReg
 
     const expReg = RegExp("")
