@@ -222,5 +222,9 @@ Y cada contenedor tiene un `image`, que es una **imagen de contenedor**.
 - Ejecuta una orden, en este caso /bin/bash en un contenedor llamado servicio1 que estaba descrito en el docker-compose.yml
 
          docker-compose exec servicio1 /bin/bash
+      
+- `docker-compose build` que ejecutaría, si está indicado, el proceso de construcción de una imagen que va a ser usado en el docker-compose.yml  a partir de los  ficheros Dockerfile que se indican.
+- `docker-compose top` que muestra  los procesos que están ejecutándose en cada uno de los contenedores de los servicios.
+
 
 ## Aplicaciones multicapa
