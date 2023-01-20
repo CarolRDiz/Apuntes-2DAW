@@ -2,7 +2,8 @@
 
 - [Laravel](#laravel)
 - [PHP](#php)
-
+- [Java](#java)
+- [Spring Boot](#spring_boot)
 
 # linux: Matar proceso en un puerto específico
 
@@ -16,6 +17,70 @@
 Database Testing
 sqlite
 Available Assertions: assertDatabaseCount..
+Spring..
+
+# Spring Boot
+
+1. Crear proyecto
+2. Crear controlador
+
+models || repository (guarda en bd) ||service (entre repo y controlador)
+dto -> transforma el json del modelo
+
+Spring Initializr si no tienes Intellij Ultimate:
+[Guía](https://spring.io/quickstart)
+
+[Tutorial](https://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration)
+
+SpringBoot:3.0.1
+Type: Maven
+Grupo: xxx.rdc.es -> es.rdc.xxx  (es.iesrafaelalberti)
+Dependences: Lombok, Spring Security, Spring Data JPA, H2 Database, 
+REST with Spring Boot
+Crear carpetas: new Package
+-> Crear package controllers
+
+SpringFirstImpressionsApplication.java
+
+-> Crear package segurity
+
+Clase SecurityConfiguration: buscar Configuring WebSecurity (para ignorar la seguridad)
+
+-> Crar package models
+
+Clase Prisoner:
+
+        @Entity //Indicar que es una entidad
+        @Setter //Crea los setters automaticamente de los atributos privados
+        @Getter
+        public class Prisoner{
+        ...
+        private String name;
+        
+        @Id
+        @GeneratedValue
+        privete Long id;
+        
+        public Prisoner(){ }// Constructor por defecto
+        //Alt+nsertar Constructor  con los atributos
+        
+        
+
+## Controlador
+Example.java:
+
+        package ...
+        @Controller // Indicar que es un controlador
+        public class Example {
+            @GetMapping("/")
+            public String root() {
+                return new ResponseEntity<>(new 
+            }
+
+
+# Java
+
+
 
 # Laravel
 
