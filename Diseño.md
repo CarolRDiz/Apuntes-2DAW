@@ -7,6 +7,7 @@
 - [Metodologías](#metodologias)
 - [Responsive](#responsive)
     - [Media Queries](#media-queries)
+    - [Organización](#organización)
 - [Flex](#flexbox)
 ---
 
