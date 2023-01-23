@@ -6,6 +6,7 @@
 - [Grid](#grid)
 - [Metodologías](#metodologias)
 - [Responsive](#responsive)
+    - [Media Queries](#media_queries)
 - [Flex](#flexbox)
 ---
 
