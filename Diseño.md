@@ -2,6 +2,7 @@
 
 - [SCSS](#scss)
 - [Parcel](#parcel)
+    - [Mixins](#mixins)
 - [Grid](#grid)
 - [Metodologías](#metodologias)
 - [Responsive](#responsive)
