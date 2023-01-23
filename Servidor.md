@@ -1,5 +1,9 @@
 # INDICE
 
+[TOCM]
+
+[TOC]
+
 - [Laravel](#laravel)
 - [PHP](#php)
 - [Java](#java)
@@ -67,20 +71,26 @@ Clase Prisoner:
         
 
 ## Controlador
+
+
 Example.java:
 
         package ...
-        @Controller // Indicar que es un controlador
+        @Controller // Indicar que es un controlador // Anotación // @RestController
         public class Example {
             @GetMapping("/")
             public String root() {
                 return new ResponseEntity<>(new 
             }
+- [ResponseEntity](https://www.baeldung.com/spring-response-entity)
 
+## Modelo
+
+    @Entity //Indicar que es una entidad
+    @Setter //Crea los setters automaticamente de los atributos privados
+    @Getter
 
 # Java
-
-
 
 # Laravel
 
