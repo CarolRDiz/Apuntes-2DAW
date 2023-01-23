@@ -1,6 +1,7 @@
 # Contenidos
 
 - [Resumen](#resumen)
+- [Funciones flecha](#funciones-flecha)
 - [Eventos](#eventos)
 - [Clases](#clases)
 - [Objetos](#objetos)
@@ -9,11 +10,65 @@
 	- [Transversing de DOM](#transversing-de-dom)
 	- [Modificar CSS](#modificar-css)
 - [React](#react)
+- [VUE](#vue)
 
 ---
 # Comandos 
 
 `code .` -> para abrir visual estudio en la carpeta
+
+# VUE
+
+Crear aplicación VUE:
+
+	npm init vue@latest
+	cd <your-project-name>
+	npm install
+	npm run dev
+	npm run build
+Using Vue from CDN:
+```html
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+```
+Instancia de la aplicación:
+```javascript
+const app = createApp({
+  /* root component options */
+})
+```
+Montar la app:
+```html
+<div id="app"></div>
+```
+```javascript
+app.mount('#app')
+```
+nstancias de la aplicación  múltiples:
+```javascript
+const app1 = createApp({
+  /* ... */
+})
+app1.mount('#container-1')
+const app2 = createApp({
+  /* ... */
+})
+app2.mount('#container-2')
+```
+Renderizar listas:
+`v-for`
+```javascript
+data() {
+  return {
+    items: [{ message: 'Foo' }, { message: 'Bar' }]
+  }
+}
+```
+```html
+<li v-for="item in items">
+  {{ item.message }}
+</li>
+```
+Interpolación de texto:
 
 # Funciones flecha
 
@@ -45,8 +100,6 @@ OS, FS, Path
 //importar
 require()
 ```
-
-# MVC
 
 # React
 
