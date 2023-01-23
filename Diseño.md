@@ -5,7 +5,7 @@
 - [Grid](#grid)
 - [Metodologías](#metodologias)
 - [Responsive](#responsive)
-
+- [Flex](#flexbox)
 ---
 
 # Cosas útiles
