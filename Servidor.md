@@ -7,7 +7,7 @@
 - [Laravel](#laravel)
 - [PHP](#php)
 - [Java](#java)
-- [Spring Boot](#spring_boot)
+- [Spring Boot](#spring-boot)
 
 # linux: Matar proceso en un puerto específico
 
@@ -25,32 +25,68 @@ Spring..
 
 # Spring Boot
 
-1. Crear proyecto
-2. Crear controlador
+Spring Initializr si no tienes Intellij Ultimate:
+
+[Guía](https://spring.io/quickstart)
 
 models || repository (guarda en bd) ||service (entre repo y controlador)
+
 dto -> transforma el json del modelo
 
-Spring Initializr si no tienes Intellij Ultimate:
-[Guía](https://spring.io/quickstart)
+Cada modelo tiene un controlador y un repositorio
+
+1. Crear proyecto
 
 [Tutorial](https://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration)
 
-SpringBoot:3.0.1
-Type: Maven
-Grupo: xxx.rdc.es -> es.rdc.xxx  (es.iesrafaelalberti)
-Dependences: Lombok, Spring Security, Spring Data JPA, H2 Database, 
-REST with Spring Boot
-Crear carpetas: new Package
--> Crear package controllers
+- SpringBoot:3.0.1
+- Language: Java
+- Type: Maven
+- Grupo: xxx.rdc.es -> es.rdc.xxx  (es.iesrafaelalberti)
+- Packaging: Jar
+- Dependences: Lombok, Spring Web, Spring Security, Spring Data JPA, H2 Database 
 
 SpringFirstImpressionsApplication.java
+
+REST with Spring Boot
+
+2. Crear paquetes: new Package
+
+-> Crear package controllers
 
 -> Crear package segurity
 
 Clase SecurityConfiguration: buscar Configuring WebSecurity (para ignorar la seguridad)
 
--> Crar package models
+    return (web) -> web.ignoring().anyRequest()
+
+-> Crear package models
+-> Crear package reposities
+
+3. Crear archivos Java Class.
+4. Crear tests con Insomnia mientras se desarrolla el proyecto.
+        
+## Controlador
+
+Un controlador por entidad
+
+PrisonerController.java:
+```java
+package ...
+import org.springframework.web.bind.annotation.* //Importar todas las anotaciones
+
+@RestController // Indicar que es un controlador // Anotación // @Controller
+public class PrisonerController {
+    @GetMapping("/")
+    ResponseEntity<Object> index(){ //ResponseEntity da una respuesta HTTP
+        Prisoner myPrisoner = new Prisoner("Bartus", 22, 55);
+        return new ResponseEntity<>(myPrisoner, HttpStatus.OK); 
+    }
+```      
+            
+- [ResponseEntity](https://www.baeldung.com/spring-response-entity)
+
+## Modelo
 
 Clase Prisoner:
 
@@ -58,37 +94,29 @@ Clase Prisoner:
         @Setter //Crea los setters automaticamente de los atributos privados
         @Getter
         public class Prisoner{
-        ...
-        private String name;
         
+        //Atributos
         @Id
         @GeneratedValue
         privete Long id;
         
-        public Prisoner(){ }// Constructor por defecto
+        private String name;
+        private Integer age;
+        @NotNull
+        private Integer yearsLeft;
+        
+        // Constructor por defecto
+        // Constructor sin id
+        public Prisoner(String name, Integer age, Integer yearsLeft){
+            this.name= name;
+            this.age...
+        }
         //Alt+nsertar Constructor  con los atributos
-        
-        
+       
+## Repositorio
 
-## Controlador
+public interface PrisonerRepository
 
-
-Example.java:
-
-        package ...
-        @Controller // Indicar que es un controlador // Anotación // @RestController
-        public class Example {
-            @GetMapping("/")
-            public String root() {
-                return new ResponseEntity<>(new 
-            }
-- [ResponseEntity](https://www.baeldung.com/spring-response-entity)
-
-## Modelo
-
-    @Entity //Indicar que es una entidad
-    @Setter //Crea los setters automaticamente de los atributos privados
-    @Getter
 
 # Java
 
