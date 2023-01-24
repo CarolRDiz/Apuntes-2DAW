@@ -137,31 +137,32 @@ Asimismo, si empezamos a trabajar en el proyecto en otra computadora, podemos in
 
 # VUE
 
-Crear aplicación VUE:
+## Crear aplicación VUE:
 
 	npm init vue@latest
 	cd <your-project-name>
 	npm install
 	npm run dev
 	npm run build
-Using Vue from CDN:
+	
+## Usar Vue desde CDN:
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 ```
-Instancia de la aplicación:
+## Instancia de la aplicación:
 ```javascript
 const app = createApp({
   /* root component options */
 })
 ```
-Montar la app:
+## Montar la app:
 ```html
 <div id="app"></div>
 ```
 ```javascript
 app.mount('#app')
 ```
-nstancias de la aplicación  múltiples:
+## Instancias de la aplicación  múltiples:
 ```javascript
 const app1 = createApp({
   /* ... */
@@ -172,7 +173,7 @@ const app2 = createApp({
 })
 app2.mount('#container-2')
 ```
-Renderizar listas:
+## Renderizar listas:
 `v-for`
 ```javascript
 data() {
@@ -181,29 +182,36 @@ data() {
   }
 }
 ```
-```html
+```
 <li v-for="item in items">
   {{ item.message }}
 </li>
 ```
-Interpolación de texto:
+## Interpolación de texto:
 
 	<span>Message: {{ msg }}</span>
 
-HTML crudo:
+## HTML crudo:
 
-- text interpolation:
-```
-<p>Using text interpolation: {{ rawHtml }}</p>
-```
 - v-html:
 ```
-<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+<span v-html="rawHtml"></span>
+
+//rawHTML = "<span style="color: red">This should be red.</span>"
 ```
 
-Directivas:
+## Directivas:
 
-Prefijadas con `v-`.
+Prefijadas con `v-`
+
+- `v-html`: imprimir HTML.
+- `v-bind`: 
+
+		// Para dar valores a los atributos.
+		<div v-bind:id="dynamicId"></div>
+		// ATAJO
+		<div :id="dynamicId"></div>
+
 # Funciones flecha
 
 ```javascript
