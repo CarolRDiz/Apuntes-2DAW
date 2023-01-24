@@ -54,7 +54,7 @@ REST with Spring Boot
 
 -> Crear package controllers
 
--> Crear package segurity
+-> Crear package security
 
 Clase SecurityConfiguration: buscar Configuring WebSecurity (para ignorar la seguridad)
 
