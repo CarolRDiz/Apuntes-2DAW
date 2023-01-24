@@ -77,9 +77,13 @@ import org.springframework.web.bind.annotation.* //Importar todas las anotacione
 
 @RestController // Indicar que es un controlador // Anotación // @Controller
 public class PrisonerController {
+
+    @Autowired
+    PrisonerRepository prisonerRepository;
+
     @GetMapping("/")
     ResponseEntity<Object> index(){ //ResponseEntity da una respuesta HTTP
-        Prisoner myPrisoner = new Prisoner("Bartus", 22, 55);
+        prisonerRepository.save(myPrisoner);
         return new ResponseEntity<>(myPrisoner, HttpStatus.OK); 
     }
 ```      
@@ -89,34 +93,34 @@ public class PrisonerController {
 ## Modelo
 
 Clase Prisoner:
+```java
+@Entity //Indicar que es una entidad
+@Setter //Crea los setters automaticamente de los atributos privados
+@Getter
+public class Prisoner{
 
-        @Entity //Indicar que es una entidad
-        @Setter //Crea los setters automaticamente de los atributos privados
-        @Getter
-        public class Prisoner{
-        
-        //Atributos
-        @Id
-        @GeneratedValue
-        privete Long id;
-        
-        private String name;
-        private Integer age;
-        @NotNull
-        private Integer yearsLeft;
-        
-        // Constructor por defecto
-        // Constructor sin id
-        public Prisoner(String name, Integer age, Integer yearsLeft){
-            this.name= name;
-            this.age...
-        }
-        //Alt+nsertar Constructor  con los atributos
-       
+//Atributos
+@Id
+@GeneratedValue
+privete Long id;
+
+private String name;
+private Integer age;
+@NotNull
+private Integer yearsLeft;
+
+// Constructor por defecto
+// Constructor sin id
+public Prisoner(String name, Integer age, Integer yearsLeft){
+    this.name= name;
+    this.age...
+}
+//Alt+nsertar Constructor  con los atributos
+```
 ## Repositorio
-
-public interface PrisonerRepository
-
+```java
+public interface PrisonerRepository 
+```
 
 # Java
 
