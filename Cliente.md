@@ -255,9 +255,9 @@ Prefijadas con `v-`
 		<div :id="dynamicId"></div>
 - Atributos Booleanos:
 	- `disabled`:
-	
-		<button :disabled="isButtonDisabled">Button</button>
-
+```
+<button :disabled="isButtonDisabled">Button</button>
+```
 # Funciones flecha
 
 ```javascript
