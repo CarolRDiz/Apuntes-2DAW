@@ -34,10 +34,10 @@ Especificación formal que establece cómo un módulo de un software se comunica
 
 Implementación de la funcionalidad en el lado del servidor.
 
-	**NodeJS** es un entorno en tiempo de ejecución basado en JavaScript.
-	**npm** es una herramienta utilizada para administrar paquetes de JavaScript. 
+	NodeJS es un entorno en tiempo de ejecución basado en JavaScript.
+	npm es una herramienta utilizada para administrar paquetes de JavaScript. 
 	
-1. Creear una nueva plantilla para nuestra aplicación con el comando `npm init`. 
+1. Comando `npm init`: crear una nueva plantilla para nuestra aplicación. 
 2. Realizar el siguiente cambio en el objeto scripts:
 
 		{
@@ -47,7 +47,7 @@ Implementación de la funcionalidad en el lado del servidor.
 		  },
 		  // ...
 		}
-3. Agragar el archivo index.js a la raíz del proyecto con el siguiente código:
+3. Agragar el archivo `index.js` a la raíz del proyecto con el siguiente código:
 
 		console.log('hello world')
 
@@ -64,15 +64,23 @@ Implementación de la funcionalidad en el lado del servidor.
 4. Cambiar la aplicación a un servidor web:
 	
 ```javascript
-const http = require('http')
-const app = http.createServer((request, response) => {
+const http = require('http') // importa el módulo de servidor web integrado de Node
+const app = http.createServer((request, response) => { 
   response.writeHead(200, { 'Content-Type': 'text/plain' })
   response.end('Hello World')
 })
 
+//Método createServer del módulo http para crear un nuevo servidor web.
+//Se registra un controlador de eventos en el servidor, que se llama cada vez que se realiza una solicitud HTTP 
+//a la dirección del servidor http://localhost:3001.
+//La solicitud se responde con el código de estado 200, con el header Content-Type establecido en text/plain, 
+//y el contenido del sitio que se devolverá establecido en Hello World.
+
 const PORT = 3001
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
+
+//Enlaza el servidor http asignado a la variable app, para escuchar las solicitudes HTTP enviadas al puerto 3001
 ```
 
 Una vez que la aplicación se está ejecutando, el siguiente mensaje se imprime en la consola:
@@ -80,10 +88,6 @@ Una vez que la aplicación se está ejecutando, el siguiente mensaje se imprime 
 	Server running on port 3001
 	
 Podemos abrir nuestra humilde aplicación en el navegador visitando la dirección http://localhost:3001:
-
-Análisis del código:
-
-`const http = require('http')`: importa el módulo de servidor web integrado de Node.
 
 
 # VUE
