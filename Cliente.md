@@ -200,17 +200,63 @@ data() {
 //rawHTML = "<span style="color: red">This should be red.</span>"
 ```
 
+## Vinculación dinámica de múltiples atributos
+
+```javascript
+data() {
+  return {
+    objectOfAttrs: {
+      id: 'container',
+      class: 'wrapper'
+    }
+  }
+}
+```
+```
+<div v-bind="objectOfAttrs"></div>
+```
+## Usar expresiones Javascript
+
+	{{ number + 1 }}
+
+	{{ ok ? 'YES' : 'NO' }}
+
+	{{ message.split('').reverse().join('') }}
+
+	<div :id="`list-${id}`"></div>
+
+## Solo expresiones
+
+```
+<!-- this is a statement, not an expression: -->
+{{ var a = 1 }}
+
+<!-- flow control won't work either, use ternary expressions -->
+{{ if (ok) { return message } }}
+```
+## Calling Functions
+Es posible llamar a un método dentro de una expresión vinculante:
+```javascript
+<span :title="toTitleDate(date)">
+  {{ formatDate(date) }}
+</span>
+```
+Estas funciones se llamaran cada vez que el componente se actualize.
+
 ## Directivas:
 
 Prefijadas con `v-`
 
 - `v-html`: imprimir HTML.
-- `v-bind`: 
+- `v-bind`: para dar valores a los atributos.
 
-		// Para dar valores a los atributos.
 		<div v-bind:id="dynamicId"></div>
 		// ATAJO
 		<div :id="dynamicId"></div>
+- Atributos Booleanos:
+	- `disabled`:
+	
+		<button :disabled="isButtonDisabled">Button</button>
 
 # Funciones flecha
 
