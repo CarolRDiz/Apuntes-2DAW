@@ -33,6 +33,7 @@ Especificación formal que establece cómo un módulo de un software se comunica
 [Guía](https://fullstackopen.com/es/part3/node_js_y_express#express)
 
 Implementación de la funcionalidad en el lado del servidor.
+El propósito principal del servidor backend en este curso es ofrecer datos sin procesar en formato JSON al frontend.
 
 	NodeJS es un entorno en tiempo de ejecución basado en JavaScript.
 	npm es una herramienta utilizada para administrar paquetes de JavaScript. 
@@ -64,6 +65,7 @@ Implementación de la funcionalidad en el lado del servidor.
 4. Cambiar la aplicación a un servidor web:
 	
 ```javascript
+//index.js
 const http = require('http') // importa el módulo de servidor web integrado de Node
 const app = http.createServer((request, response) => { 
   response.writeHead(200, { 'Content-Type': 'text/plain' })
@@ -89,6 +91,49 @@ Una vez que la aplicación se está ejecutando, el siguiente mensaje se imprime 
 	
 Podemos abrir nuestra humilde aplicación en el navegador visitando la dirección http://localhost:3001:
 
+5. Cambiar nuestro servidor para devolver una lista codificada de notas en formato JSON:
+
+		const http = require('http')
+
+		let notes = [
+		{
+		id: 1, content: "HTML is easy", date: "2019-05-30T17:30:31.098Z", important: true 
+		},
+		{
+		id: 2, content: "Browser can execute only Javascript", date: "2019-05-30T18:39:34.091Z", important: false
+		},
+		{
+		id: 3, content: "GET and POST are the most important methods of HTTP protocol", 
+		date: "2019-05-30T19:20:14.298Z", important: true  
+		}]
+		
+		const app = http.createServer((request, response) => {
+		response.writeHead(200, { 'Content-Type': 'application/json' }) 
+		// 'Content-Type': 'application/json' informa al receptor que los datos están en formato JSON
+		response.end(JSON.stringify(notes))
+		// JSON.stringify(notes) transforma notes en JSON
+		})
+		
+		const PORT = 3001
+		app.listen(PORT)
+		console.log(`Server running on port ${PORT}`)
+		
+## Express
+
+Es una biblioteca que facilita el desarrollo del lado del servidor con Node, al ofrecer una interfaz más agradable para trabajar con el módulo http integrado.
+
+1. `npm install express`: Usemos express definiéndolo como una dependencia del proyecto.
+
+Podemos actualizar las dependencias del proyecto con el comando:
+
+	npm update
+
+Asimismo, si empezamos a trabajar en el proyecto en otra computadora, podemos instalar todas las dependencias actualizadas del proyecto definidas en package.json con el comando:
+
+	npm install
+
+
+6. Reiniciar el servidor (puede apagar el servidor presionando Ctrl+C en la consola) y actualizar el navegador.
 
 # VUE
 
