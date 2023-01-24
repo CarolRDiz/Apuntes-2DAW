@@ -188,6 +188,22 @@ data() {
 ```
 Interpolación de texto:
 
+	<span>Message: {{ msg }}</span>
+
+HTML crudo:
+
+- text interpolation:
+```
+<p>Using text interpolation: {{ rawHtml }}</p>
+```
+- v-html:
+```
+<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+```
+
+Directivas:
+
+Prefijadas con `v-`.
 # Funciones flecha
 
 ```javascript
