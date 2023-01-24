@@ -9,13 +9,82 @@
 - [DOM](#dom)
 	- [Transversing de DOM](#transversing-de-dom)
 	- [Modificar CSS](#modificar-css)
+- [API](#api)
 - [React](#react)
 - [VUE](#vue)
+- [Node.js y Express](#node.js-y-express)
+- [Express](#express)
 
 ---
 # Comandos 
 
 `code .` -> para abrir visual estudio en la carpeta
+
+# API
+
+Interfaz de programación de aplicaciones. 
+
+Se trata de un conjunto de definiciones y protocolos que se utiliza para desarrollar e integrar el software de las aplicaciones, permitiendo la comunicación entre dos aplicaciones de software a través de un conjunto de reglas.
+
+Especificación formal que establece cómo un módulo de un software se comunica o interactúa con otro para cumplir una o muchas funciones. Todo dependiendo de las aplicaciones que las vayan a utilizar, y de los permisos que les dé el propietario de la API a los desarrolladores de terceros.
+
+# Node.js y Express
+
+[Guía](https://fullstackopen.com/es/part3/node_js_y_express#express)
+
+Implementación de la funcionalidad en el lado del servidor.
+
+	**NodeJS** es un entorno en tiempo de ejecución basado en JavaScript.
+	**npm** es una herramienta utilizada para administrar paquetes de JavaScript. 
+	
+1. Creear una nueva plantilla para nuestra aplicación con el comando `npm init`. 
+2. Realizar el siguiente cambio en el objeto scripts:
+
+		{
+		  // ...
+		  "scripts": {
+		    "start": "node index.js",    "test": "echo \"Error: no test specified\" && exit 1"
+		  },
+		  // ...
+		}
+3. Agragar el archivo index.js a la raíz del proyecto con el siguiente código:
+
+		console.log('hello world')
+
+- Podemos ejecutar el programa directamente con Node desde la línea de comando:
+
+		node index.js
+		
+- O podemos ejecutarlo como un script npm:
+
+		npm start
+
+## Servidor web simple
+
+4. Cambiar la aplicación a un servidor web:
+	
+```javascript
+const http = require('http')
+const app = http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end('Hello World')
+})
+
+const PORT = 3001
+app.listen(PORT)
+console.log(`Server running on port ${PORT}`)
+```
+
+Una vez que la aplicación se está ejecutando, el siguiente mensaje se imprime en la consola:
+
+	Server running on port 3001
+	
+Podemos abrir nuestra humilde aplicación en el navegador visitando la dirección http://localhost:3001:
+
+Análisis del código:
+
+`const http = require('http')`: importa el módulo de servidor web integrado de Node.
+
 
 # VUE
 
