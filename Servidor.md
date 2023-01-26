@@ -23,7 +23,7 @@ sqlite
 Available Assertions: assertDatabaseCount..
 Spring..
 
-# Spring Boot
+# Spring
 
 Spring Initializr si no tienes Intellij Ultimate:
 
@@ -121,6 +121,12 @@ public Prisoner(String name, Integer age, Integer yearsLeft){
 ```java
 public interface PrisonerRepository 
 ```
+## Seeder
+
+@Component
+
+@Override
+Método run
 
 # Java
 
