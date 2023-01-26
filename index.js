@@ -7,3 +7,4 @@ const app = createApp({
       }
   })
 app.mount('#app')
+console.log("a ver")
