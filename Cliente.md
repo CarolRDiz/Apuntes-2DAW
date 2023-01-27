@@ -274,6 +274,29 @@ Es posible llamar a un método dentro de una expresión vinculante:
 ```
 Estas funciones se llamaran cada vez que el componente se actualize.
 
+## WATCH
+
+Para activar una función cada vez que cambia una propiedad reactiva.
+```javascript
+<script>
+export default {
+  data() {
+    return {
+      question: 'Pregunta inicial',
+    }
+  },
+  watch: {
+    question(value, oldvalue) {
+      console.log(value, oldvalue)
+      if (!value.includes('?')) return
+      console.log('Se ha detectado una ?')
+
+      // TODO: Llamada HTTP
+    },
+  },
+}
+</script>
+```
 ## Directivas:
 
 Prefijadas con `v-`
@@ -288,7 +311,16 @@ Prefijadas con `v-`
 
 		<p v-if="seen">Now you see me</p>
 		It would remove / insert the <p> element based on the truthiness of the value of the expression seen
+- `v-model`:
 	
+		<input v-model="message" placeholder="edíteme">
+		<p>El mensaje es: {{ message }}</p>
+		//
+		data() {
+		    return {
+		      question: 'Pregunta inicial',
+		    }
+	  	},
 - `v-for`
 - `v-on`
 - `v-slot`
@@ -322,6 +354,86 @@ Prefijadas con `v-`
 
 		<form @submit.prevent="onSubmit">...</form>
 
+## Fundamentos de reactividad
+
+### Declarar estado reactivo
+`data(){}`
+```javascript
+export default {
+  data() {
+    return {
+      count: 1
+    }
+  },
+  
+  
+ // `mounted` is a lifecycle hook which we will explain later
+  mounted() {
+    // `this` refers to the component instance.
+    console.log(this.count) // => 1
+
+    // data can be mutated as well
+    this.count = 2
+  }
+```
+### Declarar métodos
+`methods:{}`
+```javascript
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
+  mounted() {
+    // methods can be called in lifecycle hooks, or other methods!
+    this.increment()
+  }
+}
+
+<button @click="increment">{{ count }}</button>
+```
+```javascript
+export default {
+  data() {
+    return {
+      obj: {
+        nested: { count: 0 },
+        arr: ['foo', 'bar']
+      }
+    }
+  },
+  methods: {
+    mutateDeeply() {
+      // these will work as expected.
+      this.obj.nested.count++
+      this.obj.arr.push('baz')
+    }
+  }
+}
+```
+### DOM Update Timing 
+
+To wait for the DOM update to complete after a state change, you can use the nextTick() global API:
+```javascript
+import { nextTick } from 'vue'
+
+export default {
+  methods: {
+    increment() {
+      this.count++
+      nextTick(() => {
+        // access updated DOM
+      })
+    }
+  }
+}
+```
 
 # Funciones flecha
 
