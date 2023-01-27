@@ -317,7 +317,10 @@ Prefijadas con `v-`
 		<a @[eventName]="doSomething">
 		
 		Si el valor de eventName es "focus", v-on:[eventName]será equivalente a v-on:focus.
+- Modificadores:
+	- .prevent modifier indica a v-on que llame aevent.preventDefault():
 
+		<form @submit.prevent="onSubmit">...</form>
 
 
 # Funciones flecha
