@@ -284,11 +284,42 @@ Prefijadas con `v-`
 		<div v-bind:id="dynamicId"></div>
 		// ATAJO
 		<div :id="dynamicId"></div>
+- `v-if`:
+
+		<p v-if="seen">Now you see me</p>
+		It would remove / insert the <p> element based on the truthiness of the value of the expression seen
+	
+- `v-for`
+- `v-on`
+- `v-slot`
+
 - Atributos Booleanos:
 	- `disabled`:
 ```
 <button :disabled="isButtonDisabled">Button</button>
 ```
+- Argumentos:
+	- `v-bind:href="url"`:
+
+		<a :href="url"> ... </a>
+
+	- `v-on:click="doSomething">`:
+	
+		<a @click="doSomething"> ... </a>
+		
+- Argumentos dinámicos: expresiones Javascript en los argumentos.
+	- `v-bind:[attributeName]="url"`:
+			
+		<a :[attributeName]="url"> ... </a>
+			
+	-` v-on:[eventName]="doSomething">`:
+	
+		<a @[eventName]="doSomething">
+		
+		Si el valor de eventName es "focus", v-on:[eventName]será equivalente a v-on:focus.
+
+
+
 # Funciones flecha
 
 ```javascript
