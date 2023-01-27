@@ -7,7 +7,7 @@
 - [Laravel](#laravel)
 - [PHP](#php)
 - [Java](#java)
-- [Spring Boot](#spring-boot)
+- [Spring](#spring)
 
 # linux: Matar proceso en un puerto específico
 
