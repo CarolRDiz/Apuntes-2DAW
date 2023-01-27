@@ -298,27 +298,27 @@ Prefijadas con `v-`
 ```
 <button :disabled="isButtonDisabled">Button</button>
 ```
-- Argumentos:
-	- `v-bind:href="url"`:
+### Argumentos:
+- `v-bind:href="url"`:
 
 		<a :href="url"> ... </a>
 
-	- `v-on:click="doSomething">`:
+- `v-on:click="doSomething">`:
 	
 		<a @click="doSomething"> ... </a>
 		
-- Argumentos dinámicos: expresiones Javascript en los argumentos.
-	- `v-bind:[attributeName]="url"`:
-			
+### Argumentos dinámicos: expresiones Javascript en los argumentos.
+- `v-bind:[attributeName]="url"`:
+
 		<a :[attributeName]="url"> ... </a>
-			
-	-` v-on:[eventName]="doSomething">`:
-	
+
+- ` v-on:[eventName]="doSomething">`:
+
 		<a @[eventName]="doSomething">
-		
+
 		Si el valor de eventName es "focus", v-on:[eventName]será equivalente a v-on:focus.
-- Modificadores:
-	- .prevent modifier indica a v-on que llame aevent.preventDefault():
+### Modificadores:
+- `.prevent` modifier indica a v-on que llame aevent.preventDefault():
 
 		<form @submit.prevent="onSubmit">...</form>
 
