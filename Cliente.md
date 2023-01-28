@@ -205,7 +205,14 @@ nodemon reiniciará automáticamente su aplicación de node.
 ## Enrutamiento
 
 1. Cerrar server con control + c
-2. `npm i ejs`
+2. `npm install ejs`
+3. Añadir carpeta views con archivo .ejs
+4. index.js: 
+	app.set("view engine", "ejs")
+	
+	app.get('/', (request, response) => {
+	response.render("index")
+	})
 
 # VUE
 
