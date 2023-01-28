@@ -59,6 +59,9 @@ El propósito principal del servidor backend en este curso es ofrecer datos sin 
 - O podemos ejecutarlo como un script npm:
 
 		npm start
+		
+Si hacemos cambios en el código de la aplicación, tenemos que reiniciar la aplicación para ver los cambios. Reiniciamos la aplicación
+cerrándola primero escribiendo Ctrl+C y luego reiniciando la aplicación.
 
 ## Servidor web simple
 
@@ -136,35 +139,68 @@ Asimismo, si empezamos a trabajar en el proyecto en otra computadora, podemos in
 6. Reiniciar el servidor (puede apagar el servidor presionando Ctrl+C en la consola) y actualizar el navegador.
 
 ## Web y express
+```javascript
+const express = require('express')
+const app = express()
 
-	const express = require('express')
-	const app = express()
+let notes = [
+	{
+	id: 1, content: "HTML is easy", date: "2019-05-30T17:30:31.098Z", important: true 
+	},
+	{
+	id: 2, content: "Browser can execute only Javascript", date: "2019-05-30T18:39:34.091Z", important: false
+	},
+	{
+	id: 3, content: "GET and POST are the most important methods of HTTP protocol", 
+	date: "2019-05-30T19:20:14.298Z", important: true  
+	}]
+//Ruta 1
+//Controlador de eventos, que se utiliza para manejar las solicitudes HTTP GET realizadas a la raíz / de la aplicación:
+app.get('/', (request, response) => {
+  response.send('<h1>Hello World!</h1>')
+})
 
-	let notes = [
+//Ruta 2
+//controlador de eventos, que maneja las solicitudes HTTP GET realizadas a la ruta notes de la aplicación:
+app.get('/api/notes', (request, response) => {
+  response.json(notes) // Sin Express sería response.end(JSON.stringify(notes))
+})
+//La solicitud se responde con el método json del objeto response. 
+//Llamar al método enviará el array notes que se le pasó como un string con formato JSON
+
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+```
+## Nodemon
+
+nodemon observará los archivos en el directorio en el que se inició nodemon, y si algún archivo cambia, 
+nodemon reiniciará automáticamente su aplicación de node.
+
+1. Instalación:
+
+`npm install --save-dev nodemon`
+
+2. Iniciar la aplicación con nodemon.
+
+`node_modules/.bin/nodemon index.js`
+
+- el navegador aún debe actualizarse manualmente
+
+3. Definimos un script npm:
+
 		{
-		id: 1, content: "HTML is easy", date: "2019-05-30T17:30:31.098Z", important: true 
-		},
-		{
-		id: 2, content: "Browser can execute only Javascript", date: "2019-05-30T18:39:34.091Z", important: false
-		},
-		{
-		id: 3, content: "GET and POST are the most important methods of HTTP protocol", 
-		date: "2019-05-30T19:20:14.298Z", important: true  
-		}]
+		  // ..
+		  "scripts": {
+		    "start": "node index.js",
+		    "dev": "nodemon index.js",
+		    "test": "echo \"Error: no test specified\" && exit 1"
+		  },
+		  // ..
+		}
 
-	app.get('/', (request, response) => {
-	  response.send('<h1>Hello World!</h1>')
-	})
-
-	app.get('/api/notes', (request, response) => {
-	  response.json(notes)
-	})
-
-	const PORT = 3001
-	app.listen(PORT, () => {
-	  console.log(`Server running on port ${PORT}`)
-	})
-
+4. Podemos iniciar la aplicación con `npm run dev`.
 
 # VUE
 
