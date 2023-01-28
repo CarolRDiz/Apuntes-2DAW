@@ -202,6 +202,11 @@ nodemon reiniciará automáticamente su aplicación de node.
 
 4. Podemos iniciar la aplicación con `npm run dev`.
 
+## Enrutamiento
+
+1. Cerrar server con control + c
+2. `npm i ejs`
+
 # VUE
 
 ## Crear aplicación VUE:
