@@ -1474,7 +1474,7 @@ Esto desempaca el id, displayName y firstName del objeto user y los imprime.
 	  coords: {x: 18, y: 30},
 	  radius: 30
 	});
-
+	
 
 # Notas importantes
 
