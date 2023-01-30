@@ -128,6 +128,12 @@ public interface PrisonerRepository
 @Override
 Método run
 
+## Dependencias
+
+pom.xml
+
+[Actualizar dependencias](https://www.jetbrains.com/idea/guide/tutorials/migrating-javax-jakarta/update-dependencies/)
+
 # Java
 
 # Laravel
