@@ -216,10 +216,14 @@ nodemon reiniciará automáticamente su aplicación de node.
 
 # VUE
 
+[Resumen](https://youtu.be/nhBVL41-_Cw)
+
 ## Crear aplicación VUE:
 
 	npm init vue@latest
-	cd <your-project-name>
+	cd <your-project-name>vbavba
+
+
 	npm install
 	npm run dev
 	npm run build
@@ -252,6 +256,17 @@ const app2 = createApp({
 })
 app2.mount('#container-2')
 ```
+## Partes básicas de un componente de Vue:
+
+- Template:
+	-Puede usar los valores de data entre {{}}
+- Script:
+	- data : la función devuelve un objeto
+	- computed : 
+- Style:
+	- style scoped : los estilos solo pertenecerán a ese componente
+
+	
 ## Renderizar listas:
 `v-for`
 ```javascript
@@ -404,27 +419,28 @@ Prefijadas con `v-`
 
 ## Fundamentos de reactividad
 
-### Declarar estado reactivo
-`data(){}`
+## Propiedades
+Header.vue:
 ```javascript
-export default {
-  data() {
-    return {
-      count: 1
+<template>
+    <header>
+        <h1>{{title}}</h1>
+    </header>
+</template>
+<script>
+    export default {
+        name: 'Header',
+        props:{
+            'title': String,
+        }
     }
-  },
-  
-  
- // `mounted` is a lifecycle hook which we will explain later
-  mounted() {
-    // `this` refers to the component instance.
-    console.log(this.count) // => 1
-
-    // data can be mutated as well
-    this.count = 2
-  }
+</script>
 ```
-### Declarar métodos
+App.vue:
+```javascript
+  <Header title="Loquesea"/>
+```
+## Declarar métodos
 `methods:{}`
 ```javascript
 export default {
@@ -465,7 +481,7 @@ export default {
   }
 }
 ```
-### DOM Update Timing 
+## DOM Update Timing 
 
 To wait for the DOM update to complete after a state change, you can use the nextTick() global API:
 ```javascript
@@ -482,7 +498,18 @@ export default {
   }
 }
 ```
+## Importar/Exportar
 
+Para usar los componentes hay que importarlos y exportarlos.
+```javascript
+<script>
+	import XComponente from './xx/XComponente.vue'
+	export default{
+		name: 'App',
+		componente: {
+			XComponente
+		}
+```
 # Funciones flecha
 
 ```javascript
