@@ -217,6 +217,7 @@ nodemon reiniciará automáticamente su aplicación de node.
 # VUE
 
 [Resumen](https://youtu.be/nhBVL41-_Cw)
+[Curso](https://youtu.be/qZXt1Aom3Cs)
 
 ## Crear aplicación VUE:
 
