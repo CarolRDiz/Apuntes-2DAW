@@ -138,6 +138,35 @@ Asimismo, si empezamos a trabajar en el proyecto en otra computadora, podemos in
 
 6. Reiniciar el servidor (puede apagar el servidor presionando Ctrl+C en la consola) y actualizar el navegador.
 
+## Nodemon
+
+nodemon observará los archivos en el directorio en el que se inició nodemon, y si algún archivo cambia, 
+nodemon reiniciará automáticamente su aplicación de node.
+
+1. Instalación:
+
+`npm install --save-dev nodemon`
+
+2. Iniciar la aplicación con nodemon.
+
+`node_modules/.bin/nodemon index.js`
+
+- el navegador aún debe actualizarse manualmente
+
+3. Definimos un script npm:
+
+		{
+		  // ..
+		  "scripts": {
+		    "start": "node index.js",
+		    "dev": "nodemon index.js",
+		    "test": "echo \"Error: no test specified\" && exit 1"
+		  },
+		  // ..
+		}
+
+4. Podemos iniciar la aplicación con `npm run dev`.
+
 ## Web y express
 ```javascript
 const express = require('express')
@@ -173,34 +202,7 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 ```
-## Nodemon
 
-nodemon observará los archivos en el directorio en el que se inició nodemon, y si algún archivo cambia, 
-nodemon reiniciará automáticamente su aplicación de node.
-
-1. Instalación:
-
-`npm install --save-dev nodemon`
-
-2. Iniciar la aplicación con nodemon.
-
-`node_modules/.bin/nodemon index.js`
-
-- el navegador aún debe actualizarse manualmente
-
-3. Definimos un script npm:
-
-		{
-		  // ..
-		  "scripts": {
-		    "start": "node index.js",
-		    "dev": "nodemon index.js",
-		    "test": "echo \"Error: no test specified\" && exit 1"
-		  },
-		  // ..
-		}
-
-4. Podemos iniciar la aplicación con `npm run dev`.
 
 ## Enrutamiento
 
@@ -208,11 +210,48 @@ nodemon reiniciará automáticamente su aplicación de node.
 2. `npm install ejs`
 3. Añadir carpeta views con archivo .ejs
 4. index.js: 
-	app.set("view engine", "ejs")
-	
-	app.get('/', (request, response) => {
-	response.render("index")
-	})
+
+		app.set("view engine", "ejs")
+
+		app.get('/', (request, response) => {
+		response.render("index")
+		})
+
+## Router
+```javascript
+// Cree un archivo de direccionador denominado birds.js en el directorio de la aplicación, con el siguiente contenido:
+
+
+var express = require('express');
+var router = express.Router();
+
+// middleware that is specific to this router
+router.use(function timeLog(req, res, next) {
+  console.log('Time: ', Date.now());
+  next();
+});
+// define the home page route
+router.get('/', function(req, res) {
+  res.send('Birds home page');
+});
+// define the about route
+router.get('/about', function(req, res) {
+  res.send('About birds');
+});
+
+module.exports = router;
+
+
+// A continuación, cargue el módulo de direccionador en la aplicación:
+
+
+const birds = require('./birds');
+...
+app.use('/birds', birds);
+```
+
+
+App.use()
 
 # VUE
 
@@ -511,6 +550,17 @@ Para usar los componentes hay que importarlos y exportarlos.
 			XComponente
 		}
 ```
+
+## Emit
+
+[Guía](https://learnvue.co/tutorials/vue-emit-guide)
+
+Child.vue:
+`@click="$emit('add', Math.random())"`
+```javascript
+<template>  <button @click="$emit('add', Math.random())">    Add Math.random()  </button></template>
+```
+
 # Funciones flecha
 
 ```javascript
