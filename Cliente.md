@@ -35,6 +35,8 @@ Esquema:
 	- Data
 - Services: Acceden a los modelos
 - Controllers: Acceden a los services. Dan responses.
+- Route: Acceden a los controllers.
+
 
 # Node.js y Express
 
@@ -309,6 +311,16 @@ Controller:
 	};
 	module.exports.getAllProducts = getAllProducts;
 	
+Routes:
+	
+	const express = require("express")
+	const router = express.Router()
+	const productosController = require("../../controllers/productosController")
+	
+	router.route("/")
+	    .get(productosController.getAllProduct)
+	    
+	module.exports.router = router
 # VUE
 
 [Resumen](https://youtu.be/nhBVL41-_Cw)
