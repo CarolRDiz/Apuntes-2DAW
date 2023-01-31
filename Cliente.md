@@ -633,11 +633,47 @@ Para usar los componentes hay que importarlos y exportarlos.
 
 [Guía](https://learnvue.co/tutorials/vue-emit-guide)
 
-Child.vue:
-`@click="$emit('add', Math.random())"`
+Course.vue:
+`@click="$emit('delete-course', course.id)"`
 ```javascript
-<template>  <button @click="$emit('add', Math.random())">    Add Math.random()  </button></template>
+<template>
+    <i @click="$emit('delete-course', course.id)"
+        class="fas fa-times">
+    </i>
+</template>
+
+<script>
+	...
+	emits: ['delete-course'],
 ```
+Courses.vue:
+`@delete-course="$emit('delete-course', course.id)"`
+```javascript
+<template>
+    <Course @delete-course="$emit('delete-course', course.id)"
+            :course="course" />
+</template>
+
+<script>
+	...
+	emits: ['delete-course'],
+```
+App.vue:
+`@delete-course="deleteCourse"`
+```javascript
+<template>
+    <Courses @delete-course="deleteCourse"
+  :courses="courses" />
+</template>
+
+<script>
+	...
+	deleteCourse(id){
+	      console.log('Borrar: '+id);
+    	}
+```
+
+## Axio
 
 # Funciones flecha
 
