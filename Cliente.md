@@ -28,6 +28,13 @@ Se trata de un conjunto de definiciones y protocolos que se utiliza para desarro
 
 Especificación formal que establece cómo un módulo de un software se comunica o interactúa con otro para cumplir una o muchas funciones. Todo dependiendo de las aplicaciones que las vayan a utilizar, y de los permisos que les dé el propietario de la API a los desarrolladores de terceros.
 
+Esquema:
+
+- Database:
+	- Models: Acceden a los datos
+	- Data
+- Services: Acceden a los modelos
+- Controllers: Acceden a los services. Dan responses.
 
 # Node.js y Express
 
@@ -251,9 +258,57 @@ const birds = require('./birds');
 app.use('/birds', birds);
 ```
 
+## Esquema
 
-App.use()
+- Database:
+	- Models: Acceden a los datos
+	- Data
+- Services: Acceden a los modelos
+- Controllers: Acceden a los services. Dan responses.
 
+Data:
+
+	//productos.json
+	{
+	  "productos": {
+	    "cereales": {
+	      "nombre": "Cereales",
+	      "precio": 3.45
+	    },
+	    "colacao": {
+	    ...
+	    
+Model:
+
+	//productosModel.js
+	var datos = require("./productos.json")
+	const getAllProducts = () => {
+    		return datos.productos 
+	}
+	module.exports.getAllProducts = getAllProducts
+	
+Service:
+
+	//productosService.js
+	const productosModelo = require("../database/productosModelo")
+	const getAllProducts = () => {
+	    const allProductos = productosModelo.getAllProducts()
+	    return allProductos;
+	}
+	module.exports.getAllProducts = getAllProducts
+
+Controller:
+
+	const { next } = require("cheerio/lib/api/traversing");
+	const productosService = require("../services/productosService");
+	const getAllProducts = (req, res, next) => {
+	  const allProducts = productosService.getAllProducts();
+	  res.send(allProducts).end();
+	  res.locals.mensaje = "OK";
+	  next();
+	};
+	module.exports.getAllProducts = getAllProducts;
+	
 # VUE
 
 [Resumen](https://youtu.be/nhBVL41-_Cw)
