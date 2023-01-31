@@ -270,57 +270,67 @@ app.use('/birds', birds);
 
 Data:
 
-	//productos.json
-	{
-	  "productos": {
-	    "cereales": {
-	      "nombre": "Cereales",
-	      "precio": 3.45
-	    },
-	    "colacao": {
-	    ...
-	    
+```javascript
+//productos.json
+{
+  "productos": {
+    "cereales": {
+      "nombre": "Cereales",
+      "precio": 3.45
+    },
+    "colacao": {
+    ...
+```
+
 Model:
 
-	//productosModel.js
-	var datos = require("./productos.json")
-	const getAllProducts = () => {
-    		return datos.productos 
-	}
-	module.exports.getAllProducts = getAllProducts
-	
-Service:
+```javascript
+//productosModel.js
+var datos = require("./productos.json")
+const getAllProducts = () => {
+	return datos.productos 
+}
+module.exports.getAllProducts = getAllProducts
+```
 
-	//productosService.js
-	const productosModelo = require("../database/productosModelo")
-	const getAllProducts = () => {
-	    const allProductos = productosModelo.getAllProducts()
-	    return allProductos;
-	}
-	module.exports.getAllProducts = getAllProducts
+Service:
+```javascript
+//productosService.js
+const productosModelo = require("../database/productosModelo")
+const getAllProducts = () => {
+    const allProductos = productosModelo.getAllProducts()
+    return allProductos;
+}
+module.exports.getAllProducts = getAllProducts
+```
 
 Controller:
 
-	const { next } = require("cheerio/lib/api/traversing");
-	const productosService = require("../services/productosService");
-	const getAllProducts = (req, res, next) => {
-	  const allProducts = productosService.getAllProducts();
-	  res.send(allProducts).end();
-	  res.locals.mensaje = "OK";
-	  next();
-	};
-	module.exports.getAllProducts = getAllProducts;
-	
+```javascript
+const { next } = require("cheerio/lib/api/traversing");
+const productosService = require("../services/productosService");
+const getAllProducts = (req, res, next) => {
+  const allProducts = productosService.getAllProducts();
+  res.send(allProducts).end();
+  res.locals.mensaje = "OK";
+  next();
+};
+module.exports.getAllProducts = getAllProducts;
+```
+
 Routes:
-	
-	const express = require("express")
-	const router = express.Router()
-	const productosController = require("../../controllers/productosController")
-	
-	router.route("/")
-	    .get(productosController.getAllProduct)
-	    
-	module.exports.router = router
+
+```javascript
+const express = require("express")
+const router = express.Router()
+const productosController = require("../../controllers/productosController")
+
+router.route("/")
+    .get(productosController.getAllProduct)
+
+module.exports.router = router
+```
+
 # VUE
 
 [Resumen](https://youtu.be/nhBVL41-_Cw)
