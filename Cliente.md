@@ -628,8 +628,11 @@ Para usar los componentes hay que importarlos y exportarlos.
 			XComponente
 		}
 ```
+## Pasar datos entre componentes
 
-## Emit
+[Documentación](https://www.smashingmagazine.com/2020/01/data-components-vue-js/)
+
+### Emit
 
 [Guía](https://learnvue.co/tutorials/vue-emit-guide)
 
