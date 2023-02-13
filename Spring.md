@@ -103,6 +103,12 @@ public interface PrisonerRepository
 @Override
 Método run
 
+## Relaciones
+
+### Many to many
+
+[Documentación](https://www.baeldung.com/jpa-many-to-many)
+
 ## Dependencias
 
 pom.xml
