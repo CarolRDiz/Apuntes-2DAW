@@ -342,6 +342,9 @@ App.vue:
 	      console.log('Borrar: '+id);
     	}
 ```
+## Filters
+
+[Youtube Tutorial](https://www.youtube.com/watch?v=RPNjpkZgJag)
 
 ## Axio
 
