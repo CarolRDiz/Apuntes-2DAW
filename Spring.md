@@ -92,22 +92,23 @@ public Prisoner(String name, Integer age, Integer yearsLeft){
 }
 //Alt+nsertar Constructor  con los atributos
 ```
-## Repositorio
-```java
-public interface PrisonerRepository 
-```
-## Seeder
-
-@Component
-
-@Override
-Método run
 
 ## Relaciones
 
 ### Many to many
 
 [Documentación](https://www.baeldung.com/jpa-many-to-many)
+
+## MongoDB
+
+[Tutorial](https://www.mongodb.com/compatibility/spring-boot)
+Es necesario:
+- crear un nuevo usuario
+- Añadir la IP
+
+## DTO
+
+Clase DTO intermediaria entre el modelo y los servicios
 
 ## Dependencias
 
