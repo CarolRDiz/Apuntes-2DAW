@@ -110,6 +110,8 @@ Es necesario:
 
 Clase DTO intermediaria entre el modelo y los servicios
 
+MODELO - DTO - SERVICIO - CONTROLADOR
+
 ## Dependencias
 
 pom.xml
