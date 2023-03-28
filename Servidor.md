@@ -24,6 +24,10 @@
 
 ### Windows
 
+Instalar Java Oracle
+
+ò
+
 Modificar path:
 
 - Modificar variables de entorno
