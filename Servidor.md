@@ -18,6 +18,10 @@
 
     docker stop $(docker ps -a -q)
     
+# MySQL
+
+Descarga: https://dev.mysql.com/doc/mysql-installer/en/mysql-installer.html
+
 # Java
 
 ## JDK
