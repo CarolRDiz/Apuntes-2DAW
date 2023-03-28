@@ -20,6 +20,18 @@
     
 # Java
 
+## JDK
+
+### Windows
+
+Modificar path:
+
+- Modificar variables de entorno
+- anadir ruta del bin de jdk
+
+Crear nueva variable JAVA_HOME:
+- Como valor pegamos la ruta anterior pero sin bin
+
 # Laravel
 
 [Crear proyecto](https://www.youtube.com/watch?v=8vODYn4xFOw)
