@@ -147,3 +147,7 @@ MODELO - DTO - SERVICIO - CONTROLADOR
 pom.xml
 
 [Actualizar dependencias](https://www.jetbrains.com/idea/guide/tutorials/migrating-javax-jakarta/update-dependencies/)
+
+## Problemas
+
+En intellij -> File -> Invalidate Caches -> Restart
