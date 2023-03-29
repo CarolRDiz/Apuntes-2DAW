@@ -43,8 +43,6 @@ Clase SecurityConfiguration: buscar Configuring WebSecurity (para ignorar la seg
 
 ## JPA
 
-Es un mapeador Objeto-Relacional. 
-
 Las bases de datos utilizan relaciones (también llamadas a veces "Tablas") y las claves externas que las relacionan. En cambio, a la hora de desarrollar, los programas modernos modelan su información utilizando objetos (Programación Orientada a Objetos). Esta diferencia entre la forma de programar y la forma de almacenar da lugar a lo que se llama "**desfase de impedancia**" y complica la persistencia de los objetos.
 
 JPA es una especificación que indica cómo se debe realizar la **persistencia** (almacenamiento) de los objetos en programas Java. Fíjate en que destaco la palabra "Especificación" porque JPA no tiene una implementación concreta, sino que, como veremos enseguida, existen diversas tecnologías que implementan JPA para darle concreción.
