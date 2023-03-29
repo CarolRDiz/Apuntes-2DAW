@@ -1,6 +1,6 @@
 # Spring
 
-Spring Initializr si no tienes Intellij Ultimate:
+`Spring Initializr` para crear un proyecto de Spring si la IDE no te da la opción de hacerlo.
 
 [Guía](https://spring.io/quickstart)
 
@@ -49,6 +49,9 @@ JPA es una especificación que indica cómo se debe realizar la **persistencia**
 
 [¿Qué es JPA?](https://www.campusmvp.es/recursos/post/la-api-de-persistencia-de-java-que-es-jpa-jpa-vs-hibernate-vs-eclipselink-vs-spring-jpa.aspx)
 
+## Hibernate
+
+Hibernate es una herramienta de **mapeo objeto-relacional** (ORM) bajo licencia GNU LGPL para Java, que facilita el mapeo de atributos en una base de datos tradicional, y el modelo de objetos de un aplicación mediante archivos declarativos o **anotaciones en los beans** de las entidades que permiten establecer estas relaciones. Agiliza la relación entre la aplicación y nuestra base de datos SQL, de un modo que optimiza nuestro flujo de trabajo evitando caer en código repetitivo.
 
 ## Controlador
 
@@ -101,6 +104,16 @@ public Prisoner(String name, Integer age, Integer yearsLeft){
 }
 //Alt+nsertar Constructor  con los atributos
 ```
+@Table(name="users")
+@Column(length=50)
+@Column(name= "email", nullable = false, unique = true)
+
+## Repositorio
+
+Interfaz
+
+Puede heredar de CrudRepository o de JpaRepository. JpaRepository tiene las funciones de CrudRepository y métodos de JPA.
+Con Contrl y click sobre cada uno pueden verse sus métodos.
 
 ## Relaciones
 
@@ -120,6 +133,12 @@ Es necesario:
 Clase DTO intermediaria entre el modelo y los servicios
 
 MODELO - DTO - SERVICIO - CONTROLADOR
+
+## Aplication properties
+
+- Reiniciar las tablas, útil para las pruebas: spring.jpa.hibernate.ddl-auto=create-drop
+- Mostrar sql generado: spring.jpa.show-sql=true
+- Mostrar la consulta sql en log: logging.level.org.hibernate.SQL=debug
 
 ## Dependencias
 
