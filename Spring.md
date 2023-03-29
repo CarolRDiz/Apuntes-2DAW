@@ -105,7 +105,9 @@ public Prisoner(String name, Integer age, Integer yearsLeft){
 //Alt+nsertar Constructor  con los atributos
 ```
 @Table(name="users")
+
 @Column(length=50)
+
 @Column(name= "email", nullable = false, unique = true)
 
 ## Repositorio
