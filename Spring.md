@@ -148,6 +148,10 @@ pom.xml
 
 [Actualizar dependencias](https://www.jetbrains.com/idea/guide/tutorials/migrating-javax-jakarta/update-dependencies/)
 
+## @Transactional
+
+Una transacción es una unidad de trabajo compuesta por diversas tareas, cuyo resultado final debe ser que se ejecuten todas o ninguna de ellas.
+
 ## Problemas
 
 En intellij -> File -> Invalidate Caches -> Restart
