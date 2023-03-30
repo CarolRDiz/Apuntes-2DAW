@@ -77,6 +77,23 @@ public class PrisonerController {
             
 - [ResponseEntity](https://www.baeldung.com/spring-response-entity)
 
+### Update
+
+```java
+@PutMapping("/{id}")
+    public ResponseEntity<?> update (@PathVariable("id") Long userId, @RequestBody Users userDetails){
+        Optional<Users> user = usersService.findById(userId);
+        if(!user.isPresent()){
+            return ResponseEntity.notFound().build();
+        }
+        user.get().setName(userDetails.getName());
+        user.get().setSurname(userDetails.getSurname());
+        user.get().setEmail(userDetails.getEmail());
+        user.get().setPassword(userDetails.getPassword());
+        return ResponseEntity.status(HttpStatus.CREATED).body(usersService.save(user.get()));
+    }
+```
+
 ## Modelo
 
 Clase Prisoner:
