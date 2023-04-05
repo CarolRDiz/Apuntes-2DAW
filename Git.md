@@ -14,6 +14,10 @@ Conectamos nuestro repositorio local a uno remoto:
 
 `git remote add origin http://host/path/to/repo.git`
 
+# pull request / merge request
+
+Cuando realizas una pull request, lo que haces es solicitar que otro desarrollador (por ejemplo, el mantenedor del proyecto) incorpore (o haga un pull) una rama de tu repositorio al suyo. Por tanto, para realizar esta solicitud, debes proporcionar la siguiente información: el repositorio de origen, la rama de origen, el repositorio de destino y la rama de destino.
+
 # git clone
 
 Es igual a hacer `git init` y `git remote add origin http://host/path/to/repo.git`
@@ -94,4 +98,16 @@ Es como una rama que ya no cambia
 # gitignore y patrones
 
 https://www.atlassian.com/es/git/tutorials/saving-changes/gitignore
+
+# squash commits
+
+`git rebase --interactive ${id-del-commit}` o `git rebase -i ${id-del-commit}`
+
+Lo principal que debes tener en cuenta a la hora de usar git rebase es que se modifica la historia del repositorio. Por este motivo sólo deberías usarlo, en general, en cambios que todavía no hayas compartido con otros.
+
+El `${id-del-commit}` especifica a partir de qué commit queremos reescribir la historia.
+
+Ej: `git rebase -i 429c084`
+
+Más en https://onthedock.github.io/post/210121-combinar-commits/
 
