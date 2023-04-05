@@ -33,14 +33,31 @@ pull: incorporar cambios
 
 # git stash
 
+https://www.atlassian.com/es/git/tutorials/saving-changes/git-stash
+
 Almacena temporalmente (o guarda en un stash) los cambios que hayas efectuado en el código en el que estás trabajando para que puedas trabajar en otra cosa y, más tarde, regresar y volver a aplicar los cambios más tarde. Guardar los cambios en stashes resulta práctico si tienes que cambiar rápidamente de contexto y ponerte con otra cosa, pero estás en medio de un cambio en el código y no lo tienes todo listo para confirmar los cambios.
 
 Comandos:
+- `git stash`
 - `git stash save “mensaje”`
 - `git stash list`
 - `git stash pop stash@{2}`
+- `git stash apply`
 
 # commit
+
+Siempre y frecuentes
+
+Formato de mensaje:
+
+\<type\>([optional scope]): \<description\>
+[optional body]
+[optional footer(s)]
+
+- type: feat, fix, chore, build, ci, docs, perf, refactor, revert, style, test
+- scope: (ámbito) navbar, structure, controller, login, handler, mapper...
+- body: detalles
+- footer: referencias externas como issues de Redmine o compañeros de trabajo
 
 # rama
 
@@ -67,4 +84,14 @@ Invierte los cambios introducidos y añade un nuevo commit con el contenido inve
 - Feature Branch
 - Forking
 - GitFlow
+
+# tag
+
+Es como una rama que ya no cambia
+
+`git tag <tagname>`
+
+# gitignore y patrones
+
+https://www.atlassian.com/es/git/tutorials/saving-changes/gitignore
 
