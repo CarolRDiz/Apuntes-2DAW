@@ -34,3 +34,37 @@ pull: incorporar cambios
 # git stash
 
 Almacena temporalmente (o guarda en un stash) los cambios que hayas efectuado en el código en el que estás trabajando para que puedas trabajar en otra cosa y, más tarde, regresar y volver a aplicar los cambios más tarde. Guardar los cambios en stashes resulta práctico si tienes que cambiar rápidamente de contexto y ponerte con otra cosa, pero estás en medio de un cambio en el código y no lo tienes todo listo para confirmar los cambios.
+
+Comandos:
+- `git stash save “mensaje”`
+- `git stash list`
+- `git stash pop stash@{2}`
+
+# commit
+
+# rama
+
+Crear rama: `git branch \<nombre\>`
+
+**Head** apunta a la rama en la que estás.
+
+Cambiar de una rama a otra: `git checkout \<nombre\>`
+
+# reset
+
+Elimina los últimos commits del historial.
+
+- soft: se mantienen los cambios pendientes, ficheros modificados o preparados.
+- hard: lo contrario de hard
+
+## revert (reverse commit)
+
+Invierte los cambios introducidos y añade un nuevo commit con el contenido inverso resultante.
+
+# Flujos de trabajo
+
+- Centralizado
+- Feature Branch
+- Forking
+- GitFlow
+
