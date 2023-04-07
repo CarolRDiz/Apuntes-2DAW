@@ -172,3 +172,15 @@ Una transacción es una unidad de trabajo compuesta por diversas tareas, cuyo re
 ## Problemas
 
 En intellij -> File -> Invalidate Caches -> Restart
+
+## Multimódulos
+
+**pom.xml padre**: 
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>nombre-del-modulo</module>
+        <module>nombre-del-modulo</module>
+    </modelues>
+
+**pom.xml hijo**:
