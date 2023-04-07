@@ -184,3 +184,10 @@ En intellij -> File -> Invalidate Caches -> Restart
     </modelues>
 
 **pom.xml hijo**:
+
+    <parent>
+        <groupId>..</groupId>
+        <artifactId>..</..>
+        <version>..</..>
+        <relativePath>...</..>
+    </parent>
