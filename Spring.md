@@ -191,3 +191,36 @@ En intellij -> File -> Invalidate Caches -> Restart
         <version>..</..>
         <relativePath>...</..>
     </parent>
+
+## JSON WEB TOKEN
+
+[Tutorial: Autentificación con JWT y Spring Security](https://www.youtube.com/watch?v=_p-Odh3MZJc)
+
+Dependecias:
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+        
+        <!-- Para generar un JSON Web Token-->
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
