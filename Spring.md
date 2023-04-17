@@ -231,8 +231,20 @@ Dependecias:
 - Lo primero que se ejecuta en nuestra aplicación Spring es el filtro. En este caso, el filtro de autenticación JWT. Se ejecute una vez por solicitud. Tiene la función de validar y verificar todo lo relacionado con el token JWT.
 
 Proceso que sigue el filtro de autenticación JWT:
-1. Verificación interna. Verifica si tenemos el token JWT. Si no lo tiene, envía una respuesta 403 al cliente (Missing JWT, user does not exist). Extrae el nombre del usuario o el correo electrónico y realiza una llamada con esta información utilizando el servicio de detalles del usuario para intentar obtener información del usuario de la base de datos. La respuesta de la base de datos puede tener un usuario existente o uno inexistente. Si el usuario no existe, el filtro de autenticación JWT enviará una respuesta 403 al cliente, si el usuario existe comienza el proceso de validación.
-2. Proceso de validación. El token JWT recibido se generó para este usuario en concreto, por lo que se tiene que validar el token en función del usuario. En el proceso de validación se llama un servicio JWT que tomará como parámetros al token y al usuario. Si el token no es válido porque esté caducado o porque no sea para ese usuario se enviará una respuesta 403 al cliente. Si el token es válido, llamaremos o actualizaremos el SecurityContextHolder y estableceremos el usuario conectado, diciendole al resto de la cadena de filtro que el usuario está ahora autentificado. Actualizaremos el SecurityContextHolder, así que cada vez que comprobemos si el usuario está autentificado en esta petición la respuesta será sí hasta que vuelva a ser actualizado. Cuando sea actualizado despachará la petición y será enviada al DispatcherServlet, desde donde será enviada automáticamente al controlador donde se ejecutará lo que se necesite, como llamar a un servicio o ir a la base de datos. Entonces se enviará una respuesta al cliente.
+1. Verificación interna:
+	- Verifica si tenemos el token JWT. 
+	- Si no lo tiene, envía una respuesta 403 al cliente (Missing JWT, user does not exist). 
+	- Extrae el nombre del usuario o el correo electrónico y realiza una llamada con esta información utilizando el servicio de detalles del usuario para intentar obtener información del usuario de la base de datos. 
+	- La respuesta de la base de datos puede tener un usuario existente o uno inexistente. 
+	- Si el usuario no existe, el filtro de autenticación JWT enviará una respuesta 403 al cliente.
+	- Si el usuario existe comienza el proceso de validación.
+3. Proceso de validación:
+	-  El token JWT recibido se generó para este usuario en concreto, por lo que se tiene que validar el token en función del usuario. 
+	-  En el proceso de validación se llama un servicio JWT que tomará como parámetros al token y al usuario.
+	-   Si el token no es válido porque esté caducado o porque no sea para ese usuario se enviará una respuesta 403 al cliente. 
+	-   Si el token es válido, llamaremos o actualizaremos el SecurityContextHolder y estableceremos el usuario conectado, diciendole al resto de la cadena de filtro que el usuario está ahora autentificado. 
+	-   Actualizaremos el SecurityContextHolder, así que cada vez que comprobemos si el usuario está autentificado en esta petición la respuesta será sí hasta que vuelva a ser actualizado. 
+	-   Cuando sea actualizado enviará la petición al DispatcherServlet, desde donde será enviada automáticamente al controlador donde se ejecutará lo que se necesite, como llamar a un servicio o ir a la base de datos. Entonces se enviará una respuesta al cliente.
 
 Si todo va bien:
 - Obtenemos un token JWT.
