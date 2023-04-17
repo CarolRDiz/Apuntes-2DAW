@@ -249,3 +249,4 @@ Proceso que sigue el filtro de autenticación JWT:
 Si todo va bien:
 - Obtenemos un token JWT.
 - Obtenemos un usuario existente.
+- Valida el token.
