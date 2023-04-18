@@ -14,3 +14,5 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 			<version>3.0.5</version>
 		</dependency>
+
+Ejecutar e ir a: http://localhost:8080/swagger-ui/index.html
