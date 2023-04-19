@@ -16,3 +16,16 @@
 		</dependency>
 
 Ejecutar e ir a: http://localhost:8080/swagger-ui/index.html
+
+	@Operation(summary = "Obtener todos los usuarios de forma páginada y ordenados por nombre de forma descendiente")
+	    @ApiResponses(value = {
+		    @ApiResponse(responseCode = "200", description = "Uno o varios usuarios encontrados.",
+			    content = { @Content(mediaType = "application/json",
+				    schema = @Schema(implementation = Users.class)) }),
+		    @ApiResponse(responseCode = "404", description = "Ningún usuario ha sido encontrado.",
+			    content = @Content) })
+	    @GetMapping("/sortByName")
+	    public Page<Users> readAllSortByName(){
+		Page<Users> users = usersService.findAllSortByName();
+		return users;
+	    }
