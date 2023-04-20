@@ -250,3 +250,22 @@ Si todo va bien:
 - Obtenemos un token JWT.
 - Obtenemos un usuario existente.
 - Valida el token.
+
+## ModelMapper
+
+Dependencia:
+[Buscar la version más actualizada](https://central.sonatype.com/artifact/org.modelmapper/modelmapper/3.1.1)
+
+	<dependency>
+	    <groupId>org.modelmapper</groupId>
+	    <artifactId>modelmapper</artifactId>
+	    <version>3.1.0</version>
+	</dependency>
+En la carpeta config añadir el archivo ModelMapperConfig que contendrá:
+
+	@Bean
+	public ModelMapper modelMapper() {
+	    return new ModelMapper();
+	}
+	
+Controlador:
