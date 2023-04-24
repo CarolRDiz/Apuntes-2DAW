@@ -228,7 +228,7 @@ Dependecias:
 [Tutorial 2023](https://youtu.be/KxqlJblhzfI)
 
 - El cliente envía una solicitud HTTP a nuestro sistema back-end que se ejecuta utilizando un contenedor de arranque de Spring Boot en un servidor integrado de Apache Tomcat.
-- Lo primero que se ejecuta en nuestra aplicación Spring es el filtro. En este caso, el filtro de autenticación JWT. Se ejecute una vez por solicitud. Tiene la función de validar y verificar todo lo relacionado con el token JWT.
+- Lo primero que se ejecuta en nuestra aplicación Spring es el filtro. En este caso, el filtro de autenticación JWT. Se ejecuta una vez por solicitud. Tiene la función de validar y verificar todo lo relacionado con el token JWT.
 
 Proceso que sigue el filtro de autenticación JWT:
 1. Verificación interna:
