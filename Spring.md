@@ -268,4 +268,6 @@ En la carpeta config añadir el archivo ModelMapperConfig que contendrá:
 	    return new ModelMapper();
 	}
 	
-Controlador:
+[Guia](https://www.baeldung.com/java-modelmapper)
+
+	GameDTO gameDTO = this.mapper.map(game, GameDTO.class);
