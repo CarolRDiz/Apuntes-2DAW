@@ -2,3 +2,6 @@
 [Documentacion](https://stripe.com/docs/payments?payments=popular)
 
 1. Crear cuenta en Stripe: https://dashboard.stripe.com/register
+2. Copiar clave secreta
+3. Instalar: npm i @vue-stripe/vue-stripe
+4. `<script src="https://js.stripe.com/v3/"></script>`
