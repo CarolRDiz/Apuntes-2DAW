@@ -1,8 +1,8 @@
 # VUE
 
-[Resumen](https://youtu.be/nhBVL41-_Cw)
-[Curso](https://youtu.be/qZXt1Aom3Cs)
-[Vue-form-generator](#Vue-form-generator)
+- [Resumen](https://youtu.be/nhBVL41-_Cw)
+- [Curso](https://youtu.be/qZXt1Aom3Cs)
+- [Vue-form-generator](#Vue-form-generator)
 
 ## Crear aplicación VUE:
 
