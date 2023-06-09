@@ -353,6 +353,7 @@ App.vue:
 
 `npm install vue-form-generator`
 [Docu](https://vue-generators.gitbook.io/vue-generators/)
+
 [Docu](https://styde.net/generar-formularios-en-vue-js/)
 
 
