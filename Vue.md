@@ -2,6 +2,7 @@
 
 [Resumen](https://youtu.be/nhBVL41-_Cw)
 [Curso](https://youtu.be/qZXt1Aom3Cs)
+[Vue-form-generator](#Vue-form-generator)
 
 ## Crear aplicación VUE:
 
@@ -347,4 +348,12 @@ App.vue:
 [Youtube Tutorial](https://www.youtube.com/watch?v=RPNjpkZgJag)
 
 ## Axio
+
+## Vue form generator
+
+`npm install vue-form-generator`
+
+[Docu](https://styde.net/generar-formularios-en-vue-js/)
+
+
 
