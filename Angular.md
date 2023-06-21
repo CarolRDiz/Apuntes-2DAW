@@ -10,3 +10,8 @@ Index:
 `npm start`
 
 default URL is `http://localhost:4200`
+
+
+ng new my-first-project
+cd my-first-project
+ng serve
