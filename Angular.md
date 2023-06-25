@@ -11,7 +11,11 @@ Index:
 
 default URL is `http://localhost:4200`
 
+`ng new my-first-project`
+`cd my-first-project`
+`ng serve`
 
-ng new my-first-project
-cd my-first-project
-ng serve
+`ng generate component x`
+`ng generate interface x`
+
+
