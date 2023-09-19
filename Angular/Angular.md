@@ -1,7 +1,7 @@
 Index:
 - [Quick Start](#quick-start)
 
-# Quick Start
+## Quick Start
 
 [Quick Start](https://angular.io/quick-start)
 
@@ -17,3 +17,14 @@ default URL is `http://localhost:4200`
 
 `ng generate component x`
 `ng generate interface x`
+
+## Componente
+
+Comando para generar un componente: 
+`ng generate component <nombre>`
+
+**Estructura**:
+
+- HTML
+- CSS
+- TypeScript -> lógica
