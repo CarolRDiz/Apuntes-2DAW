@@ -29,7 +29,7 @@ Se trata de un conjunto de definiciones y protocolos que se utiliza para desarro
 
 Especificación formal que establece cómo un módulo de un software se comunica o interactúa con otro para cumplir una o muchas funciones. Todo dependiendo de las aplicaciones que las vayan a utilizar, y de los permisos que les dé el propietario de la API a los desarrolladores de terceros.
 
-# 1. Modelos de Programación en Entornos Clienteservidor
+# 1. Modelos de Programacion en Entornos Clienteservidor
 
 Esquema:
 
