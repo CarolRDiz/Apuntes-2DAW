@@ -1,6 +1,6 @@
 # Contenidos
 
-- [aver](#modelos-de-programacion-en-entornos-clienteservidor)
+- [aver](#1modelos-de-programacion-en-entornos-clienteservidor)
 - [Resumen](#resumen)
 - [Funciones flecha](#funciones-flecha)
 - [Eventos](#eventos)
@@ -29,7 +29,7 @@ Se trata de un conjunto de definiciones y protocolos que se utiliza para desarro
 
 Especificación formal que establece cómo un módulo de un software se comunica o interactúa con otro para cumplir una o muchas funciones. Todo dependiendo de las aplicaciones que las vayan a utilizar, y de los permisos que les dé el propietario de la API a los desarrolladores de terceros.
 
-# Modelos de Programacion en Entornos Clienteservidor
+# 1Modelos de Programacion en Entornos Clienteservidor
 
 Esquema:
 
