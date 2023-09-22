@@ -1,6 +1,6 @@
 # Contenidos
 
-- [aver](#1.-modelos-de-programación-en-entornos-cliente/servidor
+- [aver](#1.-modelos-de-programación-en-entornos-cliente/servidor)
 - [Resumen](#resumen)
 - [Funciones flecha](#funciones-flecha)
 - [Eventos](#eventos)
