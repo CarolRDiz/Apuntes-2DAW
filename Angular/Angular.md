@@ -28,3 +28,6 @@ Comando para generar un componente:
 - HTML
 - CSS
 - TypeScript -> lógica
+
+## NgModule
+
