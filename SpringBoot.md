@@ -1,5 +1,7 @@
 # Spring Boot
 
+## Crear proyecto
+
 `Spring Initializr` para crear un proyecto de Spring si la IDE no te da la opción de hacerlo.
 
 [Guía](https://spring.io/quickstart)
@@ -40,6 +42,10 @@ Clase SecurityConfiguration: buscar Configuring WebSecurity (para ignorar la seg
 
 3. Crear archivos Java Class.
 4. Crear tests con Insomnia mientras se desarrolla el proyecto.
+
+## Bean
+
+[Explicación](https://www.arquitecturajava.com/spring-bean-y-su-uso/)
 
 ## JPA
 
