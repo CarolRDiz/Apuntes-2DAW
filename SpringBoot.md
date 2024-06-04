@@ -1,4 +1,4 @@
-# Spring
+# Spring Boot
 
 `Spring Initializr` para crear un proyecto de Spring si la IDE no te da la opción de hacerlo.
 
@@ -271,3 +271,5 @@ En la carpeta config añadir el archivo ModelMapperConfig que contendrá:
 [Guia](https://www.baeldung.com/java-modelmapper)
 
 	GameDTO gameDTO = this.mapper.map(game, GameDTO.class);
+
+ # Spring Security
