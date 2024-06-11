@@ -8,6 +8,12 @@
 - Correr MySQL y Apache
 - Configurar extensión PHP
 
+En la carpeta /etc/php/php.ini o en (/opt/lampp/etc/php.ini):
+
+      uncheck the line extension=pdo_mysql.so
+
+
+
 ### MySQL is not starting
 
 [Tutorial](https://stackoverflow.com/questions/16830891/mysql-is-not-starting-in-xampp-ubuntu)
