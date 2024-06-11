@@ -11,6 +11,7 @@
 - Laravel goto view
 - PHP Intelephense
 - Alpine.js IntelliSense
+- SQLite Viewer
 
 ## Laravel Sail
 
