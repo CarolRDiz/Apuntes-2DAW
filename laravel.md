@@ -8,6 +8,12 @@
 - Correr MySQL y Apache
 - Configurar extensión PHP
 
+### MySQL is not starting
+
+[Tutorial](https://stackoverflow.com/questions/16830891/mysql-is-not-starting-in-xampp-ubuntu)
+
+[Tutorial 2](https://stackoverflow.com/questions/58511277/very-persistent-opt-lampp-bin-mysql-server-264-kill-no-such-process-xampp-u)
+
 ### Comandos
 
 - iniciar xampp en linux: 
