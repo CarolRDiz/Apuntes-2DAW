@@ -69,6 +69,11 @@ Una vez que hayas agregado los cambios que deseas realizar en la base de datos e
 
 Este comando ejecutará todas las migraciones pendientes en el orden en que fueron creadas.
 
+## Controladores
+
+### Crear un controlador
+      php artisan make:controller AlgoController
+
 ## Xampp
 
 [Tutorial](https://youtu.be/laXc22YPGhg?si=KUCcMlrJVbvKHCTU)
