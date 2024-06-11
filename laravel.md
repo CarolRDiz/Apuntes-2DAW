@@ -1,6 +1,7 @@
 # Laravel
 
       php artisan serve
+      
 
 ## Extensiones VSCode
 
@@ -27,6 +28,8 @@ En esencia, Sail es el archivo **docker-compose.yml** y el script **Sail** que s
       
       ./vendor/bin/sail up
 
+      ./vendor/bin/sail artisan migrate
+
 ## Artisan
 
 Herramienta de consola, escrita en PHP, que viene con Laravel para ayudarte a realizar tareas cotidianas en tu aplicación de forma automatizada.
@@ -42,6 +45,24 @@ Herramienta de consola, escrita en PHP, que viene con Laravel para ayudarte a re
       artisan route:list
       
       artisan storage:link
+
+## Migraciones
+
+Las migraciones en Laravel son una herramienta de base de datos que te permiten modificar la estructura de la base de datos de tu aplicación de manera programática. Las migraciones son una forma de definir los cambios en la base de datos de una manera que se pueda controlar y seguir. En lugar de hacer los cambios directamente en la base de datos, se escriben migraciones que Laravel puede ejecutar automáticamente.
+
+### Crear una migración
+
+      php artisan make:migration create_users_table
+
+Se puede abrir el archivo generado en la carpeta **"database/migrations"** para agregar los cambios que deseas realizar en la base de datos.
+
+### Ejecutar una migración
+
+Una vez que hayas agregado los cambios que deseas realizar en la base de datos en la migración, puedes ejecutar la migración utilizando el comando "migrate":
+
+      php artisan migrate
+
+Este comando ejecutará todas las migraciones pendientes en el orden en que fueron creadas.
 
 ## Xampp
 
