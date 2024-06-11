@@ -9,6 +9,7 @@
 - Laravel Snippets
 - Laravel goto view
 - PHP Intelephense
+- Alpine.js IntelliSense
 
 
 ## Xampp
