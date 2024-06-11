@@ -11,6 +11,37 @@
 - PHP Intelephense
 - Alpine.js IntelliSense
 
+## Laravel Sail
+
+Laravel Sail es una interfaz de línea de comandos para interactuar con el entorno de desarrollo Docker predeterminado de Laravel.
+
+En esencia, Sail es el archivo **docker-compose.yml** y el script **Sail** que se almacena en la raíz de su proyecto. El script Sail proporciona una CLI con métodos convenientes para interactuar con los contenedores **Docker** definidos por el archivo docker-compose.yml.
+
+[Documentación](https://laravel.com/docs/11.x/sail#introduction)
+
+### Instalación de Laravel Sail
+
+      composer require laravel/sail --dev
+
+      php artisan sail:install
+      
+      ./vendor/bin/sail up
+
+## Artisan
+
+Herramienta de consola, escrita en PHP, que viene con Laravel para ayudarte a realizar tareas cotidianas en tu aplicación de forma automatizada.
+
+      ./vendor/bin/sail up
+      
+      ./vendor/bin/sail artisan migrate
+      
+      ./vendor/bin/sail 
+      
+      ./vendor/bin/sail artisan migrate:fresh --seed
+      
+      artisan route:list
+      
+      artisan storage:link
 
 ## Xampp
 
