@@ -1,5 +1,16 @@
 # Laravel
 
+      php artisan serve
+
+## Extensiones VSCode
+
+- Laravel Blade formatter
+- Laravel Blade Snippets
+- Laravel Snippets
+- Laravel goto view
+- PHP Intelephense
+
+
 ## Xampp
 
 [Tutorial](https://youtu.be/laXc22YPGhg?si=KUCcMlrJVbvKHCTU)
