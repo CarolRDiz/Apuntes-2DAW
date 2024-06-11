@@ -46,6 +46,10 @@ Herramienta de consola, escrita en PHP, que viene con Laravel para ayudarte a re
       
       artisan storage:link
 
+## API REST CRUD
+
+      php artisan install:api
+
 ## Migraciones
 
 Las migraciones en Laravel son una herramienta de base de datos que te permiten modificar la estructura de la base de datos de tu aplicación de manera programática. Las migraciones son una forma de definir los cambios en la base de datos de una manera que se pueda controlar y seguir. En lugar de hacer los cambios directamente en la base de datos, se escriben migraciones que Laravel puede ejecutar automáticamente.
