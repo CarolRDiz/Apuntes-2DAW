@@ -51,6 +51,15 @@ Herramienta de consola, escrita en PHP, que viene con Laravel para ayudarte a re
 
       php artisan install:api
 
+### Authentication JWT
+
+[Vídeo tutorial](https://www.youtube.com/watch?v=kP2N_eEv-iA)
+
+[Documentación](https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)
+
+      composer require tymon/jwt-auth
+
+
 ## Migraciones
 
 Las migraciones en Laravel son una herramienta de base de datos que te permiten modificar la estructura de la base de datos de tu aplicación de manera programática. Las migraciones son una forma de definir los cambios en la base de datos de una manera que se pueda controlar y seguir. En lugar de hacer los cambios directamente en la base de datos, se escriben migraciones que Laravel puede ejecutar automáticamente.
