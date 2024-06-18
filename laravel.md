@@ -13,6 +13,18 @@
 - Alpine.js IntelliSense
 - SQLite Viewer
 
+## Iniciar Laravel
+
+      ./vendor/bin/sail up
+      php artisan serve
+
+### Errores
+
+- Error response from daemon: driver failed programming external connectivity on endpoint first-app-mysql-1 (8a20b9ae009c968e15a8edc9e87c31873d5c585a8b939d4d2ad0f71cdd3af464): Error starting userland proxy: listen tcp4 0.0.0.0:3306: bind: address already in use:
+
+      sudo service mysql stop
+
+
 ## Laravel Sail
 
 Laravel Sail es una interfaz de línea de comandos para interactuar con el entorno de desarrollo Docker predeterminado de Laravel.
