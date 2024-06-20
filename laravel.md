@@ -95,6 +95,10 @@ Este comando ejecutará todas las migraciones pendientes en el orden en que fuer
 ### Crear un controlador
       php artisan make:controller AlgoController
 
+## Notificaciones
+
+[Tutorial](https://www.honeybadger.io/blog/php-laravel-notifications/)
+
 ## Xampp
 
 [Tutorial](https://youtu.be/laXc22YPGhg?si=KUCcMlrJVbvKHCTU)
