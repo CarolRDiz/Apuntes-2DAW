@@ -3,3 +3,7 @@
 ## Router
 
     npm i -D react-router-dom
+    
+## Sass
+
+    npm install --save-dev node-sass
