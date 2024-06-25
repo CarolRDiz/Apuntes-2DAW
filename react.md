@@ -6,4 +6,4 @@
     
 ## Sass
 
-    npm install --save-dev node-sass
+    npm install -D sass
